@@ -1,0 +1,143 @@
+/* font */
+.oswald-font1 {
+  font-family: "Oswald", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+*{
+    background-color: #2a2b2e;
+}
+header {
+    border-bottom: rgba(255, 255, 255, 0.381) 2px solid;
+}
+
+.logo-text{
+    display: flex;
+    align-items: center;
+    margin : 10px;
+    border: 0;
+    padding: 0px;
+}
+
+.logo-text #logoH {
+    width: 80px;
+    height: auto;
+}
+
+#account-logo{
+    width: 80px;
+    height: auto;
+    margin-right: 15px;
+}
+
+nav ul {
+    display: flex;
+    
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+    padding: 0 20px;
+}
+
+.nav-links{
+    display: flex;
+    align-items: center;
+    gap: 40px; 
+}
+
+
+.link{
+    text-decoration: none;
+    background-color: #54C5B1;
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+/* -- Body styles -- */
+
+.top-section {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    color: white;
+    margin: 50px ;
+    gap: 70px;
+    justify-content: center;
+    border: #54c5b06d 4px solid;
+    border-radius: 10px;
+    padding: 40px ;
+}
+
+.left-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.left-content h1 {
+    font-size: 48px;
+    color: #ffffff;
+    margin-bottom: 10px;
+    line-height: 1.2;
+    text-align: center;
+}
+
+.left-content h1 span {
+    color: #54C5B1;
+}
+
+.left-content p {
+    font-size: 18px;
+    color: #ffffff;
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+.left-content-buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: #54C5B1;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #45a99c;
+}
+
+.right-content {
+    flex: 1;
+    text-align: center;
+}
+
+.right-content img {
+    max-width: 100%;
+    width: 70%;
+    height: auto;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    color: #cccccc;
+    padding: 30px;
+    border-top: rgba(255, 255, 255, 0.381) 2px solid;
+    margin-top: 50px;
+}
