@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./dashboard.css">
+    <title>Dashboard - Vector</title>
+</head>
+
+<body class="oswald-font1">
+    <header class="dashboard-header">
+        <div class="header-container">
+            <div class="logo-section">
+                <a href="/index.html"><img id="logoH" src="/assets/logo.png" alt="Logo du site"></a>
+                <a href="/index.html"><img src="/assets/name.png" alt="Logo du site"></a>
+            </div>
+
+            <div class="header-separator"></div>
+
+            <h1 class="dashboard-title">Mon dashboard</h1>
+            
+            <nav class="header-nav">
+                <a href="/tickets.html" class="nav-btn">
+                    Tickets
+                    <span class="badge">17</span>
+                </a>
+                <a href="/projects.html" class="nav-btn">
+                    Projets
+                </a>
+                <a href="/messages.html" class="nav-btn">
+                    Messages
+                    <span class="badge">3</span>
+                </a>
+                <a href="/tasks.html" class="nav-btn">
+                    Tâches
+                    <span class="badge">12</span>
+                </a>
+            </nav>
+
+            <div class="profile-info">
+                <img src="/assets/account.png" alt="Photo de profil" class="header-profile-pic">
+                <div class="profile-text">
+                    <span class="profile-name">Jean Dupont</span>
+                    <span class="profile-role">Collaborateur</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="dashboard-layout">
+            <!-- Contenu Central -->
+            <div class="dashboard-container">
+                <div id="tickets" class="open-tickets-section">
+                    <h2>Tickets ouverts</h2>
+                    <table class="tickets-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Titre</th>
+                                <th>Projet</th>
+                                <th>Priorité</th>
+                                <th>Statut</th>
+                                <th>Temps restant</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="ticket-id-badge">#101</span></td>
+                                <td class="ticket-title-cell">Problème de connexion utilisateur</td>
+                                <td>Projet A</td>
+                                <td><span class="priority-badge high">Haute</span></td>
+                                <td><span class="status-badge status-progress">En cours</span></td>
+                                <td>5h</td>
+                                <td>10 Juin</td>
+                            </tr>
+                            <tr>
+                                <td><span class="ticket-id-badge">#102</span></td>
+                                <td class="ticket-title-cell">Erreur 404 sur la page d'accueil</td>
+                                <td>Projet B</td>
+                                <td><span class="priority-badge medium">Moyenne</span></td>
+                                <td><span class="status-badge status-pending">En attente</span></td>
+                                <td>3h</td>
+                                <td>12 Juin</td>
+                            </tr>
+                            <tr>
+                                <td><span class="ticket-id-badge">#103</span></td>
+                                <td class="ticket-title-cell">Mise à jour du profil utilisateur</td>
+                                <td>Projet C</td>
+                                <td><span class="priority-badge low">Basse</span></td>
+                                <td><span class="status-badge status-progress">En cours</span></td>
+                                <td>5h</td>
+                                <td>13 Juin</td>
+                            </tr>
+                            <tr>
+                                <td><span class="ticket-id-badge">#104</span></td>
+                                <td class="ticket-title-cell">Bug de synchronisation base de données</td>
+                                <td>Projet A</td>
+                                <td><span class="priority-badge high">Haute</span></td>
+                                <td><span class="status-badge status-urgent">Urgent</span></td>
+                                <td>2h</td>
+                                <td>14 Juin</td>
+                            </tr>
+                            <tr>
+                                <td><span class="ticket-id-badge">#105</span></td>
+                                <td class="ticket-title-cell">Optimisation des performances</td>
+                                <td>Projet B</td>
+                                <td><span class="priority-badge medium">Moyenne</span></td>
+                                <td><span class="status-badge status-progress">En cours</span></td>
+                                <td>8h</td>
+                                <td>15 Juin</td>
+                            </tr>
+                            <tr>
+                                <td><span class="ticket-id-badge">#106</span></td>
+                                <td class="ticket-title-cell">Ajout fonctionnalité export PDF</td>
+                                <td>Projet C</td>
+                                <td><span class="priority-badge low">Basse</span></td>
+                                <td><span class="status-badge status-review">En révision</span></td>
+                                <td>12h</td>
+                                <td>16 Juin</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Section Projets -->
+                <div class="projects-section">
+                    <h2>Mes Projets</h2>
+                    <div class="projects-grid">
+                        <!-- Projet 1 -->
+                        <a href="/projet-a.html" class="project-card">
+                            <div class="project-header">
+                                <div class="project-icon-placeholder">
+                                    <!-- Icône du projet à remplacer -->
+                                    <img src="/assets/project.png" alt="Projet A">
+                                </div>
+                                <div class="project-status active">Actif</div>
+                            </div>
+                            <h3 class="project-name">Projet A - Refonte Site Web</h3>
+                            <p class="project-description">Migration complète du site corporate vers une nouvelle architecture</p>
+                            
+                            <div class="project-stats">
+                                <div class="stat-item">
+                                    <span class="stat-label">Tickets ouverts</span>
+                                    <span class="stat-value">8</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Progression</span>
+                                    <span class="stat-value">65%</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Deadline</span>
+                                    <span class="stat-value">15 Fév</span>
+                                </div>
+                            </div>
+
+                            <div class="project-team">
+                                <span class="team-label">Équipe:</span>
+                                <div class="team-avatars">
+                                    <div class="avatar" title="Jean Dupont">JD</div>
+                                    <div class="avatar" title="Marie Curie">MC</div>
+                                    <div class="avatar" title="Paul Martin">PM</div>
+                                    <div class="avatar-more">+2</div>
+                                </div>
+                            </div>
+                        </a>
+
+                        <!-- Projet 2 -->
+                        <a href="/projet-b.html" class="project-card">
+                            <div class="project-header">
+                                <div class="project-icon-placeholder">
+                                    <img src="/assets/project.png" alt="Projet B">
+                                </div>
+                                <div class="project-status pending">En attente</div>
+                            </div>
+                            <h3 class="project-name">Projet B - App Mobile</h3>
+                            <p class="project-description">Développement d'une application mobile pour la gestion des tickets</p>
+                            
+                            <div class="project-stats">
+                                <div class="stat-item">
+                                    <span class="stat-label">Tickets ouverts</span>
+                                    <span class="stat-value">5</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Progression</span>
+                                    <span class="stat-value">40%</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Deadline</span>
+                                    <span class="stat-value">28 Fév</span>
+                                </div>
+                            </div>
+
+                            <div class="project-team">
+                                <span class="team-label">Équipe:</span>
+                                <div class="team-avatars">
+                                    <div class="avatar" title="Sophie Dubois">SD</div>
+                                    <div class="avatar" title="Luc Bernard">LB</div>
+                                    <div class="avatar-more">+3</div>
+                                </div>
+                            </div>
+                        </a>
+
+                        <!-- Projet 3 -->
+                        <a href="/projet-c.html" class="project-card">
+                            <div class="project-header">
+                                <div class="project-icon-placeholder">
+                                    <img src="/assets/project.png" alt="Projet C">
+                                </div>
+                                <div class="project-status urgent">Urgent</div>
+                            </div>
+                            <h3 class="project-name">Projet C - Migration Cloud</h3>
+                            <p class="project-description">Migration de l'infrastructure vers le cloud AWS</p>
+                            
+                            <div class="project-stats">
+                                <div class="stat-item">
+                                    <span class="stat-label">Tickets ouverts</span>
+                                    <span class="stat-value">12</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Progression</span>
+                                    <span class="stat-value">85%</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Deadline</span>
+                                    <span class="stat-value">05 Fév</span>
+                                </div>
+                            </div>
+
+                            <div class="project-team">
+                                <span class="team-label">Équipe:</span>
+                                <div class="team-avatars">
+                                    <div class="avatar" title="Antoine Dubois">AD</div>
+                                    <div class="avatar" title="Claire Martin">CM</div>
+                                    <div class="avatar" title="Thomas Petit">TP</div>
+                                    <div class="avatar" title="Emma Laurent">EL</div>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href="/projet-c.html" class="project-card">
+                            <div class="project-header">
+                                <div class="project-icon-placeholder">
+                                    <img src="/assets/project.png" alt="Projet C">
+                                </div>
+                                <div class="project-status urgent">Urgent</div>
+                            </div>
+                            <h3 class="project-name">Projet C - Migration Cloud</h3>
+                            <p class="project-description">Migration de l'infrastructure vers le cloud AWS</p>
+                            
+                            <div class="project-stats">
+                                <div class="stat-item">
+                                    <span class="stat-label">Tickets ouverts</span>
+                                    <span class="stat-value">12</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Progression</span>
+                                    <span class="stat-value">85%</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Deadline</span>
+                                    <span class="stat-value">05 Fév</span>
+                                </div>
+                            </div>
+
+                            <div class="project-team">
+                                <span class="team-label">Équipe:</span>
+                                <div class="team-avatars">
+                                    <div class="avatar" title="Antoine Dubois">AD</div>
+                                    <div class="avatar" title="Claire Martin">CM</div>
+                                    <div class="avatar" title="Thomas Petit">TP</div>
+                                    <div class="avatar" title="Emma Laurent">EL</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+             <!-- Sidebar Droite -->
+            <aside class="right-sidebar">
+                <!-- Mini Calendrier -->
+                <div id="first-widget" class="widget calendar-widget">
+                    <h4>Janvier 2026</h4>
+                    <div class="mini-calendar">
+                        <div class="calendar-header">
+                            <span>L</span><span>M</span><span>M</span><span>J</span><span>V</span><span>S</span><span>D</span>
+                        </div>
+                        <div class="calendar-days">
+                            <span></span><span></span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+                            <span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span>
+                            <span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span>
+                            <span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span>
+                            <span>27</span><span>28</span><span class="today">29</span><span>30</span><span>31</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timeline d'activité -->
+                <div class="widget timeline-widget">
+                    <h4>Pendant votre absence</h4>
+                    <ul class="timeline-list">
+                        <li>
+                            <span class="timeline-dot"></span>
+                            <div class="timeline-content">
+                                <p class="timeline-text">Marc a validé le devis X</p>
+                                <span class="timeline-time">Il y a 2h</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="timeline-dot"></span>
+                            <div class="timeline-content">
+                                <p class="timeline-text">Nouveau message de Client Y</p>
+                                <span class="timeline-time">Il y a 4h</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="timeline-dot"></span>
+                            <div class="timeline-content">
+                                <p class="timeline-text">Ticket urgent créé</p>
+                                <span class="timeline-time">Hier</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Widget statistiques rapides -->
+                <div class="widget stats-widget">
+                    <h4>Objectifs de la semaine</h4>
+                    <div class="progress-item">
+                        <div class="progress-info">
+                            <span>Tickets traités</span>
+                            <span class="progress-percentage">80%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div class="progress-item">
+                        <div class="progress-info">
+                            <span>Projets avancés</span>
+                            <span class="progress-percentage">65%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 65%"></div>
+                        </div>
+                    </div>
+                    <div class="progress-item">
+                        <div class="progress-info">
+                            <span>Satisfaction client</span>
+                            <span class="progress-percentage">92%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 92%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bloc notes -->
+                <div class="widget notes-widget">
+                    <h4>Notes rapides</h4>
+                    <textarea placeholder="Ajoutez vos notes ici..." rows="6"></textarea>
+                    <button class="save-note-btn">Enregistrer</button>
+                </div>
+            </aside>
+
+            <div>
+                
+            </div>
+        </div>
+
+        
+    </main>
+    
+
+    <footer>
+        <p>&copy; 2026 Notre Site Web. Tous droits réservés - Vector</p>
+    </footer>
+
+    <!-- Pop-up de connexion -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Connexion</h2>
+            <form>
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Mot de passe" required>
+                <button type="submit" class="cta-button">Se connecter</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="/script.js"></script>
+</body>
+
+</html>

@@ -8,7 +8,7 @@
 
 
     <!-- font -->
-   <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">   
 </head>
@@ -27,7 +27,9 @@
                     <a class="link" href="index.html">Acceuil</a>
                     <a class="link" href="about.html">Nos solutions</a>
                     <a class="link"href="contact.html">Contact</a>
-                    <a href="account.html"><img id="account-logo" src="./assets/account.png" alt="account"></a>
+                    
+                    <button id="account-btn"> <img id="account-logo" src="./assets/account.png" alt="account"> </button>
+
                 </div>
             </ul>
         </nav>
@@ -38,7 +40,7 @@
         <section class="top-section">
            
             <div class="left-content">
-                <h1>Gerez vos projets avec <span>VECTOR</span></h1>
+                <h1>Gérez vos projets avec <span>VECTOR</span></h1>
                 <p>La solution complète pour votre gestion de ticketing et collaboration client.</p>
                
                 <div class="left-content-buttons">
@@ -60,7 +62,22 @@
         <p>&copy; 2026 Notre Site Web. Tous droits réservés - Vector</p>
     </footer>
 
+    <!-- Pop-up de connexion -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Connexion</h2>
+            <form>
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Mot de passe" required>
+                <button type="submit" class="cta-button">Se connecter</button>
+            </form>
+       </div>  
+    </div>
+
+<script src="script.js"></script>
 </body>
+
 </html>
 
 
