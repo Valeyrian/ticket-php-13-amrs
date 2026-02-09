@@ -1,0 +1,700 @@
+@import url('../../variables.css');
+
+/* Role: Client */
+:root { /* Variables héritées de variables.css */ }
+
+
+/* Font */
+.oswald-font1 {
+  font-family: "Oswald", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 120px;
+}
+
+body {
+    background-color: var(--bg-dark);
+    margin: 0;
+    padding: 0;
+    color: var(--text-light);
+}
+
+/* ====== INLINE ICONS ====== */
+.inline-icon {
+    width: 18px;
+    height: 18px;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+/* ====== HEADER ====== */
+.dashboard-header {
+    background-color: var(--bg-dark);
+    border-bottom: 2px solid var(--border-light);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 15px 30px;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1800px;
+    margin: 0 auto;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-section img {
+    height: 50px;
+}
+
+.logo-section #logoH {
+    width: 60px;
+    height: auto;
+}
+
+.header-separator {
+    width: 2px;
+    height: 40px;
+    background-color: var(--border-medium);
+    margin: 0 20px;
+}
+
+.dashboard-title {
+    color: var(--text-light);
+    font-size: 38px;
+    font-weight: bold;
+    margin: 0;
+    flex: 1;
+    padding-left: 30px;
+}
+
+.header-nav {
+    display: flex;
+    gap: 15px;
+    flex: 1;
+    justify-content: right;
+    margin: 0 30px;
+}
+
+.nav-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background-color: var(--bg-card);
+    color: var(--text-light);
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.nav-btn:hover {
+    background-color: var(--primary-color);
+}
+
+.profile-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.header-profile-pic {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 2px solid var(--primary-color);
+    object-fit: cover;
+}
+
+.profile-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-name {
+    color: var(--text-light);
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.profile-role {
+    color: var(--text-muted);
+    font-size: 13px;
+}
+
+/* ====== MAIN CONTENT ====== */
+main {
+    padding: 30px;
+    max-width: 1800px;
+    margin: 0 auto;
+}
+
+.contract-detail {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* ====== CONTRACT HEADER ====== */
+.contract-header-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--bg-card);
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid var(--border-light);
+}
+
+.contract-title-block {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.contract-id {
+    background-color: rgba(155, 89, 182, 0.2);
+    color: var(--primary-color);
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.contract-name {
+    color: var(--text-light);
+    font-size: 32px;
+    margin: 0;
+}
+
+.contract-status-badge {
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.contract-status-badge.active {
+    background-color: rgba(46, 204, 113, 0.2);
+    color: var(--alert-success);
+}
+
+.contract-actions {
+    display: flex;
+    gap: 15px;
+}
+
+.btn-download,
+.btn-renew {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-download {
+    background-color: rgba(155, 89, 182, 0.2);
+    color: var(--primary-color);
+}
+
+.btn-download:hover {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+}
+
+.btn-renew {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+}
+
+.btn-renew:hover {
+    background-color: var(--primary-dark);
+}
+
+/* ====== ALERT BOX ====== */
+.alert-box {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 4px solid;
+}
+
+.alert-box.warning {
+    background-color: rgba(255, 193, 7, 0.1);
+    border-color: var(--alert-warning);
+}
+
+.alert-box.info {
+    background-color: rgba(52, 152, 219, 0.1);
+    border-color: var(--alert-info);
+}
+
+.alert-icon {
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.alert-icon img {
+    width: 24px;
+    height: 24px;
+}
+
+.alert-content {
+    color: var(--text-gray);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.alert-content strong {
+    color: var(--text-light);
+}
+
+/* ====== INFO GRID ====== */
+.contract-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.info-card {
+    background-color: var(--bg-card);
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid var(--border-light);
+}
+
+.info-card h3 {
+    color: var(--text-light);
+    font-size: 20px;
+    margin: 0 0 20px 0;
+    padding-bottom: 15px;
+    border-bottom: 2px solid var(--border-light);
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.info-row:last-child {
+    border-bottom: none;
+}
+
+.info-label {
+    color: var(--text-muted);
+    font-size: 14px;
+}
+
+.info-value {
+    color: var(--text-light);
+    font-size: 14px;
+    font-weight: 600;
+    text-align: right;
+}
+
+.info-value.text-warning {
+    color: var(--alert-warning);
+}
+
+.info-value.success {
+    color: var(--alert-success);
+}
+
+.info-value.total {
+    color: var(--primary-color);
+    font-size: 18px;
+}
+
+/* ====== HOURS CARD ====== */
+.hours-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hours-big-progress {
+    margin-bottom: 20px;
+}
+
+.hours-circle {
+    position: relative;
+}
+
+.hours-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.hours-percent {
+    display: block;
+    color: var(--primary-color);
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.hours-label {
+    display: block;
+    color: var(--text-muted);
+    font-size: 12px;
+}
+
+/* ====== SECTION CARD ====== */
+.section-card {
+    background-color: var(--bg-card);
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid var(--border-light);
+}
+
+.section-card h3 {
+    color: var(--text-light);
+    font-size: 22px;
+    margin: 0 0 20px 0;
+    padding-bottom: 15px;
+    border-bottom: 2px solid var(--border-light);
+}
+
+/* ====== PROJECTS LIST ====== */
+.projects-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.project-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.project-item:hover {
+    background-color: rgba(155, 89, 182, 0.1);
+}
+
+.project-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.project-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.project-link:hover {
+    text-decoration: underline;
+}
+
+.project-hours {
+    color: var(--text-muted);
+    font-size: 13px;
+}
+
+.status-badge {
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.status-badge.status-active {
+    background-color: rgba(46, 204, 113, 0.2);
+    color: var(--alert-success);
+}
+
+/* ====== TABLES ====== */
+.table-container {
+    overflow-x: auto;
+}
+
+.billing-table,
+.consumption-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.billing-table thead,
+.consumption-table thead {
+    background-color: rgba(155, 89, 182, 0.1);
+}
+
+.billing-table th,
+.consumption-table th {
+    padding: 15px;
+    text-align: left;
+    color: var(--text-light);
+    font-size: 13px;
+    font-weight: 600;
+    border-bottom: 2px solid var(--border-light);
+}
+
+.billing-table td,
+.consumption-table td {
+    padding: 15px;
+    color: var(--text-gray);
+    font-size: 14px;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.billing-table tbody tr:hover,
+.consumption-table tbody tr:hover {
+    background-color: rgba(155, 89, 182, 0.05);
+}
+
+.payment-badge {
+    padding: 5px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.payment-badge.paid {
+    background-color: rgba(46, 204, 113, 0.2);
+    color: var(--alert-success);
+}
+
+.btn-download-small {
+    background-color: rgba(155, 89, 182, 0.2);
+    color: var(--primary-color);
+    border: none;
+    padding: 6px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-download-small:hover {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+}
+
+.btn-download-small img {
+    width: 14px;
+    height: 14px;
+}
+
+.ticket-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.ticket-link:hover {
+    text-decoration: underline;
+}
+
+/* ====== TERMS ====== */
+.terms-content {
+    background-color: rgba(255, 255, 255, 0.03);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.terms-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.terms-list li {
+    color: var(--text-gray);
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border-light);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.terms-list li:last-child {
+    border-bottom: none;
+}
+
+.terms-list li strong {
+    color: var(--text-light);
+}
+
+/* ====== DOCUMENTS ====== */
+.documents-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.document-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.document-item:hover {
+    background-color: rgba(155, 89, 182, 0.1);
+}
+
+.doc-icon {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+}
+
+.doc-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.doc-name {
+    color: var(--text-light);
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.doc-details {
+    color: var(--text-muted);
+    font-size: 12px;
+}
+
+/* ====== CONTACT SECTION ====== */
+.contact-section {
+    background: linear-gradient(135deg, rgba(155, 89, 182, 0.1), var(--bg-card));
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid var(--border-light);
+}
+
+.contact-section h3 {
+    color: var(--text-light);
+    font-size: 22px;
+    margin: 0 0 10px 0;
+}
+
+.contact-section p {
+    color: var(--text-gray);
+    margin: 0 0 15px 0;
+}
+
+.contact-info {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.contact-item img {
+    width: 20px;
+    height: 20px;
+}
+
+.contact-item a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.contact-item a:hover {
+    text-decoration: underline;
+}
+
+/* ====== FOOTER ====== */
+footer {
+    background-color: var(--bg-card);
+    border-top: 2px solid var(--border-light);
+    padding: 20px;
+    text-align: center;
+    margin-top: 50px;
+}
+
+footer p {
+    color: var(--text-muted);
+    margin: 0;
+    font-size: 14px;
+}
+
+/* ====== RESPONSIVE ====== */
+@media (max-width: 1200px) {
+    .header-nav {
+        display: none;
+    }
+    
+    .contract-header-section {
+        flex-direction: column;
+        gap: 20px;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard-title {
+        font-size: 28px;
+    }
+    
+    .contract-info-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .contract-title-block {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .contract-actions {
+        width: 100%;
+        flex-direction: column;
+    }
+    
+    .btn-download,
+    .btn-renew {
+        width: 100%;
+        justify-content: center;
+    }
+}

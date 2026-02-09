@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./ticket-manager.css">
+    <title>Mes Tickets - Vector</title>
+    <script src="../../js/theme.js"></script>
+</head>
+
+<body class="oswald-font1 role-client">
+    <header class="dashboard-header">
+        <div class="header-container">
+            <div class="logo-section">
+                <a href="/index.html"><img id="logoH" src="/assets/logo.png" alt="Logo du site"></a>
+                <a href="/index.html"><img src="/assets/name.png" alt="Logo du site"></a>
+            </div>
+
+            <div class="header-separator"></div>
+
+            <h1 class="dashboard-title">Mes Tickets</h1>
+            
+            <nav class="header-nav">
+                <a href="/dashboard/client/dashboard.html" class="nav-btn">
+                    Dashboard
+                </a>
+                <a href="/projects/client/project-manager.html" class="nav-btn">
+                    Mes Projets
+                </a>
+                <a href="/contrats/client/contrat-manager.html" class="nav-btn">
+                    Contrats
+                </a>
+            </nav>
+
+            <div class="profile-info">
+                <img src="/assets/account.png" alt="Photo de profil" class="header-profile-pic">
+                <div class="profile-text">
+                    <span class="profile-name">Entreprise ABC</span>
+                    <span class="profile-role">Client</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="tickets-manager">
+            <div class="tickets-header">
+                <h2>Mes Tickets</h2>
+                <div class="header-info">
+                    <span class="tickets-count">12 tickets ouverts</span>
+                </div>
+            </div>
+
+            <div class="filters-section">
+                <div class="filter-group">
+                    <label for="project-filter">Projet:</label>
+                    <select id="project-filter" class="filter-select">
+                        <option value="all">Tous les projets</option>
+                        <option value="a">Projet A - Refonte Site Web</option>
+                        <option value="b">Projet B - App Mobile</option>
+                        <option value="c">Projet C - Migration Cloud</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="status-filter">Statut:</label>
+                    <select id="status-filter" class="filter-select">
+                        <option value="all">Tous</option>
+                        <option value="progress">En cours</option>
+                        <option value="pending">En attente</option>
+                        <option value="termine">Terminé</option>
+                        <option value="a-valider">À valider</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="priority-filter">Priorité:</label>
+                    <select id="priority-filter" class="filter-select">
+                        <option value="all">Toutes</option>
+                        <option value="high">Haute</option>
+                        <option value="medium">Moyenne</option>
+                        <option value="low">Basse</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="sort-select">Trier par:</label>
+                    <select id="sort-select" class="filter-select">
+                        <option value="date">Date</option>
+                        <option value="priority">Priorité</option>
+                        <option value="status">Statut</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="table-container">
+                <table class="tickets-management-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Titre</th>
+                            <th>Projet</th>
+                            <th>Description</th>
+                            <th>Statut</th>
+                            <th>Priorité</th>
+                            <th>Type</th>
+                            <th>Temps passé</th>
+                            <th>Validation</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Ticket 1 -->
+                        <tr>
+                            <td><a href="./generic-ticket.html" class="ticket-link">#101</a></td>
+                            <td><a href="./generic-ticket.html" class="ticket-link ticket-title">Problème de connexion utilisateur</a></td>
+                            <td><span class="project-badge">Projet A</span></td>
+                            <td class="description-cell">Les utilisateurs ne peuvent pas se connecter après la mise à jour</td>
+                            <td><span class="status-badge status-progress">En cours</span></td>
+                            <td><span class="priority-badge high">Haute</span></td>
+                            <td><span class="billing-badge billing-inclus">Inclus</span></td>
+                            <td class="time-cell">5h 30min</td>
+                            <td><span class="validation-status na">N/A</span></td>
+                            <td><a href="./generic-ticket.html" class="btn-view">Voir</a></td>
+                        </tr>
+
+                        <!-- Ticket 2 -->
+                        <tr>
+                            <td><a href="./generic-ticket.html" class="ticket-link">#102</a></td>
+                            <td><a href="./generic-ticket.html" class="ticket-link ticket-title">Erreur 404 sur page d'accueil</a></td>
+                            <td><span class="project-badge">Projet B</span></td>
+                            <td class="description-cell">Page d'accueil affiche une erreur 404 pour certains utilisateurs</td>
+                            <td><span class="status-badge status-pending">En attente</span></td>
+                            <td><span class="priority-badge medium">Moyenne</span></td>
+                            <td><span class="billing-badge billing-facturable">Facturable</span></td>
+                            <td class="time-cell">3h</td>
+                            <td><span class="validation-status na">N/A</span></td>
+                            <td><a href="./generic-ticket.html" class="btn-view">Voir</a></td>
+                        </tr>
+
+                        <!-- Ticket 3 -->
+                        <tr>
+                            <td><a href="./generic-ticket.html" class="ticket-link">#103</a></td>
+                            <td><a href="./generic-ticket.html" class="ticket-link ticket-title">Mise à jour profil utilisateur</a></td>
+                            <td><span class="project-badge">Projet A</span></td>
+                            <td class="description-cell">Ajouter la possibilité de modifier l'avatar et les informations personnelles</td>
+                            <td><span class="status-badge status-completed">Terminé</span></td>
+                            <td><span class="priority-badge low">Basse</span></td>
+                            <td><span class="billing-badge billing-inclus">Inclus</span></td>
+                            <td class="time-cell">5h</td>
+                            <td><span class="validation-status validated">Validé</span></td>
+                            <td><a href="./generic-ticket.html" class="btn-view">Voir</a></td>
+                        </tr>
+
+                        <!-- Ticket 4 - À valider -->
+                        <tr class="validation-required">
+                            <td><a href="./generic-ticket.html" class="ticket-link">#104</a></td>
+                            <td><a href="./generic-ticket.html" class="ticket-link ticket-title">Bug synchronisation BDD</a></td>
+                            <td><span class="project-badge">Projet A</span></td>
+                            <td class="description-cell">Les données ne se synchronisent pas correctement entre serveurs</td>
+                            <td><span class="status-badge status-validate">À valider</span></td>
+                            <td><span class="priority-badge high">Haute</span></td>
+                            <td><span class="billing-badge billing-facturable">Facturable</span></td>
+                            <td class="time-cell">
+                                <span>12h</span>
+                                <span class="overtime-info">+2h (170€)</span>
+                            </td>
+                            <td><span class="validation-status pending">⏳ En attente</span></td>
+                            <td>
+                                <div class="action-buttons">
+                                    <a href="./generic-ticket.html" class="btn-view">Voir</a>
+                                    <button class="btn-validate-mini">V</button>
+                                    <button class="btn-reject-mini">X</button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <!-- Ticket 5 -->
+                        <tr>
+                            <td><a href="./generic-ticket.html" class="ticket-link">#105</a></td>
+                            <td><a href="./generic-ticket.html" class="ticket-link ticket-title">Optimisation performances</a></td>
+                            <td><span class="project-badge">Projet B</span></td>
+                            <td class="description-cell">Améliorer temps de chargement et optimiser requêtes SQL</td>
+                            <td><span class="status-badge status-progress">En cours</span></td>
+                            <td><span class="priority-badge medium">Moyenne</span></td>
+                            <td><span class="billing-badge billing-inclus">Inclus</span></td>
+                            <td class="time-cell">8h</td>
+                            <td><span class="validation-status na">N/A</span></td>
+                            <td><a href="./generic-ticket.html" class="btn-view">Voir</a></td>
+                        </tr>
+
+                        <!-- Ticket 6 -->
+                        <tr>
+                            <td><a href="./generic-ticket.html" class="ticket-link">#106</a></td>
+                            <td><a href="./generic-ticket.html" class="ticket-link ticket-title">Export PDF factures</a></td>
+                            <td><span class="project-badge">Projet A</span></td>
+                            <td class="description-cell">Permettre export rapports et factures en format PDF</td>
+                            <td><span class="status-badge status-completed">Terminé</span></td>
+                            <td><span class="priority-badge low">Basse</span></td>
+                            <td><span class="billing-badge billing-inclus">Inclus</span></td>
+                            <td class="time-cell">14h 30min</td>
+                            <td><span class="validation-status validated">Validé</span></td>
+                            <td><a href="./generic-ticket.html" class="btn-view">Voir</a></td>
+                        </tr>
+
+                        <!-- Ticket 7 - Refusé -->
+                        <tr class="validation-rejected">
+                            <td><a href="./generic-ticket.html" class="ticket-link">#107</a></td>
+                            <td><a href="./generic-ticket.html" class="ticket-link ticket-title">Fonctionnalité non demandée</a></td>
+                            <td><span class="project-badge">Projet B</span></td>
+                            <td class="description-cell">Développement d'une fonctionnalité qui n'était pas dans le scope initial</td>
+                            <td><span class="status-badge status-refused">Refusé</span></td>
+                            <td><span class="priority-badge low">Basse</span></td>
+                            <td><span class="billing-badge billing-facturable">Facturable</span></td>
+                            <td class="time-cell">6h</td>
+                            <td><span class="validation-status rejected">Refusé</span></td>
+                            <td><a href="./generic-ticket.html" class="btn-view">Voir</a></td>
+                        </tr>
+
+                        <!-- Ticket 8 - À valider -->
+                        <tr class="validation-required">
+                            <td><a href="./generic-ticket.html" class="ticket-link">#108</a></td>
+                            <td><a href="./generic-ticket.html" class="ticket-link ticket-title">Système de notifications</a></td>
+                            <td><span class="project-badge">Projet A</span></td>
+                            <td class="description-cell">Ajout d'un système de notifications en temps réel</td>
+                            <td><span class="status-badge status-validate">À valider</span></td>
+                            <td><span class="priority-badge medium">Moyenne</span></td>
+                            <td><span class="billing-badge billing-facturable">Facturable</span></td>
+                            <td class="time-cell">
+                                <span>8h</span>
+                                <span class="overtime-info">Hors contrat (680€)</span>
+                            </td>
+                            <td><span class="validation-status pending">⏳ En attente</span></td>
+                            <td>
+                                <div class="action-buttons">
+                                    <a href="./generic-ticket.html" class="btn-view">Voir</a>
+                                    <button class="btn-validate-mini">V</button>
+                                    <button class="btn-reject-mini">X</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Stats rapides -->
+            <div class="quick-stats">
+                <div class="stat-item">
+                    <span class="stat-number">12</span>
+                    <span class="stat-label">Total tickets</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">7</span>
+                    <span class="stat-label">En cours</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">3</span>
+                    <span class="stat-label">À valider</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">32h</span>
+                    <span class="stat-label">Consommées / 50h</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Vector - Tous droits réservés</p>
+    </footer>
+
+</body>
+
+</html>
+
+

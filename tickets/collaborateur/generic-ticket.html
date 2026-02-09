@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./generic-ticket.css">
+    <title>Détail Ticket - Vector</title>
+    <script src="../../js/theme.js"></script>
+</head>
+
+<body class="oswald-font1 role-collaborateur">
+    <header class="dashboard-header">
+        <div class="header-container">
+            <div class="logo-section">
+                <a href="/index.html"><img id="logoH" src="/assets/logo.png" alt="Logo du site"></a>
+                <a href="/index.html"><img src="/assets/name.png" alt="Logo du site"></a>
+            </div>
+
+            <div class="header-separator"></div>
+
+            <h1 class="dashboard-title">Détail Ticket</h1>
+            
+            <nav class="header-nav">
+                <a href="/dashboard/collaborateur/dashboard.html" class="nav-btn">
+                    Dashboard
+                </a>
+                <a href="/tickets/collaborateur/ticket-manager.html" class="nav-btn">
+                    Tickets
+                    <span class="badge">17</span>
+                </a>
+                <a href="/projects/collaborateur/project-manager.html" class="nav-btn">
+                    Projets
+                </a>
+            </nav>
+
+            <div class="profile-info">
+                <img src="/assets/account.png" alt="Photo de profil" class="header-profile-pic">
+                <div class="profile-text">
+                    <span class="profile-name">Jean Dupont</span>
+                    <span class="profile-role">Collaborateur</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="ticket-detail-container">
+            <!-- En-tête du ticket -->
+            <div class="ticket-header">
+                <div class="ticket-header-left">
+                    <span class="ticket-id">#101</span>
+                    <h2 class="ticket-title-main">Problème de connexion utilisateur</h2>
+                </div>
+                <div class="ticket-header-right">
+                    <button class="action-btn-header btn-log-time">
+                        Enregistrer du temps
+                    </button>
+                    <button class="action-btn-header btn-edit-ticket">✏️ Modifier</button>
+                </div>
+            </div>
+
+            <!-- Métadonnées principales -->
+            <div class="ticket-metadata">
+                <div class="metadata-card">
+                    <label>Statut</label>
+                    <select class="status-select status-progress">
+                        <option value="nouveau">Nouveau</option>
+                        <option value="progress" selected>En cours</option>
+                        <option value="pending">En attente client</option>
+                        <option value="termine">Terminé</option>
+                        <option value="a-valider">À valider</option>
+                        <option value="valide">Validé</option>
+                        <option value="refuse">Refusé</option>
+                    </select>
+                </div>
+
+                <div class="metadata-card">
+                    <label>Priorité</label>
+                    <select class="priority-select priority-high">
+                        <option value="high" selected>Haute</option>
+                        <option value="medium">Moyenne</option>
+                        <option value="low">Basse</option>
+                    </select>
+                </div>
+
+                <div class="metadata-card">
+                    <label>Type</label>
+                    <select class="type-select">
+                        <option value="inclus">Inclus</option>
+                        <option value="facturable" selected>Facturable</option>
+                    </select>
+                </div>
+
+                <div class="metadata-card">
+                    <label>Temps estimé</label>
+                    <input type="number" class="time-input-meta" value="8" step="0.5" min="0">
+                    <span>heures</span>
+                </div>
+
+                <div class="metadata-card highlight">
+                    <label>Temps passé total</label>
+                    <div class="time-total">5h 30min</div>
+                </div>
+            </div>
+
+            <!-- Informations projet et client -->
+            <div class="project-client-info">
+                <div class="info-card">
+                    <h3>Projet</h3>
+                    <p class="project-name">Projet A - Refonte Site Web</p>
+                    <div class="project-stats-small">
+                        <span>Heures incluses: <strong>50h</strong></span>
+                        <span>Consommées: <strong>32h</strong></span>
+                        <span>Restantes: <strong class="text-warning">18h</strong></span>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <h3>Client</h3>
+                    <p class="client-name">Entreprise ABC</p>
+                    <p class="client-contact">contact@entrepriseabc.fr</p>
+                </div>
+
+                <div class="info-card">
+                    <h3>Collaborateurs assignés</h3>
+                    <div class="collaborators-list">
+                        <div class="collaborator-item">
+                            <div class="avatar">JD</div>
+                            <span>Jean Dupont</span>
+                        </div>
+                        <div class="collaborator-item">
+                            <div class="avatar">MC</div>
+                            <span>Marie Curie</span>
+                        </div>
+                        <div class="collaborator-item">
+                            <div class="avatar">MC</div>
+                            <span>Marie Curie</span>
+                        </div>
+                        <div class="collaborator-item">
+                            <div class="avatar">MC</div>
+                            <span>Marie Curie</span>
+                        </div>
+                        <div class="collaborator-item">
+                            <div class="avatar">MC</div>
+                            <span>Marie Curie</span>
+                        </div>
+                        <div class="collaborator-item">
+                            <div class="avatar">MC</div>
+                            <span>Marie Curie</span>
+                        </div>
+                    </div>
+                    <button class="btn-add-collab">+ Ajouter un collaborateur</button>
+                </div>
+            </div>
+
+            <!-- Description du ticket -->
+            <div class="ticket-section">
+                <h3>Description</h3>
+                <textarea class="ticket-description" rows="6">Les utilisateurs ne peuvent pas se connecter après la mise à jour du système d'authentification. Le problème semble provenir de la gestion des sessions. Il faut vérifier la configuration du serveur et les paramètres de sécurité.</textarea>
+            </div>
+
+            <!-- Enregistrement du temps -->
+            <div class="ticket-section">
+                <h3>Enregistrer du temps</h3>
+                <div class="time-entry-form">
+                    <div class="form-group">
+                        <label>Date</label>
+                        <input type="date" class="form-control" value="2026-01-30">
+                    </div>
+                    <div class="form-group">
+                        <label>Durée (heures)</label>
+                        <input type="number" class="form-control" step="0.5" min="0" placeholder="2.5">
+                    </div>
+                    <div class="form-group full-width">
+                        <label>Commentaire (optionnel)</label>
+                        <input type="text" class="form-control" placeholder="Description du travail effectué...">
+                    </div>
+                    <button class="btn-primary">Ajouter l'entrée</button>
+                </div>
+            </div>
+
+            <!-- Historique du temps -->
+            <div class="ticket-section">
+                <h3>Historique du temps passé</h3>
+                <div class="time-entries-list">
+                    <div class="time-entry">
+                        <div class="entry-header">
+                            <div class="entry-collaborator">
+                                <div class="avatar small">JD</div>
+                                <span>Jean Dupont</span>
+                            </div>
+                            <div class="entry-date">29 Janvier 2026</div>
+                            <div class="entry-duration">2h 30min</div>
+                        </div>
+                        <div class="entry-comment">
+                            Investigation du problème de connexion. Identification de la source du bug dans le module d'authentification.
+                        </div>
+                    </div>
+
+                    <div class="time-entry">
+                        <div class="entry-header">
+                            <div class="entry-collaborator">
+                                <div class="avatar small">MC</div>
+                                <span>Marie Curie</span>
+                            </div>
+                            <div class="entry-date">28 Janvier 2026</div>
+                            <div class="entry-duration">1h 30min</div>
+                        </div>
+                        <div class="entry-comment">
+                            Tests initiaux et reproduction du bug en environnement de développement.
+                        </div>
+                    </div>
+
+                    <div class="time-entry">
+                        <div class="entry-header">
+                            <div class="entry-collaborator">
+                                <div class="avatar small">JD</div>
+                                <span>Jean Dupont</span>
+                            </div>
+                            <div class="entry-date">27 Janvier 2026</div>
+                            <div class="entry-duration">1h 30min</div>
+                        </div>
+                        <div class="entry-comment">
+                            Analyse des logs serveur et collecte d'informations.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Commentaires et historique -->
+            <div class="ticket-section">
+                <h3>Commentaires</h3>
+                <div class="comments-list">
+                    <div class="comment">
+                        <div class="comment-header">
+                            <div class="comment-author">
+                                <div class="avatar small">JD</div>
+                                <div>
+                                    <strong>Jean Dupont</strong>
+                                    <span class="comment-date">29 Jan 2026 à 14:30</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="comment-body">
+                            Le problème est maintenant identifié. Je vais procéder à la correction du code demain matin.
+                        </div>
+                    </div>
+
+                    <div class="comment">
+                        <div class="comment-header">
+                            <div class="comment-author">
+                                <div class="avatar small">MC</div>
+                                <div>
+                                    <strong>Marie Curie</strong>
+                                    <span class="comment-date">28 Jan 2026 à 16:45</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="comment-body">
+                            J'ai réussi à reproduire le bug. Les logs montrent une erreur de timeout au niveau des sessions.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="add-comment">
+                    <textarea class="comment-input" placeholder="Ajouter un commentaire..." rows="3"></textarea>
+                    <button class="btn-primary">Publier</button>
+                </div>
+            </div>
+
+            <!-- Validation client (si facturable) -->
+            <div class="ticket-section validation-section">
+                <h3>Validation client</h3>
+                <div class="validation-info">
+                    <p class="info-text">
+                        Ce ticket est marqué comme <strong>facturable</strong>. Il nécessite une validation du client avant facturation.
+                    </p>
+                    <div class="validation-status">
+                        <span class="status-label">Statut de validation:</span>
+                        <span class="validation-badge pending">En attente de validation</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Notre Site Web. Tous droits réservés - Vector</p>
+    </footer>
+
+    <!-- Modal Enregistrer Temps -->
+    <div class="modal-overlay" id="modal-time-overlay">
+        <div class="modal" id="log-time-modal">
+            <div class="modal-header">
+                <h2>Enregistrer du temps - Ticket #101</h2>
+                <button class="modal-close" id="close-time-modal">&times;</button>
+            </div>
+            <form id="log-time-form" class="modal-form">
+                <input type="hidden" name="ticketId" value="101" />
+                <div class="form-section">
+                    <h3>Détails du temps</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="time-date">Date *</label>
+                            <input type="date" id="time-date" name="workDate" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="time-hours">Heures *</label>
+                            <input type="number" id="time-hours" name="hours" min="0" max="23" step="1" required
+                                placeholder="0" />
+                        </div>
+                        <div class="form-group">
+                            <label for="time-minutes">Minutes *</label>
+                            <select id="time-minutes" name="minutes" required>
+                                <option value="0">00</option>
+                                <option value="15">15</option>
+                                <option value="30">30</option>
+                                <option value="45">45</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="time-description">Description de l'activité *</label>
+                        <textarea id="time-description" name="timeDescription" rows="3" required
+                            placeholder="Décrivez ce que vous avez fait..."></textarea>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3>Type de facturation</h3>
+                    <div class="form-group">
+                        <label for="billing-type">Type *</label>
+                        <select id="billing-type" name="billingType" required>
+                            <option value="billable" selected>Facturable</option>
+                            <option value="non-billable">Non facturable</option>
+                            <option value="internal">Interne</option>
+                        </select>
+                        <small class="form-help-text">Le temps facturable sera imputé au
+                            contrat du client</small>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn-cancel" id="cancel-time-modal">Annuler</button>
+                    <button type="submit" class="btn-submit">Enregistrer le temps</button>
+                    <div class="form-error" id="time-form-error">Veuillez remplir tous les champs obligatoires.</div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Modifier Ticket -->
+    <div class="modal-overlay" id="modal-edit-overlay">
+        <div class="modal" id="edit-ticket-modal">
+            <div class="modal-header">
+                <h2>Modifier le Ticket</h2>
+                <button class="modal-close" id="close-edit-modal">&times;</button>
+            </div>
+            <form id="edit-ticket-form" class="modal-form">
+                <div class="form-section">
+                    <h3>Informations du Ticket</h3>
+                    <div class="form-group">
+                        <label for="edit-ticket-title">Titre *</label>
+                        <input type="text" id="edit-ticket-title" name="ticketTitle" required
+                            value="Problème de connexion utilisateur" />
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-ticket-description">Description *</label>
+                        <textarea id="edit-ticket-description" name="ticketDescription" rows="4" required">Les utilisateurs ne peuvent pas se connecter après la mise à jour du système d'authentification</textarea>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3>Classification</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="edit-ticket-priority">Priorité *</label>
+                            <select id="edit-ticket-priority" name="ticketPriority" required>
+                                <option value="low">Basse</option>
+                                <option value="medium">Moyenne</option>
+                                <option value="high" selected>Haute</option>
+                                <option value="urgent">Urgente</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3>Planning</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="edit-estimated-hours">Heures estimées</label>
+                            <input type="number" id="edit-estimated-hours" name="estimatedHours" min="0" step="0.5"
+                                value="8" />
+                        </div>
+                        <div class="form-group">
+                            <label for="edit-due-date">Date d'échéance</label>
+                            <input type="date" id="edit-due-date" name="dueDate" value="2026-02-15" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn-cancel" id="cancel-edit-modal">Annuler</button>
+                    <button type="submit" class="btn-submit">Enregistrer les modifications</button>
+                    <div class="form-error" id="edit-form-error">Veuillez remplir tous les champs obligatoires.</div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Ajouter Collaborateur -->
+    <div class="modal-overlay" id="modal-collab-overlay">
+        <div class="modal" id="add-collab-modal">
+            <div class="modal-header">
+                <h2>Ajouter un collaborateur</h2>
+                <button class="modal-close" id="close-collab-modal">&times;</button>
+            </div>
+            <form id="add-collab-form" class="modal-form">
+                <div class="form-section">
+                    <h3>Rechercher un collaborateur</h3>
+                    <div class="form-group">
+                        <label for="collab-search">Recherche</label>
+                        <input type="text" id="collab-search" placeholder="Rechercher par nom..." autocomplete="off" />
+                    </div>
+                    <div class="collab-list" id="collab-list">
+                        <label class="collab-option">
+                            <input type="checkbox" name="collaborators" value="sd" />
+                            <div class="avatar small">SD</div>
+                            <div class="collab-info">
+                                <span class="collab-name">Sophie Dubois</span>
+                                <span class="collab-role">Développeuse Backend</span>
+                            </div>
+                        </label>
+                        <label class="collab-option">
+                            <input type="checkbox" name="collaborators" value="pm" />
+                            <div class="avatar small">PM</div>
+                            <div class="collab-info">
+                                <span class="collab-name">Pierre Martin</span>
+                                <span class="collab-role">Développeur Frontend</span>
+                            </div>
+                        </label>
+                        <label class="collab-option">
+                            <input type="checkbox" name="collaborators" value="lc" />
+                            <div class="avatar small">LC</div>
+                            <div class="collab-info">
+                                <span class="collab-name">Lucie Chevalier</span>
+                                <span class="collab-role">Designer UX/UI</span>
+                            </div>
+                        </label>
+                        <label class="collab-option">
+                            <input type="checkbox" name="collaborators" value="ar" />
+                            <div class="avatar small">AR</div>
+                            <div class="collab-info">
+                                <span class="collab-name">Antoine Roux</span>
+                                <span class="collab-role">DevOps</span>
+                            </div>
+                        </label>
+                        <label class="collab-option">
+                            <input type="checkbox" name="collaborators" value="eb" />
+                            <div class="avatar small">EB</div>
+                            <div class="collab-info">
+                                <span class="collab-name">Emma Bernard</span>
+                                <span class="collab-role">Chef de projet</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn-cancel" id="cancel-collab-modal">Annuler</button>
+                    <button type="submit" class="btn-submit">Ajouter</button>
+                    <div class="form-error" id="collab-form-error">Veuillez sélectionner au moins un collaborateur.</div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="../../js/form-validation.js"></script>
+    <script src="./generic-ticket.js"></script>
+
+</body>
+
+</html>
+
+

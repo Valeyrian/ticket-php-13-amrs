@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./project-manager.css">
+    <title>Mes Projets - Vector</title>
+    <script src="../../js/theme.js"></script>
+</head>
+
+<body class="oswald-font1 role-client">
+    <header class="dashboard-header">
+        <div class="header-container">
+            <div class="logo-section">
+                <a href="/index.html"><img id="logoH" src="/assets/logo.png" alt="Logo du site"></a>
+                <a href="/index.html"><img src="/assets/name.png" alt="Logo du site"></a>
+            </div>
+
+            <div class="header-separator"></div>
+
+            <h1 class="dashboard-title">Mes Projets</h1>
+            
+            <nav class="header-nav">
+                <a href="/dashboard/client/dashboard.html" class="nav-btn">
+                    Dashboard
+                </a>
+                <a href="/tickets/client/ticket-manager.html" class="nav-btn">
+                    Mes Tickets
+                </a>
+                <a href="/contrats/client/contrat-manager.html" class="nav-btn">
+                    Contrats
+                </a>
+            </nav>
+
+            <div class="profile-info">
+                <img src="/assets/account.png" alt="Photo de profil" class="header-profile-pic">
+                <div class="profile-text">
+                    <span class="profile-name">Entreprise ABC</span>
+                    <span class="profile-role">Client</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="projects-manager">
+            <div class="projects-header">
+                <h2>Mes Projets</h2>
+                <span class="info-text">Suivez l'avancement de vos projets en cours</span>
+            </div>
+
+            <div class="filters-section">
+                <div class="filter-group">
+                    <label for="status-filter">Statut:</label>
+                    <select id="status-filter" class="filter-select">
+                        <option value="all">Tous</option>
+                        <option value="actif">Actif</option>
+                        <option value="en-attente">En attente</option>
+                        <option value="termine">Terminé</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="sort-select">Trier par:</label>
+                    <select id="sort-select" class="filter-select">
+                        <option value="date">Date création</option>
+                        <option value="heures">Heures restantes</option>
+                        <option value="tickets">Nombre de tickets</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="table-container">
+                <table class="projects-management-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nom du Projet</th>
+                            <th>Description</th>
+                            <th>Collaborateurs</th>
+                            <th>Contrat</th>
+                            <th>Heures Consommées</th>
+                            <th>Mes Tickets</th>
+                            <th>Statut</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Projet 1 -->
+                        <tr>
+                            <td><a href="./generic-project.html" class="project-link">#P001</a></td>
+                            <td><a href="./generic-project.html" class="project-link project-title">Refonte Site Web</a></td>
+                            <td class="description-cell">Refonte complète du site corporate avec nouveau design et CMS</td>
+                            <td>
+                                <div class="collaborators-cell">
+                                    <div class="avatar small" title="Jean Dupont">JD</div>
+                                    <div class="avatar small" title="Marie Curie">MC</div>
+                                    <div class="avatar small" title="Sophie Dubois">SD</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="contract-info">
+                                    <span class="contract-hours">50h incluses</span>
+                                    <span class="contract-validity">Jusqu'au 31/12/2026</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="hours-progress">
+                                    <div class="hours-bar">
+                                        <div class="hours-fill" style="width: 45%;"></div>
+                                    </div>
+                                    <span class="hours-text">22.5h / 50h</span>
+                                    <span class="hours-remaining">27.5h restantes</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="tickets-info">
+                                    <span class="ticket-count">8 tickets</span>
+                                    <div class="ticket-status-mini">
+                                        <span class="mini-badge open">3</span>
+                                        <span class="mini-badge progress">3</span>
+                                        <span class="mini-badge done">2</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <span class="status-badge status-active">Actif</span>
+                            </td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="btn-view" title="Voir détails"><img src="/assets/logo.png" alt="voir" class="inline-icon"></button>
+                                    <button class="btn-contract" title="Voir contrat">📄</button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <!-- Projet 2 - Alerte heures -->
+                        <tr class="hours-warning">
+                            <td><a href="#" class="project-link">#P002</a></td>
+                            <td><a href="#" class="project-link project-title">Application Mobile</a></td>
+                            <td class="description-cell">Développement application mobile iOS et Android pour suivi commandes</td>
+                            <td>
+                                <div class="collaborators-cell">
+                                    <div class="avatar small" title="Paul Martin">PM</div>
+                                    <div class="avatar small" title="Luc Bernard">LB</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="contract-info">
+                                    <span class="contract-hours">80h incluses</span>
+                                    <span class="contract-validity">Jusqu'au 30/06/2026</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="hours-progress">
+                                    <div class="hours-bar">
+                                        <div class="hours-fill warning" style="width: 88%;"></div>
+                                    </div>
+                                    <span class="hours-text warning">70h / 80h</span>
+                                    <span class="hours-alert"><img src="/assets/avertissement.png" alt="avertissement" class="inline-icon"> Heures bientôt épuisées</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="tickets-info">
+                                    <span class="ticket-count">12 tickets</span>
+                                    <div class="ticket-status-mini">
+                                        <span class="mini-badge open">5</span>
+                                        <span class="mini-badge progress">5</span>
+                                        <span class="mini-badge done">2</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <span class="status-badge status-active">Actif</span>
+                            </td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="btn-view" title="Voir détails"><img src="/assets/logo.png" alt="voir" class="inline-icon"></button>
+                                    <button class="btn-contract" title="Voir contrat">📄</button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <!-- Projet 3 -->
+                        <tr>
+                            <td><a href="#" class="project-link">#P004</a></td>
+                            <td><a href="#" class="project-link project-title">Plateforme E-commerce</a></td>
+                            <td class="description-cell">Création plateforme e-commerce avec système de paiement et gestion stock</td>
+                            <td>
+                                <div class="collaborators-cell">
+                                    <div class="avatar small" title="Jean Dupont">JD</div>
+                                    <div class="avatar small" title="Marie Curie">MC</div>
+                                    <div class="avatar small" title="Paul Martin">PM</div>
+                                    <div class="avatar small" title="Sophie Dubois">SD</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="contract-info">
+                                    <span class="contract-hours">120h incluses</span>
+                                    <span class="contract-validity">Jusqu'au 31/12/2026</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="hours-progress">
+                                    <div class="hours-bar">
+                                        <div class="hours-fill" style="width: 25%;"></div>
+                                    </div>
+                                    <span class="hours-text">30h / 120h</span>
+                                    <span class="hours-remaining">90h restantes</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="tickets-info">
+                                    <span class="ticket-count">15 tickets</span>
+                                    <div class="ticket-status-mini">
+                                        <span class="mini-badge open">8</span>
+                                        <span class="mini-badge progress">5</span>
+                                        <span class="mini-badge done">2</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <span class="status-badge status-active">Actif</span>
+                            </td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="btn-view" title="Voir détails"><img src="/assets/logo.png" alt="voir" class="inline-icon"></button>
+                                    <button class="btn-contract" title="Voir contrat">📄</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Stats rapides -->
+            <div class="quick-stats">
+                <div class="stat-item">
+                    <span class="stat-number">3</span>
+                    <span class="stat-label">Projets actifs</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">35</span>
+                    <span class="stat-label">Tickets ouverts</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">250h</span>
+                    <span class="stat-label">Heures totales</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">122.5h</span>
+                    <span class="stat-label">Heures consommées</span>
+                </div>
+            </div>
+
+            <!-- Section Alertes -->
+            <div class="alerts-section">
+                <h3>Informations importantes</h3>
+                <div class="alert-card warning">
+                    <div class="alert-icon"><img src="/assets/avertissement.png" alt="avertissement" class="inline-icon"></div>
+                    <div class="alert-content">
+                        <h4>Heures bientôt épuisées</h4>
+                        <p>Le projet "Application Mobile" a consommé 88% de ses heures (70h/80h). Pensez à renouveler votre contrat ou des frais supplémentaires s'appliqueront.</p>
+                    </div>
+                </div>
+                <div class="alert-card info">
+                    <div class="alert-icon"><img src="/assets/chiffre-daffaires.png" alt="argent" class="inline-icon"></div>
+                    <div class="alert-content">
+                        <h4>Tickets en attente de validation</h4>
+                        <p>3 tickets facturables nécessitent votre validation. Consultez-les dans la section <a href="#validation">Validations</a>.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Vector - Tous droits réservés</p>
+    </footer>
+
+</body>
+
+</html>
+
+

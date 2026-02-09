@@ -1,0 +1,808 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./generic-client.css" />
+    <title>Client - Entreprise ABC - Vector</title>
+    <script src="../../js/theme.js"></script>
+  </head>
+
+  <body class="oswald-font1 role-admin">
+    <header class="dashboard-header">
+      <div class="header-container">
+        <div class="logo-section">
+          <a href="/index.html"
+            ><img id="logoH" src="/assets/logo.png" alt="Logo du site"
+          /></a>
+          <a href="/index.html"
+            ><img src="/assets/name.png" alt="Logo du site"
+          /></a>
+        </div>
+
+        <div class="header-separator"></div>
+
+        <h1 class="dashboard-title">Détail Client</h1>
+
+        <nav class="header-nav">
+          <a href="/dashboard/admin/dashboard.html" class="nav-btn"
+            >Dashboard</a
+          >
+          <a href="/clients/admin/client-manager.html" class="nav-btn"
+            >Clients</a
+          >
+          <a href="/contrats/admin/contrat-manager.html" class="nav-btn"
+            >Contrats</a
+          >
+          <a href="/projects/admin/project-manager.html" class="nav-btn"
+            >Projets</a
+          >
+          <a href="/utilisateurs/admin/utilisateur-manager.html" class="nav-btn"
+            >Utilisateurs</a
+          >
+          <a href="/tickets/admin/ticket-manager.html" class="nav-btn"
+            >Tickets</a
+          >
+        </nav>
+
+        <div class="profile-info">
+          <img
+            src="/assets/account.png"
+            alt="Photo de profil"
+            class="header-profile-pic"
+          />
+          <div class="profile-text">
+            <span class="profile-name">Admin</span>
+            <span class="profile-role">Administrateur</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="client-detail">
+        <!-- Client Header -->
+        <div class="client-header-section">
+          <div class="client-title-block">
+            <div class="company-logo-large">EA</div>
+            <div class="client-info-header">
+              <div class="client-id">#C001</div>
+              <h2 class="company-name-large">Entreprise ABC</h2>
+              <div class="company-meta">
+                <span class="status-badge active">Actif</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Info Cards Grid -->
+        <div class="info-grid">
+          <div class="info-card">
+            <h3>Informations générales</h3>
+            <div class="info-row">
+              <span class="info-label">Nom de la société:</span>
+              <span class="info-value">Entreprise ABC</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Client depuis:</span>
+              <span class="info-value">12 janvier 2024</span>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <h3>Coordonnées</h3>
+            <div class="info-row">
+              <span class="info-label">Adresse:</span>
+              <span class="info-value"
+                >42 Avenue des Champs-Élysées<br />75008 Paris, France</span
+              >
+            </div>
+            <div class="info-row">
+              <span class="info-label">Téléphone:</span>
+              <span class="info-value">+33 1 23 45 67 89</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Email général:</span>
+              <span class="info-value">contact@entrepriseabc.com</span>
+            </div>
+          </div>
+
+          <div class="info-card stats-card">
+            <h3>Statistiques</h3>
+            <div class="info-row">
+              <span class="info-label">Comptes utilisateurs:</span>
+              <span class="info-value highlight">4 comptes</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Projets actifs:</span>
+              <span class="info-value highlight">3 projets</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Contrats en cours:</span>
+              <span class="info-value highlight">2 contrats</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">CA total:</span>
+              <span class="info-value highlight">125 450 €</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Principal -->
+        <div class="section-card">
+          <h3>Contact principal</h3>
+          <div class="contact-principal-info">
+            <div class="contact-avatar">ML</div>
+            <div class="contact-details">
+              <div class="contact-name">Marie Leclerc</div>
+              <div class="contact-title">
+                Directrice des Systèmes d'Information
+              </div>
+              <div class="contact-info-grid">
+                <div class="contact-item">
+                  <img src="/assets/enveloppe.png" alt="email" />
+                  <span>marie.leclerc@entrepriseabc.com</span>
+                </div>
+                <div class="contact-item">
+                  <img src="/assets/telephone.png" alt="téléphone" />
+                  <span>+33 6 12 34 56 78</span>
+                </div>
+              </div>
+            </div>
+            <button class="btn-edit-contact" id="btn-edit-contact">
+              <img src="/assets/editer.png" alt="modifier" /> Modifier
+            </button>
+          </div>
+        </div>
+
+        <!-- Comptes utilisateurs -->
+        <div class="section-card">
+          <div class="section-header">
+            <h3>Comptes utilisateurs (4)</h3>
+            <button class="btn-add-small" id="btn-add-account">
+              Ajouter un compte
+            </button>
+          </div>
+          <div class="users-grid">
+            <div class="user-card principal">
+              <div class="user-avatar">ML</div>
+              <div class="user-info">
+                <div class="user-name">Marie Leclerc</div>
+                <div class="user-email">marie.leclerc@entrepriseabc.com</div>
+                <div class="user-role">Contact principal</div>
+                <div class="user-meta">
+                  <span>Actif</span>
+                  <span>|</span>
+                  <span>Dernière connexion: 30 Jan 2026</span>
+                </div>
+              </div>
+              <div class="user-actions">
+                <button class="btn-icon" title="Modifier">
+                  <img src="/assets/editer.png" alt="modifier" />
+                </button>
+                <button class="btn-icon" title="Voir"></button>
+              </div>
+            </div>
+            <div class="user-card">
+              <div class="user-avatar">PD</div>
+              <div class="user-info">
+                <div class="user-name">Pierre Durand</div>
+                <div class="user-email">p.durand@entrepriseabc.com</div>
+                <div class="user-role">Chef de projet IT</div>
+                <div class="user-meta">
+                  <span>Actif</span>
+                  <span>|</span>
+                  <span>Dernière connexion: 29 Jan 2026</span>
+                </div>
+              </div>
+              <div class="user-actions">
+                <button class="btn-icon" title="Modifier">
+                  <img src="/assets/editer.png" alt="modifier" />
+                </button>
+                <button class="btn-icon" title="Voir"></button>
+              </div>
+            </div>
+            <div class="user-card">
+              <div class="user-avatar">SB</div>
+              <div class="user-info">
+                <div class="user-name">Sophie Bernard</div>
+                <div class="user-email">s.bernard@entrepriseabc.com</div>
+                <div class="user-role">Responsable communication</div>
+                <div class="user-meta">
+                  <span>Actif</span>
+                  <span>|</span>
+                  <span>Dernière connexion: 28 Jan 2026</span>
+                </div>
+              </div>
+              <div class="user-actions">
+                <button class="btn-icon" title="Modifier">
+                  <img src="/assets/editer.png" alt="modifier" />
+                </button>
+                <button class="btn-icon" title="Voir"></button>
+              </div>
+            </div>
+            <div class="user-card">
+              <div class="user-avatar">LM</div>
+              <div class="user-info">
+                <div class="user-name">Luc Martin</div>
+                <div class="user-email">l.martin@entrepriseabc.com</div>
+                <div class="user-role">Développeur senior</div>
+                <div class="user-meta">
+                  <span>Actif</span>
+                  <span>|</span>
+                  <span>Dernière connexion: 27 Jan 2026</span>
+                </div>
+              </div>
+              <div class="user-actions">
+                <button class="btn-icon" title="Modifier">
+                  <img src="/assets/editer.png" alt="modifier" />
+                </button>
+                <button class="btn-icon" title="Voir"></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contrats actifs -->
+        <div class="section-card">
+          <div class="section-header">
+            <h3>Contrats actifs (2)</h3>
+            <button class="btn-add-small" id="btn-add-contract">
+              Nouveau contrat
+            </button>
+          </div>
+          <div class="contracts-table-container">
+            <table class="contracts-table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Type</th>
+                  <th>Projet</th>
+                  <th>Heures</th>
+                  <th>Montant</th>
+                  <th>Date de début</th>
+                  <th>Date de fin</th>
+                  <th>Statut</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <a
+                      href="/contrats/admin/generic-contrat.html"
+                      class="contract-link"
+                      >#CT001</a
+                    >
+                  </td>
+                  <td>Forfait 50h</td>
+                  <td>
+                    <a href="/projects/admin/generic-project.html"
+                      >Refonte Site Web</a
+                    >
+                  </td>
+                  <td>
+                    <div class="hours-progress">
+                      <div class="hours-text">22.5h / 50h</div>
+                      <div class="mini-progress-bar">
+                        <div
+                          class="mini-progress-fill"
+                          style="width: 45%"
+                        ></div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>12 500 €</td>
+                  <td>01 Fév 2026</td>
+                  <td>31 Déc 2026</td>
+                  <td><span class="status-badge active">En cours</span></td>
+                  <td>
+                    <div class="action-buttons">
+                      <button class="btn-icon" title="Voir"></button>
+                      <button class="btn-icon" title="Modifier">
+                        <img src="/assets/editer.png" alt="modifier" />
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a
+                      href="/contrats/admin/generic-contrat.html"
+                      class="contract-link"
+                      >#CT002</a
+                    >
+                  </td>
+                  <td>Régie mensuelle</td>
+                  <td>
+                    <a href="/projects/admin/generic-project.html"
+                      >Maintenance applicative</a
+                    >
+                  </td>
+                  <td>
+                    <div class="hours-progress">
+                      <div class="hours-text">8h / 40h</div>
+                      <div class="mini-progress-bar">
+                        <div
+                          class="mini-progress-fill"
+                          style="width: 20%"
+                        ></div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>8 000 €/mois</td>
+                  <td>01 Jan 2026</td>
+                  <td>31 Déc 2026</td>
+                  <td><span class="status-badge active">En cours</span></td>
+                  <td>
+                    <div class="action-buttons">
+                      <button class="btn-icon" title="Voir"></button>
+                      <button class="btn-icon" title="Modifier">
+                        <img src="/assets/editer.png" alt="modifier" />
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Projets -->
+        <div class="section-card">
+          <div class="section-header">
+            <h3>Projets (3)</h3>
+            <a href="/projects/admin/project-manager.html" class="btn-view-all"
+              >Voir tous les projets</a
+            >
+          </div>
+          <div class="projects-grid">
+            <div class="project-card active">
+              <div class="project-header-mini">
+                <div class="project-id-mini">#P001</div>
+                <span class="status-badge active">Actif</span>
+              </div>
+              <h4 class="project-name-mini">Refonte Site Web</h4>
+              <div class="project-stats">
+                <div class="stat-item">
+                  <img src="/assets/ticket.png" alt="tickets" />
+                  <span>8 tickets</span>
+                </div>
+                <div class="stat-item">
+                  <img src="/assets/heures-douverture.png" alt="temps" />
+                  <span>22.5h / 50h</span>
+                </div>
+              </div>
+              <div class="project-team-mini">
+                <div class="avatar-mini">JD</div>
+                <div class="avatar-mini">MC</div>
+                <div class="avatar-mini">SD</div>
+              </div>
+            </div>
+            <div class="project-card active">
+              <div class="project-header-mini">
+                <div class="project-id-mini">#P002</div>
+                <span class="status-badge active">Actif</span>
+              </div>
+              <h4 class="project-name-mini">Maintenance applicative</h4>
+              <div class="project-stats">
+                <div class="stat-item">
+                  <img src="/assets/ticket.png" alt="tickets" />
+                  <span>3 tickets</span>
+                </div>
+                <div class="stat-item">
+                  <img src="/assets/heures-douverture.png" alt="temps" />
+                  <span>8h / 40h</span>
+                </div>
+              </div>
+              <div class="project-team-mini">
+                <div class="avatar-mini">JD</div>
+                <div class="avatar-mini">LT</div>
+              </div>
+            </div>
+            <div class="project-card active">
+              <div class="project-header-mini">
+                <div class="project-id-mini">#P003</div>
+                <span class="status-badge active">Actif</span>
+              </div>
+              <h4 class="project-name-mini">Migration infrastructure</h4>
+              <div class="project-stats">
+                <div class="stat-item">
+                  <img src="/assets/ticket.png" alt="tickets" />
+                  <span>5 tickets</span>
+                </div>
+                <div class="stat-item">
+                  <img src="/assets/heures-douverture.png" alt="temps" />
+                  <span>15h / 30h</span>
+                </div>
+              </div>
+              <div class="project-team-mini">
+                <div class="avatar-mini">MC</div>
+                <div class="avatar-mini">SD</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Timeline / Historique -->
+        <div class="section-card">
+          <h3>Activité récente</h3>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-date">30 Jan 2026 - 15:45</div>
+              <div class="timeline-content">
+                <div class="timeline-icon"></div>
+                <div class="timeline-text">
+                  Nouveau ticket créé sur le projet
+                  <strong>Refonte Site Web</strong>
+                </div>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">29 Jan 2026 - 10:30</div>
+              <div class="timeline-content">
+                <div class="timeline-icon">
+                  <img src="/assets/utilisateur.png" alt="utilisateur" />
+                </div>
+                <div class="timeline-text">
+                  Nouvelle connexion de <strong>Pierre Durand</strong>
+                </div>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">27 Jan 2026 - 14:20</div>
+              <div class="timeline-content">
+                <div class="timeline-icon">
+                  <img src="/assets/contrat.png" alt="contrat" />
+                </div>
+                <div class="timeline-text">
+                  Facturation du contrat <strong>#CT002</strong> pour janvier
+                  2026
+                </div>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">25 Jan 2026 - 09:15</div>
+              <div class="timeline-content">
+                <div class="timeline-icon">
+                  <img src="/assets/project.png" alt="projet" />
+                </div>
+                <div class="timeline-text">
+                  Démarrage du projet <strong>Migration infrastructure</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 Vector - Tous droits réservés</p>
+    </footer>
+
+    <!-- Modal Modifier Contact Principal -->
+    <div class="modal-overlay" id="modal-edit-contact">
+      <div class="modal" id="edit-contact-modal">
+        <div class="modal-header">
+          <h2>Modifier le contact principal</h2>
+          <button class="modal-close" id="close-edit-contact">&times;</button>
+        </div>
+        <form id="edit-contact-form" class="modal-form">
+          <div class="form-section">
+            <div class="mode-selector">
+              <label class="mode-option">
+                <input type="radio" name="contact-mode" value="edit" checked />
+                <span>Modifier les informations</span>
+              </label>
+              <label class="mode-option">
+                <input type="radio" name="contact-mode" value="existing" />
+                <span>Choisir un compte existant</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Mode: Choisir un compte existant -->
+          <div
+            id="existing-contact-section"
+            class="form-section"
+            style="display: none"
+          >
+            <div class="form-group">
+              <label for="existing-contact-select"
+                >Sélectionner un compte existant *</label
+              >
+              <select id="existing-contact-select" name="existingContactId">
+                <option value="">Choisir un utilisateur...</option>
+                <option value="U002">Pierre Durand - Chef de projet IT</option>
+                <option value="U003">
+                  Sophie Bernard - Responsable communication
+                </option>
+                <option value="U004">Luc Martin - Développeur senior</option>
+              </select>
+            </div>
+            <div class="info-box">
+              ℹ️ Le compte sélectionné deviendra le nouveau contact principal du
+              client.
+            </div>
+          </div>
+
+          <!-- Mode: Modifier -->
+          <div id="edit-contact-section" class="form-section">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="contact-firstname">Prénom *</label>
+                <input
+                  type="text"
+                  id="contact-firstname"
+                  name="firstname"
+                  value="Marie"
+                />
+              </div>
+              <div class="form-group">
+                <label for="contact-lastname">Nom *</label>
+                <input
+                  type="text"
+                  id="contact-lastname"
+                  name="lastname"
+                  value="Leclerc"
+                />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="contact-position">Fonction *</label>
+              <input
+                type="text"
+                id="contact-position"
+                name="position"
+                value="Directrice des Systèmes d'Information"
+              />
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="contact-email">Email *</label>
+                <input
+                  type="email"
+                  id="contact-email"
+                  name="email"
+                  value="marie.leclerc@entrepriseabc.com"
+                />
+              </div>
+              <div class="form-group">
+                <label for="contact-phone">Téléphone *</label>
+                <input
+                  type="tel"
+                  id="contact-phone"
+                  name="phone"
+                  value="+33 6 12 34 56 78"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn-cancel" id="cancel-edit-contact">
+              Annuler
+            </button>
+            <button type="submit" class="btn-submit">Enregistrer</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Modal Ajouter un Compte Utilisateur -->
+    <div class="modal-overlay" id="modal-add-account">
+      <div class="modal" id="add-account-modal">
+        <div class="modal-header">
+          <h2>Ajouter un compte utilisateur</h2>
+          <button class="modal-close" id="close-add-account">&times;</button>
+        </div>
+        <form id="add-account-form" class="modal-form">
+          <div class="form-section">
+            <div class="mode-selector">
+              <label class="mode-option">
+                <input type="radio" name="account-mode" value="new" checked />
+                <span>Créer un nouveau compte</span>
+              </label>
+              <label class="mode-option">
+                <input type="radio" name="account-mode" value="existing" />
+                <span>Rattacher un compte existant</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Mode: Compte existant -->
+          <div
+            id="existing-account-section"
+            class="form-section"
+            style="display: none"
+          >
+            <h3>Compte existant</h3>
+            <div class="form-group">
+              <label for="existing-account-select"
+                >Rechercher et sélectionner un utilisateur *</label
+              >
+              <select id="existing-account-select" name="existingAccountId">
+                <option value="">Choisir un utilisateur...</option>
+                <optgroup label="Utilisateurs Vector">
+                  <option value="U010">
+                    Thomas Petit - Développeur Full Stack
+                  </option>
+                  <option value="U011">Emma Rousseau - Chef de projet</option>
+                  <option value="U012">Lucas Moreau - Designer UX/UI</option>
+                  <option value="U013">
+                    Chloé Laurent - Développeuse Backend
+                  </option>
+                </optgroup>
+                <optgroup label="Autres clients">
+                  <option value="U020">Paul Simon - Consultant IT</option>
+                  <option value="U021">Julie Blanc - Responsable projet</option>
+                </optgroup>
+              </select>
+            </div>
+
+            <div class="info-box">
+              ℹ️ L'utilisateur sélectionné aura accès aux projets et tickets de
+              ce client.
+            </div>
+          </div>
+
+          <!-- Mode: Nouveau compte -->
+          <div id="new-account-section">
+            <div class="form-section">
+              <h3>Informations personnelles</h3>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="account-firstname">Prénom *</label>
+                  <input type="text" id="account-firstname" name="firstname" />
+                </div>
+                <div class="form-group">
+                  <label for="account-lastname">Nom *</label>
+                  <input type="text" id="account-lastname" name="lastname" />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="account-position">Fonction *</label>
+                <input
+                  type="text"
+                  id="account-position"
+                  name="position"
+                  placeholder="Ex: Chef de projet"
+                />
+              </div>
+            </div>
+
+            <div class="form-section">
+              <h3>Coordonnées</h3>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="account-email">Email professionnel *</label>
+                  <input
+                    type="email"
+                    id="account-email"
+                    name="email"
+                    placeholder="prenom.nom@entreprise.com"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="account-phone">Téléphone</label>
+                  <input
+                    type="tel"
+                    id="account-phone"
+                    name="phone"
+                    placeholder="+33 6 12 34 56 78"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn-cancel" id="cancel-add-account">
+              Annuler
+            </button>
+            <button type="submit" class="btn-submit">Créer le compte</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Modal Ajouter un Contrat -->
+    <div class="modal-overlay" id="modal-add-contract">
+      <div class="modal" id="add-contract-modal">
+        <div class="modal-header">
+          <h2>Nouveau contrat</h2>
+          <button class="modal-close" id="close-add-contract">&times;</button>
+        </div>
+        <form id="add-contract-form" class="modal-form">
+          <div class="form-section">
+            <h3>Type de contrat</h3>
+            <div class="form-group">
+              <label for="contract-type">Type de contrat *</label>
+              <select id="contract-type" name="type" required>
+                <option value="">Sélectionner un type...</option>
+                <option value="forfait">Forfait (heures fixes)</option>
+                <option value="regie">Régie (heures mensuelles)</option>
+                <option value="assistance">Assistance technique</option>
+                <option value="maintenance">Contrat de maintenance</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <h3>Montant et heures</h3>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="contract-hours">Nombre d'heures</label>
+                <input
+                  type="number"
+                  id="contract-hours"
+                  name="hours"
+                  placeholder="Ex: 50"
+                />
+              </div>
+              <div class="form-group">
+                <label for="contract-amount">Montant (€) *</label>
+                <input
+                  type="number"
+                  id="contract-amount"
+                  name="amount"
+                  placeholder="Ex: 12500"
+                  required
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <h3>Projet associé</h3>
+            <div class="form-group">
+              <label for="contract-project">Projet *</label>
+              <select id="contract-project" name="project" required>
+                <option value="">Sélectionner un projet...</option>
+                <option value="P001">Refonte Site Web</option>
+                <option value="P002">Maintenance applicative</option>
+                <option value="P003">Migration infrastructure</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <h3>Période</h3>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="contract-start-date">Date de début *</label>
+                <input
+                  type="date"
+                  id="contract-start-date"
+                  name="startDate"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="contract-end-date">Date de fin *</label>
+                <input
+                  type="date"
+                  id="contract-end-date"
+                  name="endDate"
+                  required
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn-cancel" id="cancel-add-contract">
+              Annuler
+            </button>
+            <button type="submit" class="btn-submit">Créer le contrat</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="../../js/form-validation.js"></script>
+    <script src="./generic-client.js"></script>
+  </body>
+</html>

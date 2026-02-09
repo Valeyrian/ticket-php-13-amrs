@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./generic-ticket.css">
+    <title>Détail Ticket - Vector</title>
+    <script src="../../js/theme.js"></script>
+</head>
+
+<body class="oswald-font1 role-client">
+    <header class="dashboard-header">
+        <div class="header-container">
+            <div class="logo-section">
+                <a href="/index.html"><img id="logoH" src="/assets/logo.png" alt="Logo du site"></a>
+                <a href="/index.html"><img src="/assets/name.png" alt="Logo du site"></a>
+            </div>
+
+            <div class="header-separator"></div>
+
+            <h1 class="dashboard-title">Détail Ticket</h1>
+            
+            <nav class="header-nav">
+                <a href="/dashboard/client/dashboard.html" class="nav-btn">
+                    Dashboard
+                </a>
+                <a href="/tickets/client/ticket-manager.html" class="nav-btn">
+                    Tickets
+                    <span class="badge">12</span>
+                </a>
+                <a href="/projects/client/project-manager.html" class="nav-btn">
+                    Mes Projets
+                </a>
+                <a href="/contrats/client/contrat-manager.html" class="nav-btn">
+                    Contrats
+                </a>
+            </nav>
+
+            <div class="profile-info">
+                <img src="/assets/account.png" alt="Photo de profil" class="header-profile-pic">
+                <div class="profile-text">
+                    <span class="profile-name">Entreprise ABC</span>
+                    <span class="profile-role">Client</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="ticket-detail-container">
+            <!-- En-tête du ticket -->
+            <div class="ticket-header">
+                <div class="ticket-header-left">
+                    <span class="ticket-id">#101</span>
+                    <h2 class="ticket-title-main">Problème de connexion utilisateur</h2>
+                </div>
+                <div class="ticket-header-right">
+                    <span class="read-only-badge">Lecture seule</span>
+                </div>
+            </div>
+
+            <!-- Métadonnées principales (lecture seule) -->
+            <div class="ticket-metadata">
+                <div class="metadata-card">
+                    <label>Statut</label>
+                    <div class="metadata-value">
+                        <span class="status-badge status-progress">En cours</span>
+                    </div>
+                </div>
+
+                <div class="metadata-card">
+                    <label>Priorité</label>
+                    <div class="metadata-value">
+                        <span class="priority-badge high">Haute</span>
+                    </div>
+                </div>
+
+                <div class="metadata-card">
+                    <label>Type</label>
+                    <div class="metadata-value">
+                        <span class="billing-badge billing-inclus">Inclus</span>
+                    </div>
+                </div>
+
+                <div class="metadata-card">
+                    <label>Temps estimé</label>
+                    <div class="metadata-value time-value">8h</div>
+                </div>
+
+                <div class="metadata-card highlight">
+                    <label>Temps passé total</label>
+                    <div class="time-total">5h 30min</div>
+                    <div class="time-remaining">Reste: 2h 30min</div>
+                </div>
+            </div>
+
+            <!-- Informations projet et contrat -->
+            <div class="project-client-info">
+                <div class="info-card">
+                    <h3>Projet</h3>
+                    <p class="project-name">Projet A - Refonte Site Web</p>
+                    <div class="project-stats-small">
+                        <span>Statut: <strong>Actif</strong></span>
+                        <span>Progression: <strong>65%</strong></span>
+                        <span>Tickets ouverts: <strong>8</strong></span>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <h3>Contrat associé</h3>
+                    <p class="contract-name">Contrat Annuel 2026</p>
+                    <div class="project-stats-small">
+                        <span>Heures incluses: <strong>50h</strong></span>
+                        <span>Consommées: <strong>32h</strong></span>
+                        <span>Restantes: <strong class="text-warning">18h</strong></span>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <h3>Collaborateurs assignés</h3>
+                    <div class="collaborators-list">
+                        <div class="collaborator-item">
+                            <div class="avatar">JD</div>
+                            <div class="collab-info">
+                                <span class="collab-name">Jean Dupont</span>
+                                <span class="collab-role">Développeur Senior</span>
+                            </div>
+                        </div>
+                        <div class="collaborator-item">
+                            <div class="avatar">MC</div>
+                            <div class="collab-info">
+                                <span class="collab-name">Marie Curie</span>
+                                <span class="collab-role">QA Engineer</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Description du ticket (lecture seule) -->
+            <div class="ticket-section">
+                <h3>Description</h3>
+                <div class="ticket-description-text">
+                    Les utilisateurs ne peuvent pas se connecter après la mise à jour du système d'authentification. Le problème semble provenir de la gestion des sessions. Il faut vérifier la configuration du serveur et les paramètres de sécurité.
+                </div>
+            </div>
+
+            <!-- Historique du temps (lecture seule) -->
+            <div class="ticket-section">
+                <h3>Historique du temps passé</h3>
+                <div class="time-entries-list">
+                    <div class="time-entry">
+                        <div class="entry-header">
+                            <div class="entry-collaborator">
+                                <div class="avatar small">JD</div>
+                                <span>Jean Dupont</span>
+                            </div>
+                            <div class="entry-date">29 Janvier 2026</div>
+                            <div class="entry-duration">2h 30min</div>
+                        </div>
+                        <div class="entry-comment">
+                            Investigation du problème de connexion. Identification de la source du bug dans le module d'authentification.
+                        </div>
+                    </div>
+
+                    <div class="time-entry">
+                        <div class="entry-header">
+                            <div class="entry-collaborator">
+                                <div class="avatar small">MC</div>
+                                <span>Marie Curie</span>
+                            </div>
+                            <div class="entry-date">28 Janvier 2026</div>
+                            <div class="entry-duration">1h 30min</div>
+                        </div>
+                        <div class="entry-comment">
+                            Tests initiaux et reproduction du bug en environnement de développement.
+                        </div>
+                    </div>
+
+                    <div class="time-entry">
+                        <div class="entry-header">
+                            <div class="entry-collaborator">
+                                <div class="avatar small">JD</div>
+                                <span>Jean Dupont</span>
+                            </div>
+                            <div class="entry-date">27 Janvier 2026</div>
+                            <div class="entry-duration">1h 30min</div>
+                        </div>
+                        <div class="entry-comment">
+                            Analyse des logs serveur et collecte d'informations.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Commentaires (lecture seule) -->
+            <div class="ticket-section">
+                <h3>Commentaires</h3>
+                <div class="comments-list">
+                    <div class="comment">
+                        <div class="comment-header">
+                            <div class="comment-author">
+                                <div class="avatar small">JD</div>
+                                <div>
+                                    <strong>Jean Dupont</strong>
+                                    <span class="comment-date">29 Jan 2026 à 14:30</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="comment-body">
+                            Le problème est maintenant identifié. Je vais procéder à la correction du code demain matin.
+                        </div>
+                    </div>
+
+                    <div class="comment">
+                        <div class="comment-header">
+                            <div class="comment-author">
+                                <div class="avatar small">MC</div>
+                                <div>
+                                    <strong>Marie Curie</strong>
+                                    <span class="comment-date">28 Jan 2026 à 16:45</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="comment-body">
+                            J'ai réussi à reproduire le bug. Les logs montrent une erreur de timeout au niveau des sessions.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="client-comment-note">
+                    <p><img src="/assets/logo.png" alt="info" class="inline-icon"> En tant que client, vous pouvez suivre l'avancement mais ne pouvez pas ajouter de commentaires directement. Pour toute question, contactez le support.</p>
+                </div>
+            </div>
+
+            <!-- Section validation client (si facturable) -->
+            <div class="ticket-section validation-section">
+                <h3>Validation client</h3>
+                <div class="validation-info">
+                    <p class="info-text">
+                        Ce ticket est marqué comme <strong>inclus dans le contrat</strong>. Aucune validation de facturation n'est requise.
+                    </p>
+                    <div class="validation-status-display">
+                        <span class="status-label">Statut:</span>
+                        <span class="validation-badge included">Inclus - Pas de validation nécessaire</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exemple pour ticket facturable nécessitant validation -->
+            <!-- <div class="ticket-section validation-section billable">
+                <h3>Validation requise</h3>
+                <div class="validation-info">
+                    <p class="info-text">
+                        Ce ticket est marqué comme <strong>facturable</strong>. Il nécessite votre validation avant facturation.
+                    </p>
+                    <div class="validation-details">
+                        <div class="detail-row">
+                            <span class="detail-label">Temps prévu:</span>
+                            <span class="detail-value">10h</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Temps réel:</span>
+                            <span class="detail-value text-warning">12h</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Dépassement:</span>
+                            <span class="detail-value text-warning">+2h</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Taux horaire:</span>
+                            <span class="detail-value">85€/h</span>
+                        </div>
+                        <div class="detail-row total">
+                            <span class="detail-label">Coût supplémentaire:</span>
+                            <span class="detail-value text-warning">170€</span>
+                        </div>
+                    </div>
+                    
+                    <div class="validation-actions">
+                        <button class="btn-validate">Valider et accepter la facturation</button>
+                        <button class="btn-reject-with-reason">Refuser</button>
+                    </div>
+
+                    <div class="rejection-form" style="display: none;">
+                        <label>Motif du refus:</label>
+                        <textarea class="rejection-reason" placeholder="Veuillez indiquer la raison du refus..." rows="4"></textarea>
+                        <div class="rejection-actions">
+                            <button class="btn-submit-rejection">Envoyer le refus</button>
+                            <button class="btn-cancel-rejection">Annuler</button>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+
+            <!-- Historique des validations -->
+            <div class="ticket-section">
+                <h3>Historique</h3>
+                <div class="history-list">
+                    <div class="history-item">
+                        <div class="history-icon">•</div>
+                        <div class="history-content">
+                            <div class="history-text">Statut modifié en <strong>"En cours"</strong></div>
+                            <div class="history-date">30 Janvier 2026 à 10:15</div>
+                        </div>
+                    </div>
+                    <div class="history-item">
+                        <div class="history-icon">•</div>
+                        <div class="history-content">
+                            <div class="history-text"><strong>Jean Dupont</strong> assigné au ticket</div>
+                            <div class="history-date">29 Janvier 2026 à 14:00</div>
+                        </div>
+                    </div>
+                    <div class="history-item">
+                        <div class="history-icon">•</div>
+                        <div class="history-content">
+                            <div class="history-text">Temps enregistré: <strong>2h 30min</strong></div>
+                            <div class="history-date">29 Janvier 2026 à 16:30</div>
+                        </div>
+                    </div>
+                    <div class="history-item">
+                        <div class="history-icon">•</div>
+                        <div class="history-content">
+                            <div class="history-text">Ticket créé</div>
+                            <div class="history-date">27 Janvier 2026 à 09:00</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Vector - Tous droits réservés</p>
+    </footer>
+
+</body>
+
+</html>
+
+

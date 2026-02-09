@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./generic-utilisateur.css">
+    <title>Mon Profil - Vector</title>
+    <script src="../../js/theme.js"></script>
+</head>
+
+<body class="oswald-font1 role-collaborateur">
+    <header class="dashboard-header">
+        <div class="header-container">
+            <div class="logo-section">
+                <a href="/index.html"><img id="logoH" src="/assets/logo.png" alt="Logo du site"></a>
+                <a href="/index.html"><img src="/assets/name.png" alt="Logo du site"></a>
+            </div>
+
+            <div class="header-separator"></div>
+
+            <h1 class="dashboard-title">Mon Profil</h1>
+            
+            <nav class="header-nav">
+                <a href="/dashboard/collaborateur/dashboard.html" class="nav-btn">
+                    Dashboard
+                </a>
+                <a href="/projects/collaborateur/project-manager.html" class="nav-btn">
+                    Mes Projets
+                </a>
+                <a href="/tickets/collaborateur/ticket-manager.html" class="nav-btn">
+                    Mes Tickets
+                </a>
+            </nav>
+
+            <div class="profile-info">
+                <img src="/assets/account.png" alt="Photo de profil" class="header-profile-pic">
+                <div class="profile-text">
+                    <span class="profile-name">Jean Dupont</span>
+                    <span class="profile-role">Collaborateur</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="user-container">
+            <!-- User Header -->
+            <div class="user-header">
+                <div class="header-left">
+                    <div class="user-avatar-large">JD</div>
+                    <div class="user-main-info">
+                        <h2 class="user-fullname">Jean Dupont</h2>
+                        <div class="user-subtitle">
+                            <span class="user-id">#U001</span>
+                            <span class="role-badge collab">Collaborateur</span>
+                            <span class="status-badge active">Actif</span>
+                        </div>
+                        <div class="user-contact">
+                            <span><img src="/assets/enveloppe.png" alt="email" class="inline-icon"> j.dupont@vector.com</span>
+                            <span><img src="/assets/telephone.png" alt="téléphone" class="inline-icon"> +33 6 12 34 56 78</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="header-actions">
+                    <button class="btn-primary" id="editBtn"><img src="/assets/editer.png" alt="modifier" class="inline-icon"> Modifier mes informations</button>
+                    <button class="btn-secondary"><img src="/assets/utilisateur.png" alt="mot de passe" class="inline-icon"> Changer mot de passe</button>
+                </div>
+            </div>
+
+            <!-- Info Grid -->
+            <div class="info-grid">
+                <!-- Informations personnelles -->
+                <div class="info-section editable-section">
+                    <h3 class="section-title">Informations personnelles</h3>
+                    <div class="info-list">
+                        <div class="info-item">
+                            <span class="info-label">Nom complet:</span>
+                            <span class="info-value">Jean Dupont</span>
+                            <input type="text" class="info-input" value="Jean Dupont" style="display: none;">
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Email professionnel:</span>
+                            <span class="info-value">j.dupont@vector.com</span>
+                            <input type="email" class="info-input" value="j.dupont@vector.com" style="display: none;">
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Téléphone:</span>
+                            <span class="info-value">+33 6 12 34 56 78</span>
+                            <input type="tel" class="info-input" value="+33 6 12 34 56 78" style="display: none;">
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Téléphone secondaire:</span>
+                            <span class="info-value">+33 1 23 45 67 89</span>
+                            <input type="tel" class="info-input" value="+33 1 23 45 67 89" style="display: none;">
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Adresse:</span>
+                            <span class="info-value">12 Rue de la Paix, 75002 Paris</span>
+                            <input type="text" class="info-input" value="12 Rue de la Paix, 75002 Paris" style="display: none;">
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Date de naissance:</span>
+                            <span class="info-value">15 Mai 1990</span>
+                            <input type="date" class="info-input" value="1990-05-15" style="display: none;">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Informations professionnelles -->
+                <div class="info-section">
+                    <h3 class="section-title">Informations professionnelles</h3>
+                    <div class="info-list">
+                        <div class="info-item">
+                            <span class="info-label">Date d'embauche:</span>
+                            <span class="info-value">15 Mars 2024</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Poste:</span>
+                            <span class="info-value">Développeur Full-Stack Senior</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Département:</span>
+                            <span class="info-value">Développement</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Manager:</span>
+                            <span class="info-value">Sophie Dubois</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Type de contrat:</span>
+                            <span class="info-value">CDI</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Localisation:</span>
+                            <span class="info-value">Paris, France</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Statistiques -->
+                <div class="info-section">
+                    <h3 class="section-title">Mes statistiques</h3>
+                    <div class="stats-cards">
+                        <div class="mini-stat">
+                            <div class="mini-stat-value">5</div>
+                            <div class="mini-stat-label">Projets actifs</div>
+                        </div>
+                        <div class="mini-stat">
+                            <div class="mini-stat-value">12</div>
+                            <div class="mini-stat-label">Tickets en cours</div>
+                        </div>
+                        <div class="mini-stat">
+                            <div class="mini-stat-value">142h</div>
+                            <div class="mini-stat-label">Heures ce mois</div>
+                        </div>
+                        <div class="mini-stat">
+                            <div class="mini-stat-value">98%</div>
+                            <div class="mini-stat-label">Taux de résolution</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Disponibilité -->
+                <div class="info-section editable-section">
+                    <h3 class="section-title">Disponibilité</h3>
+                    <div class="availability-info">
+                        <div class="availability-status">
+                            <div class="status-indicator available"></div>
+                            <span>Disponible</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Prochaine absence:</span>
+                            <span class="info-value">Aucune planifiée</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Congés restants:</span>
+                            <span class="info-value">15 jours</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Dernière connexion:</span>
+                            <span class="info-value">31 Jan 2026 - 15:30</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Compétences -->
+            <div class="section-card">
+                <div class="section-header">
+                    <h3 class="section-title">Mes compétences</h3>
+                    <button class="btn-add-skill"><img src="/assets/utilisateur.png" alt="ajouter" class="inline-icon"> Ajouter une compétence</button>
+                </div>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">JavaScript / TypeScript</span>
+                            <span class="skill-level">Expert</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 95%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">React / Next.js</span>
+                            <span class="skill-level">Expert</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Node.js / Express</span>
+                            <span class="skill-level">Avancé</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">DevOps / Docker</span>
+                            <span class="skill-level">Avancé</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Databases (SQL/NoSQL)</span>
+                            <span class="skill-level">Intermédiaire</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 70%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Cloud (AWS/Azure)</span>
+                            <span class="skill-level">Intermédiaire</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 65%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mes projets actuels -->
+            <div class="section-card">
+                <h3 class="section-title">Mes projets actuels</h3>
+                <div class="projects-list">
+                    <div class="project-row">
+                        <div class="project-info">
+                            <a href="/projects/collaborateur/generic-project.html" class="project-link">#P001 - Refonte Site Web</a>
+                            <span class="project-detail">Client: Entreprise ABC</span>
+                        </div>
+                        <div class="project-hours">22.5h travaillées</div>
+                        <span class="status-badge active">Actif</span>
+                    </div>
+                    <div class="project-row">
+                        <div class="project-info">
+                            <a href="/projects/collaborateur/generic-project.html" class="project-link">#P002 - Application Mobile</a>
+                            <span class="project-detail">Client: TechGlobal Solutions</span>
+                        </div>
+                        <div class="project-hours">35h travaillées</div>
+                        <span class="status-badge active">Actif</span>
+                    </div>
+                    <div class="project-row">
+                        <div class="project-info">
+                            <a href="/projects/collaborateur/generic-project.html" class="project-link">#P004 - Plateforme E-commerce</a>
+                            <span class="project-detail">Client: Entreprise ABC</span>
+                        </div>
+                        <div class="project-hours">18h travaillées</div>
+                        <span class="status-badge active">Actif</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Préférences -->
+            <div class="section-card">
+                <h3 class="section-title">Préférences</h3>
+                <div class="preferences-grid">
+                    <div class="preference-item">
+                        <div class="preference-label">
+                            <span>Notifications email</span>
+                            <small>Recevoir des notifications par email</small>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <div class="preference-item">
+                        <div class="preference-label">
+                            <span>Notifications push</span>
+                            <small>Recevoir des notifications push</small>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <div class="preference-item">
+                        <div class="preference-label">
+                            <span>Résumé hebdomadaire</span>
+                            <small>Recevoir un résumé de mes activités</small>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <div class="preference-item">
+                        <div class="preference-label">
+                            <span>Visibilité du profil</span>
+                            <small>Visible par tous les collaborateurs</small>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action buttons (hidden by default, shown in edit mode) -->
+            <div class="action-buttons" id="actionButtons" style="display: none;">
+                <button class="btn-save"><img src="/assets/utilisateur.png" alt="sauvegarder" class="inline-icon"> Sauvegarder les modifications</button>
+                <button class="btn-cancel">Annuler</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Vector - Tous droits réservés</p>
+    </footer>
+
+</body>
+
+</html>

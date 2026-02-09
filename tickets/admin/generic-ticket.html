@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./generic-ticket.css" />
+    <title>Détail Ticket Admin - Vector</title>
+    <script src="../../js/theme.js"></script>
+  </head>
+
+  <body class="oswald-font1 role-admin">
+    <header class="dashboard-header">
+      <div class="header-container">
+        <div class="logo-section">
+          <a href="/index.html"
+            ><img id="logoH" src="/assets/logo.png" alt="Logo du site"
+          /></a>
+          <a href="/index.html"
+            ><img src="/assets/name.png" alt="Logo du site"
+          /></a>
+        </div>
+
+        <div class="header-separator"></div>
+
+        <h1 class="dashboard-title">Détail Ticket</h1>
+
+        <nav class="header-nav">
+          <a href="/dashboard/admin/dashboard.html" class="nav-btn">
+            Dashboard
+          </a>
+          <a href="/tickets/admin/ticket-manager.html" class="nav-btn">
+            Tickets
+            <span class="badge">24</span>
+          </a>
+          <a href="/projects/admin/project-manager.html" class="nav-btn">
+            Projets
+          </a>
+          <a
+            href="/utilisateurs/admin/utilisateur-manager.html"
+            class="nav-btn"
+          >
+            Utilisateurs
+          </a>
+          <a href="/contrats/admin/contrat-manager.html" class="nav-btn">
+            Contrats
+          </a>
+          <a href="/clients/admin/client-manager.html" class="nav-btn">
+            Clients
+          </a>
+        </nav>
+
+        <div class="profile-info">
+          <img
+            src="/assets/account.png"
+            alt="Photo de profil"
+            class="header-profile-pic"
+          />
+          <div class="profile-text">
+            <span class="profile-name">Admin Principal</span>
+            <span class="profile-role">Administrateur</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="ticket-detail-container">
+        <!-- En-tête du ticket -->
+        <div class="ticket-header">
+          <div class="ticket-header-left">
+            <span class="ticket-id">#101</span>
+            <h2 class="ticket-title-main">Problème de connexion utilisateur</h2>
+          </div>
+        </div>
+
+        <!-- Métadonnées principales -->
+        <div class="ticket-metadata">
+          <div class="metadata-card">
+            <label>Statut</label>
+            <select class="status-select status-progress">
+              <option value="nouveau">Nouveau</option>
+              <option value="progress" selected>En cours</option>
+              <option value="pending">En attente client</option>
+              <option value="termine">Terminé</option>
+              <option value="a-valider">À valider</option>
+              <option value="valide">Validé</option>
+              <option value="refuse">Refusé</option>
+            </select>
+          </div>
+
+          <div class="metadata-card">
+            <label>Priorité</label>
+            <select class="priority-select priority-high">
+              <option value="high" selected>Haute</option>
+              <option value="medium">Moyenne</option>
+              <option value="low">Basse</option>
+            </select>
+          </div>
+
+          <div class="metadata-card">
+            <label>Type</label>
+            <select class="type-select">
+              <option value="inclus" selected>Inclus</option>
+              <option value="facturable">Facturable</option>
+            </select>
+          </div>
+
+          <div class="metadata-card">
+            <label>Temps estimé</label>
+            <input
+              type="number"
+              class="time-input-meta"
+              value="8"
+              step="0.5"
+              min="0"
+            />
+            <span>heures</span>
+          </div>
+
+          <div class="metadata-card highlight">
+            <label>Temps passé total</label>
+            <div class="time-total">5h 30min</div>
+          </div>
+        </div>
+
+        <!-- Informations client, projet et contrat -->
+        <div class="project-client-info">
+          <div class="info-card">
+            <h3>Client</h3>
+            <select class="client-select">
+              <option value="abc" selected>Entreprise ABC</option>
+              <option value="xyz">Société XYZ</option>
+              <option value="def">Groupe DEF</option>
+            </select>
+            <p class="client-contact">contact@entrepriseabc.fr</p>
+            <div class="client-stats">
+              <span>Tickets ouverts: <strong>12</strong></span>
+              <span>Tickets total: <strong>45</strong></span>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <h3>Projet</h3>
+            <select class="project-select">
+              <option value="a" selected>Projet A - Refonte Site Web</option>
+              <option value="b">Projet B - App Mobile</option>
+              <option value="c">Projet C - Migration Cloud</option>
+            </select>
+            <div class="project-stats-small">
+              <span>Tickets: <strong>8 ouverts</strong></span>
+              <span>Progression: <strong>65%</strong></span>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <h3>Contrat</h3>
+            <p class="contract-name">Contrat Annuel 2026</p>
+            <div class="project-stats-small">
+              <span>Heures incluses: <strong>50h</strong></span>
+              <span>Consommées: <strong>32h</strong></span>
+              <span>Restantes: <strong class="text-warning">18h</strong></span>
+              <span>Taux supp: <strong>85€/h</strong></span>
+            </div>
+            <button class="btn-contract-details">Voir contrat</button>
+          </div>
+
+          <div class="info-card">
+            <h3>Collaborateurs assignés</h3>
+            <div class="collaborators-list">
+              <div class="collaborator-item">
+                <div class="avatar">JD</div>
+                <span>Jean Dupont</span>
+                <button class="btn-remove-collab" title="Retirer">✖</button>
+              </div>
+              <div class="collaborator-item">
+                <div class="avatar">MC</div>
+                <span>Marie Curie</span>
+                <button class="btn-remove-collab" title="Retirer">✖</button>
+              </div>
+            </div>
+            <select class="add-collaborator-select">
+              <option value="">-- Ajouter un collaborateur --</option>
+              <option value="sd">Sophie Dubois</option>
+              <option value="lb">Luc Bernard</option>
+              <option value="pm">Paul Martin</option>
+              <option value="cm">Claire Martin</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Description du ticket -->
+        <div class="ticket-section">
+          <h3>Description</h3>
+          <textarea class="ticket-description" rows="6">
+Les utilisateurs ne peuvent pas se connecter après la mise à jour du système d'authentification. Le problème semble provenir de la gestion des sessions. Il faut vérifier la configuration du serveur et les paramètres de sécurité.</textarea
+          >
+        </div>
+
+        <!-- Admin: Gestion du temps -->
+        <div class="ticket-section admin-time-section">
+          <h3>Gestion du temps (Admin)</h3>
+          <div class="admin-time-controls">
+            <div class="control-item">
+              <label>Forcer le type de facturation:</label>
+              <div class="btn-group">
+                <button class="btn-toggle active">Inclus</button>
+                <button class="btn-toggle">Facturable</button>
+              </div>
+            </div>
+            <div class="control-item">
+              <label>Ajuster le temps passé:</label>
+              <div class="time-adjust">
+                <input
+                  type="number"
+                  class="form-control-sm"
+                  value="5.5"
+                  step="0.5"
+                  min="0"
+                />
+                <span>heures</span>
+                <button class="btn-secondary">Appliquer</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Enregistrement du temps -->
+        <div class="ticket-section">
+          <h3>Enregistrer du temps</h3>
+          <div class="time-entry-form">
+            <div class="form-group">
+              <label>Collaborateur</label>
+              <select class="form-control">
+                <option value="jd">Jean Dupont</option>
+                <option value="mc">Marie Curie</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Date</label>
+              <input type="date" class="form-control" value="2026-01-30" />
+            </div>
+            <div class="form-group">
+              <label>Durée (heures)</label>
+              <input
+                type="number"
+                class="form-control"
+                step="0.5"
+                min="0"
+                placeholder="2.5"
+              />
+            </div>
+            <div class="form-group full-width">
+              <label>Commentaire (optionnel)</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Description du travail effectué..."
+              />
+            </div>
+            <button class="btn-primary">Ajouter l'entrée</button>
+          </div>
+        </div>
+
+        <!-- Historique du temps -->
+        <div class="ticket-section">
+          <h3>Historique du temps passé</h3>
+          <div class="time-entries-list">
+            <div class="time-entry">
+              <div class="entry-header">
+                <div class="entry-collaborator">
+                  <div class="avatar small">JD</div>
+                  <span>Jean Dupont</span>
+                </div>
+                <div class="entry-date">29 Janvier 2026</div>
+                <div class="entry-duration">2h 30min</div>
+                <button class="btn-delete-entry" title="Supprimer">
+                  <img
+                    src="/assets/supprimer.png"
+                    alt="supprimer"
+                    class="inline-icon"
+                  />
+                </button>
+              </div>
+              <div class="entry-comment">
+                Investigation du problème de connexion. Identification de la
+                source du bug dans le module d'authentification.
+              </div>
+            </div>
+
+            <div class="time-entry">
+              <div class="entry-header">
+                <div class="entry-collaborator">
+                  <div class="avatar small">MC</div>
+                  <span>Marie Curie</span>
+                </div>
+                <div class="entry-date">28 Janvier 2026</div>
+                <div class="entry-duration">1h 30min</div>
+                <button class="btn-delete-entry" title="Supprimer">
+                  <img
+                    src="/assets/supprimer.png"
+                    alt="supprimer"
+                    class="inline-icon"
+                  />
+                </button>
+              </div>
+              <div class="entry-comment">
+                Tests initiaux et reproduction du bug en environnement de
+                développement.
+              </div>
+            </div>
+
+            <div class="time-entry">
+              <div class="entry-header">
+                <div class="entry-collaborator">
+                  <div class="avatar small">JD</div>
+                  <span>Jean Dupont</span>
+                </div>
+                <div class="entry-date">27 Janvier 2026</div>
+                <div class="entry-duration">1h 30min</div>
+                <button class="btn-delete-entry" title="Supprimer">
+                  <img
+                    src="/assets/supprimer.png"
+                    alt="supprimer"
+                    class="inline-icon"
+                  />
+                </button>
+              </div>
+              <div class="entry-comment">
+                Analyse des logs serveur et collecte d'informations.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Commentaires et historique -->
+        <div class="ticket-section">
+          <h3>Commentaires</h3>
+          <div class="comments-list">
+            <div class="comment">
+              <div class="comment-header">
+                <div class="comment-author">
+                  <div class="avatar small">JD</div>
+                  <div>
+                    <strong>Jean Dupont</strong>
+                    <span class="comment-date">29 Jan 2026 à 14:30</span>
+                  </div>
+                </div>
+                <button class="btn-delete-comment" title="Supprimer">
+                  <img
+                    src="/assets/supprimer.png"
+                    alt="supprimer"
+                    class="inline-icon"
+                  />
+                </button>
+              </div>
+              <div class="comment-body">
+                Le problème est maintenant identifié. Je vais procéder à la
+                correction du code demain matin.
+              </div>
+            </div>
+
+            <div class="comment">
+              <div class="comment-header">
+                <div class="comment-author">
+                  <div class="avatar small">MC</div>
+                  <div>
+                    <strong>Marie Curie</strong>
+                    <span class="comment-date">28 Jan 2026 à 16:45</span>
+                  </div>
+                </div>
+                <button class="btn-delete-comment" title="Supprimer">
+                  <img
+                    src="/assets/supprimer.png"
+                    alt="supprimer"
+                    class="inline-icon"
+                  />
+                </button>
+              </div>
+              <div class="comment-body">
+                J'ai réussi à reproduire le bug. Les logs montrent une erreur de
+                timeout au niveau des sessions.
+              </div>
+            </div>
+          </div>
+
+          <div class="add-comment">
+            <textarea
+              class="comment-input"
+              placeholder="Ajouter un commentaire..."
+              rows="3"
+            ></textarea>
+            <button class="btn-primary">Publier</button>
+          </div>
+        </div>
+
+        <!-- Admin: Validation forcée -->
+        <div class="ticket-section admin-validation-section">
+          <h3>Validation client (Admin)</h3>
+          <div class="validation-info">
+            <p class="info-text">
+              Ce ticket est marqué comme <strong>facturable</strong>. Il
+              nécessite une validation du client avant facturation.
+            </p>
+            <div class="validation-status">
+              <span class="status-label">Statut de validation:</span>
+              <span class="validation-badge pending"
+                >En attente de validation</span
+              >
+            </div>
+            <div class="admin-validation-controls">
+              <button class="btn-force-validate">Forcer la validation</button>
+              <button class="btn-force-reject">Forcer le refus</button>
+              <p class="warning-text">
+                ! Ces actions contournent la validation normale du client. À
+                utiliser uniquement en cas de nécessité.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Historique des actions -->
+        <div class="ticket-section">
+          <h3>Historique des actions</h3>
+          <div class="history-list">
+            <div class="history-item">
+              <div class="history-icon">•</div>
+              <div class="history-content">
+                <div class="history-text">
+                  <strong>Admin Principal</strong> a modifié le statut en "En
+                  cours"
+                </div>
+                <div class="history-date">30 Janvier 2026 à 10:15</div>
+              </div>
+            </div>
+            <div class="history-item">
+              <div class="history-icon">•</div>
+              <div class="history-content">
+                <div class="history-text">
+                  <strong>Jean Dupont</strong> a été assigné au ticket
+                </div>
+                <div class="history-date">29 Janvier 2026 à 14:00</div>
+              </div>
+            </div>
+            <div class="history-item">
+              <div class="history-icon">•</div>
+              <div class="history-content">
+                <div class="history-text">
+                  <strong>Jean Dupont</strong> a enregistré 2h 30min de travail
+                </div>
+                <div class="history-date">29 Janvier 2026 à 16:30</div>
+              </div>
+            </div>
+            <div class="history-item">
+              <div class="history-icon">•</div>
+              <div class="history-content">
+                <div class="history-text">
+                  <strong>Admin Principal</strong> a créé le ticket
+                </div>
+                <div class="history-date">27 Janvier 2026 à 09:00</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 Vector - Tous droits réservés</p>
+    </footer>
+    <script src="../../js/form-validation.js"></script>
+    <script src="./generic-ticket.js" defer></script>
+  </body>
+</html>

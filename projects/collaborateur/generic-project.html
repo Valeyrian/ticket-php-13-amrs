@@ -1,0 +1,572 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./generic-project.css" />
+    <title>Projet - Refonte Site Web - Vector</title>
+    <script src="../../js/theme.js"></script>
+  </head>
+
+  <body class="oswald-font1 role-collaborateur">
+    <header class="dashboard-header">
+      <div class="header-container">
+        <div class="logo-section">
+          <a href="/index.html"
+            ><img id="logoH" src="/assets/logo.png" alt="Logo du site"
+          /></a>
+          <a href="/index.html"
+            ><img src="/assets/name.png" alt="Logo du site"
+          /></a>
+        </div>
+
+        <div class="header-separator"></div>
+
+        <h1 class="dashboard-title">Détail du Projet</h1>
+
+        <nav class="header-nav">
+          <a href="/dashboard/collaborateur/dashboard.html" class="nav-btn">
+            Dashboard
+          </a>
+          <a
+            href="/projetcs/collaborateur/project-manager.html"
+            class="nav-btn"
+          >
+            Mes Projets
+          </a>
+          <a href="/tickets/collaborateur/ticket-manager.html" class="nav-btn">
+            Mes Tickets
+          </a>
+        </nav>
+
+        <div class="profile-info">
+          <img
+            src="/assets/account.png"
+            alt="Photo de profil"
+            class="header-profile-pic"
+          />
+          <div class="profile-text">
+            <span class="profile-name">Jean Dupont</span>
+            <span class="profile-role">Collaborateur</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="project-detail">
+        <!-- En-tête du projet -->
+        <div class="project-header-section">
+          <div class="project-title-block">
+            <div class="project-id">#P001</div>
+            <h2 class="project-name">Refonte Site Web</h2>
+            <div class="project-status-badge active">Actif</div>
+          </div>
+          <div class="project-actions">
+            <button class="btn-ticket">Créer un ticket</button>
+            <button class="btn-time">
+              <img src="/assets/heures-douverture.png" alt="temps" />
+              Enregistrer du temps
+            </button>
+          </div>
+        </div>
+
+        <!-- Informations principales -->
+        <div class="project-info-grid">
+          <div class="info-card">
+            <h3>Informations générales</h3>
+            <div class="info-row">
+              <span class="info-label">Client:</span>
+              <span class="info-value">Entreprise ABC</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Date de début:</span>
+              <span class="info-value">01 février 2026</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Date de fin prévue:</span>
+              <span class="info-value">31 décembre 2026</span>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <h3>Heures disponibles</h3>
+            <div class="info-row">
+              <span class="info-label">Heures consommées:</span>
+              <span class="info-value text-warning">22.5h</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Heures restantes:</span>
+              <span class="info-value text-success">27.5h</span>
+            </div>
+            <div class="contract-progress">
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 45%"></div>
+              </div>
+              <span class="progress-text">45% consommé</span>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <h3>Mes statistiques</h3>
+            <div class="info-row">
+              <span class="info-label">Mes tickets:</span>
+              <span class="info-value">5</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">En cours:</span>
+              <span class="info-value">3</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Temps enregistré:</span>
+              <span class="info-value">12h</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Description -->
+        <div class="project-section">
+          <h3>Description du projet</h3>
+          <p class="project-description">
+            Refonte complète du site corporate de l'Entreprise ABC. Ce projet
+            inclut la migration vers un nouveau CMS, la refonte graphique
+            complète avec un nouveau design moderne et responsive,
+            l'optimisation SEO, et l'intégration d'un nouveau système de gestion
+            de contenu permettant au client de mettre à jour facilement son
+            site. Le projet comprend également la formation des équipes du
+            client à l'utilisation du nouveau CMS.
+          </p>
+        </div>
+
+        <!-- Équipe -->
+        <div class="project-section">
+          <h3>Équipe du projet</h3>
+          <div class="team-grid">
+            <div class="team-member-card current-user">
+              <div class="member-avatar">JD</div>
+              <div class="member-info">
+                <div class="member-name">Jean Dupont (Vous)</div>
+                <div class="member-role">Développeur Full-Stack</div>
+                <div class="member-stats">
+                  <span>5 tickets</span>
+                  <span>12h enregistrées</span>
+                </div>
+              </div>
+            </div>
+            <div class="team-member-card">
+              <div class="member-avatar">MC</div>
+              <div class="member-info">
+                <div class="member-name">Marie Curie</div>
+                <div class="member-role">Designer UX/UI</div>
+                <div class="member-stats">
+                  <span>4 tickets</span>
+                  <span>8h enregistrées</span>
+                </div>
+              </div>
+            </div>
+            <div class="team-member-card">
+              <div class="member-avatar">SD</div>
+              <div class="member-info">
+                <div class="member-name">Sophie Dubois</div>
+                <div class="member-role">Chef de projet</div>
+                <div class="member-stats">
+                  <span>3 tickets</span>
+                  <span>2.5h enregistrées</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mes tickets du projet -->
+        <div class="project-section">
+          <div class="section-header">
+            <h3>Mes tickets sur ce projet</h3>
+            <button class="btn-add">Nouveau ticket</button>
+          </div>
+          <div class="tickets-table-container">
+            <table class="tickets-table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Titre</th>
+                  <th>Priorité</th>
+                  <th>Statut</th>
+                  <th>Type</th>
+                  <th>Temps</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <a
+                      href="/tickets/collaborateur/generic-ticket.html"
+                      class="ticket-link"
+                      >#101</a
+                    >
+                  </td>
+                  <td class="ticket-title">
+                    Problème de connexion utilisateur
+                  </td>
+                  <td><span class="priority-badge high">Haute</span></td>
+                  <td><span class="status-badge progress">En cours</span></td>
+                  <td><span class="billing-badge inclus">Inclus</span></td>
+                  <td>5h/8h</td>
+                </tr>
+                <tr>
+                  <td>
+                    <a
+                      href="/tickets/collaborateur/generic-ticket.html"
+                      class="ticket-link"
+                      >#103</a
+                    >
+                  </td>
+                  <td class="ticket-title">Intégration CMS</td>
+                  <td><span class="priority-badge high">Haute</span></td>
+                  <td><span class="status-badge progress">En cours</span></td>
+                  <td><span class="billing-badge inclus">Inclus</span></td>
+                  <td>10h/15h</td>
+                </tr>
+                <tr>
+                  <td>
+                    <a
+                      href="/tickets/collaborateur/generic-ticket.html"
+                      class="ticket-link"
+                      >#107</a
+                    >
+                  </td>
+                  <td class="ticket-title">Tests unitaires backend</td>
+                  <td><span class="priority-badge medium">Moyenne</span></td>
+                  <td><span class="status-badge pending">En attente</span></td>
+                  <td><span class="billing-badge inclus">Inclus</span></td>
+                  <td>0h/6h</td>
+                  
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Tous les tickets du projet -->
+        <div class="project-section">
+          <h3>Tous les tickets du projet</h3>
+          <div class="tickets-table-container">
+            <table class="tickets-table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Titre</th>
+                  <th>Assigné à</th>
+                  <th>Priorité</th>
+                  <th>Statut</th>
+                  <th>Type</th>
+                  <th>Temps</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="my-ticket">
+                  <td>
+                    <a
+                      href="/tickets/collaborateur/generic-ticket.html"
+                      class="ticket-link"
+                      >#101</a
+                    >
+                  </td>
+                  <td class="ticket-title">
+                    Problème de connexion utilisateur
+                  </td>
+                  <td>
+                    <div class="collaborators-mini">
+                      <div class="avatar-tiny me">JD</div>
+                      <div class="avatar-tiny">MC</div>
+                    </div>
+                  </td>
+                  <td><span class="priority-badge high">Haute</span></td>
+                  <td><span class="status-badge progress">En cours</span></td>
+                  <td><span class="billing-badge inclus">Inclus</span></td>
+                  <td>5h/8h</td>
+                  <td>
+                    <div class="action-buttons"></div>
+                  </td>
+                </tr>
+               <tr class="my-ticket">
+                  <td>
+                    <a
+                      href="/tickets/collaborateur/generic-ticket.html"
+                      class="ticket-link"
+                      >#101</a
+                    >
+                  </td>
+                  <td class="ticket-title">
+                    Problème de connexion utilisateur
+                  </td>
+                  <td>
+                    <div class="collaborators-mini">
+                      <div class="avatar-tiny me">JD</div>
+                      <div class="avatar-tiny">MC</div>
+                    </div>
+                  </td>
+                  <td><span class="priority-badge high">Haute</span></td>
+                  <td><span class="status-badge progress">En cours</span></td>
+                  <td><span class="billing-badge inclus">Inclus</span></td>
+                  <td>5h/8h</td>
+                  <td>
+                    <div class="action-buttons"></div>
+                  </td>
+                </tr>
+                <tr class="my-ticket">
+                  <td>
+                    <a
+                      href="/tickets/collaborateur/generic-ticket.html"
+                      class="ticket-link"
+                      >#101</a
+                    >
+                  </td>
+                  <td class="ticket-title">
+                    Problème de connexion utilisateur
+                  </td>
+                  <td>
+                    <div class="collaborators-mini">
+                      <div class="avatar-tiny me">JD</div>
+                      <div class="avatar-tiny">MC</div>
+                    </div>
+                  </td>
+                  <td><span class="priority-badge high">Haute</span></td>
+                  <td><span class="status-badge progress">En cours</span></td>
+                  <td><span class="billing-badge inclus">Inclus</span></td>
+                  <td>5h/8h</td>
+                  <td>
+                    <div class="action-buttons"></div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Timeline / Historique -->
+        <div class="project-section">
+          <h3>Activité récente</h3>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-date">30 Jan 2026 - 14:30</div>
+              <div class="timeline-content">
+                <div class="timeline-icon"></div>
+                <div class="timeline-text">
+                  <strong>Ticket #103</strong> mis à jour par vous
+                </div>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">29 Jan 2026 - 10:15</div>
+              <div class="timeline-content">
+                <div class="timeline-icon">
+                  <img src="/assets/heures-douverture.png" alt="temps" />
+                </div>
+                <div class="timeline-text">
+                  <strong>2h30</strong> enregistrées sur le ticket #101
+                </div>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">28 Jan 2026 - 16:45</div>
+              <div class="timeline-content">
+                <div class="timeline-icon"></div>
+                <div class="timeline-text">
+                  <strong>Ticket #100</strong> marqué comme terminé
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 Vector - Tous droits réservés</p>
+    </footer>
+
+    <!-- Modal Nouveau Ticket -->
+    <div class="modal-overlay" id="modal-ticket-overlay">
+      <div class="modal" id="add-ticket-modal">
+        <div class="modal-header">
+          <h2>Nouveau Ticket</h2>
+          <button class="modal-close" id="close-ticket-modal">&times;</button>
+        </div>
+        <form id="add-ticket-form" class="modal-form">
+          <input type="hidden" name="projectId" value="P001" />
+          <div class="form-section">
+            <h3>Informations du Ticket</h3>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="ticket-title">Titre *</label>
+                <input
+                  type="text"
+                  id="ticket-title"
+                  name="ticketTitle"
+                  required
+                  placeholder="Ex: Intégration module authentification"
+                />
+              </div>
+              <div class="form-group">
+                <label for="ticket-priority">Priorité *</label>
+                <select id="ticket-priority" name="ticketPriority" required>
+                  <option value="">Sélectionner</option>
+                  <option value="low">Basse</option>
+                  <option value="medium" selected>Moyenne</option>
+                  <option value="high">Haute</option>
+                  <option value="urgent">Urgente</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="ticket-description">Description *</label>
+              <textarea
+                id="ticket-description"
+                name="ticketDescription"
+                rows="4"
+                required
+                placeholder="Décrivez le ticket en détail..."
+              ></textarea>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <h3>Classification</h3>
+            <div class="form-row">
+              
+              <div class="form-group">
+                <label for="ticket-estimated-hours">Heures estimées</label>
+                <input
+                  type="number"
+                  id="ticket-estimated-hours"
+                  name="estimatedHours"
+                  min="0"
+                  step="0.5"
+                  placeholder="Ex: 4"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <h3>Planning</h3>
+            <div class="form-group">
+              <label for="ticket-due-date">Date d'échéance souhaitée</label>
+              <input type="date" id="ticket-due-date" name="dueDate" />
+            </div>
+          </div>
+
+         
+
+          <div class="modal-footer">
+            <button type="button" class="btn-cancel" id="cancel-ticket-modal">
+              Annuler
+            </button>
+            <button type="submit" class="btn-submit">Créer le ticket</button>
+            <div class="form-error" id="ticket-form-error">
+              Veuillez remplir tous les champs obligatoires.
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Modal Enregistrer Temps -->
+    <div class="modal-overlay" id="modal-time-overlay">
+      <div class="modal" id="log-time-modal">
+        <div class="modal-header">
+          <h2>Enregistrer du temps</h2>
+          <button class="modal-close" id="close-time-modal">&times;</button>
+        </div>
+        <form id="log-time-form" class="modal-form">
+          <div class="form-section">
+            <h3>Détails du temps</h3>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="time-ticket">Ticket *</label>
+                <select id="time-ticket" name="ticketId" required>
+                  <option value="">Sélectionner un ticket</option>
+                  <option value="t101">#101 - Problème connexion</option>
+                  <option value="t102">#102 - Optimisation performance</option>
+                  <option value="t103">#103 - Design interface</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="time-date">Date *</label>
+                <input type="date" id="time-date" name="workDate" required />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="time-hours">Heures *</label>
+                <input
+                  type="number"
+                  id="time-hours"
+                  name="hours"
+                  min="0"
+                  max="23"
+                  step="1"
+                  required
+                  placeholder="0"
+                />
+              </div>
+              <div class="form-group">
+                <label for="time-minutes">Minutes *</label>
+                <select id="time-minutes" name="minutes" required>
+                  <option value="0">00</option>
+                  <option value="15">15</option>
+                  <option value="30">30</option>
+                  <option value="45">45</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="time-description">Description de l'activité *</label>
+              <textarea
+                id="time-description"
+                name="timeDescription"
+                rows="3"
+                required
+                placeholder="Décrivez ce que vous avez fait..."
+              ></textarea>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <h3>Type de facturation</h3>
+            <div class="form-group">
+              <label for="billing-type">Type *</label>
+              <select id="billing-type" name="billingType" required>
+                <option value="billable">Facturable</option>
+                <option value="non-billable">Non facturable</option>
+                <option value="internal">Interne</option>
+              </select>
+              <small class="form-help-text"
+                >Le temps facturable sera imputé au contrat du client</small
+              >
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn-cancel" id="cancel-time-modal">
+              Annuler
+            </button>
+            <button type="submit" class="btn-submit">
+              Enregistrer le temps
+            </button>
+            <div class="form-error" id="time-form-error">
+              Veuillez remplir tous les champs obligatoires.
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="../../js/form-validation.js"></script>
+    <script src="./generic-project.js"></script>
+  </body>
+</html>

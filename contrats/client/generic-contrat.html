@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./generic-contrat.css" />
+    <title>Détail Contrat #C001 - Vector</title>
+    <script src="../../js/theme.js"></script>
+  </head>
+
+  <body class="oswald-font1 role-client">
+    <header class="dashboard-header">
+      <div class="header-container">
+        <div class="logo-section">
+          <a href="/index.html"
+            ><img id="logoH" src="/assets/logo.png" alt="Logo du site"
+          /></a>
+          <a href="/index.html"
+            ><img src="/assets/name.png" alt="Logo du site"
+          /></a>
+        </div>
+
+        <div class="header-separator"></div>
+
+        <h1 class="dashboard-title">Détail du Contrat</h1>
+
+        <nav class="header-nav">
+          <a href="/dashboard/client/dashboard.html" class="nav-btn">
+            Dashboard
+          </a>
+          <a href="./contrat-manager.html" class="nav-btn"> Mes Contrats </a>
+          <a href="/projects/client/project-manager.html" class="nav-btn">
+            Mes Projets
+          </a>
+        </nav>
+
+        <div class="profile-info">
+          <img
+            src="/assets/account.png"
+            alt="Photo de profil"
+            class="header-profile-pic"
+          />
+          <div class="profile-text">
+            <span class="profile-name">Entreprise ABC</span>
+            <span class="profile-role">Client</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="contract-detail">
+        <!-- Contract Header -->
+        <div class="contract-header-section">
+          <div class="contract-title-block">
+            <div class="contract-id">#C001</div>
+            <h2 class="contract-name">Contrat Forfait 50h</h2>
+            <div class="contract-status-badge active">Actif</div>
+          </div>
+        </div>
+
+        <!-- Main Info Grid -->
+        <div class="contract-info-grid">
+          <!-- General Information -->
+          <div class="info-card">
+            <h3>Informations générales</h3>
+            <div class="info-row">
+              <span class="info-label">Type de contrat:</span>
+              <span class="info-value">Forfait heures</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Date de début:</span>
+              <span class="info-value">01 janvier 2026</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Date de fin:</span>
+              <span class="info-value">31 décembre 2026</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Durée:</span>
+              <span class="info-value">12 mois</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Renouvellement:</span>
+              <span class="info-value success">Automatique</span>
+            </div>
+          </div>
+
+          <!-- Hours Details -->
+          <div class="info-card hours-card">
+            <h3>Détails des heures</h3>
+            <div class="hours-big-progress">
+              <div class="hours-circle">
+                <svg width="180" height="180">
+                  <circle
+                    cx="90"
+                    cy="90"
+                    r="80"
+                    fill="none"
+                    stroke="#3a3b3e"
+                    stroke-width="12"
+                  />
+                  <circle
+                    cx="90"
+                    cy="90"
+                    r="80"
+                    fill="none"
+                    stroke="#9b59b6"
+                    stroke-width="12"
+                    stroke-dasharray="502.4"
+                    stroke-dashoffset="276.32"
+                    transform="rotate(-90 90 90)"
+                  />
+                </svg>
+                <div class="hours-center">
+                  <span class="hours-percent">45%</span>
+                  <span class="hours-label">consommées</span>
+                </div>
+              </div>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Heures incluses:</span>
+              <span class="info-value">50h</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Heures consommées:</span>
+              <span class="info-value text-warning">22.5h</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Heures restantes:</span>
+              <span class="info-value success">27.5h</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Heures supplémentaires:</span>
+              <span class="info-value">0h</span>
+            </div>
+          </div>
+
+          <!-- Financial Details -->
+          <div class="info-card financial-card">
+            <h3>Détails financiers</h3>
+            <div class="info-row">
+              <span class="info-label">Montant HT:</span>
+              <span class="info-value">5 500 €</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">TVA (20%):</span>
+              <span class="info-value">1 100 €</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Montant TTC:</span>
+              <span class="info-value total">6 600 €</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Tarif horaire:</span>
+              <span class="info-value">110 € HT</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Facturation:</span>
+              <span class="info-value">Annuelle</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Mode de paiement:</span>
+              <span class="info-value">Virement</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Projects Using This Contract -->
+        <div class="section-card">
+          <h3>Projets liés à ce contrat</h3>
+          <div class="projects-list">
+            <div class="project-item">
+              <div class="project-info">
+                <a
+                  href="/projects/client/generic-project.html"
+                  class="project-link"
+                  >#P001 - Refonte Site Web</a
+                >
+                <span class="project-hours">22.5h consommées</span>
+              </div>
+              <span class="status-badge status-active">Actif</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Billing History -->
+        <div class="section-card">
+          <h3>Historique de facturation</h3>
+          <div class="table-container">
+            <table class="billing-table">
+              <thead>
+                <tr>
+                  <th>N° Facture</th>
+                  <th>Date</th>
+                  <th>Description</th>
+                  <th>Montant HT</th>
+                  <th>Statut</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>#F2026-001</td>
+                  <td>01/01/2026</td>
+                  <td>Contrat Forfait 50h - Année 2026</td>
+                  <td>5 500 €</td>
+                  <td><span class="payment-badge paid">Payée</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Consumption Details -->
+        <div class="section-card">
+          <h3>Détail de consommation</h3>
+          <div class="table-container">
+            <table class="consumption-table">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Ticket</th>
+                  <th>Description</th>
+                  <th>Collaborateur</th>
+                  <th>Heures</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>15/03/2026</td>
+                  <td>
+                    <a
+                      href="/tickets/client/generic-ticket.html"
+                      class="ticket-link"
+                      >#T012</a
+                    >
+                  </td>
+                  <td>Mise en place architecture backend</td>
+                  <td>Jean Dupont</td>
+                  <td>8.5h</td>
+                </tr>
+                <tr>
+                  <td>10/03/2026</td>
+                  <td>
+                    <a
+                      href="/tickets/client/generic-ticket.html"
+                      class="ticket-link"
+                      >#T008</a
+                    >
+                  </td>
+                  <td>Design interface utilisateur</td>
+                  <td>Marie Curie</td>
+                  <td>6h</td>
+                </tr>
+                <tr>
+                  <td>05/03/2026</td>
+                  <td>
+                    <a
+                      href="/tickets/client/generic-ticket.html"
+                      class="ticket-link"
+                      >#T005</a
+                    >
+                  </td>
+                  <td>Configuration serveurs</td>
+                  <td>Sophie Dubois</td>
+                  <td>5h</td>
+                </tr>
+                <tr>
+                  <td>02/02/2026</td>
+                  <td>
+                    <a
+                      href="/tickets/client/generic-ticket.html"
+                      class="ticket-link"
+                      >#T002</a
+                    >
+                  </td>
+                  <td>Réunion kick-off projet</td>
+                  <td>Sophie Dubois</td>
+                  <td>3h</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="contact-section">
+          <h3>Besoin d'aide ?</h3>
+          <p>
+            Pour toute question concernant votre contrat, contactez notre
+            service client :
+          </p>
+          <div class="contact-info">
+            <div class="contact-item">
+              <img
+                src="/assets/enveloppe.png"
+                alt="email"
+                class="inline-icon"
+              />
+              <a href="mailto:contrats@vector.com">contrats@vector.com</a>
+            </div>
+            <div class="contact-item">
+              <img
+                src="/assets/telephone.png"
+                alt="téléphone"
+                class="inline-icon"
+              />
+              <a href="tel:+33123456789">+33 1 23 45 67 89</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 Vector - Tous droits réservés</p>
+    </footer>
+  </body>
+</html>

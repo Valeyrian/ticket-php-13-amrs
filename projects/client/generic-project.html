@@ -1,0 +1,497 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./generic-project.css" />
+    <title>Projet - Refonte Site Web - Vector</title>
+    <script src="../../js/theme.js"></script>
+  </head>
+
+  <body class="oswald-font1 role-client">
+    <header class="dashboard-header">
+      <div class="header-container">
+        <div class="logo-section">
+          <a href="/index.html"
+            ><img id="logoH" src="/assets/logo.png" alt="Logo du site"
+          /></a>
+          <a href="/index.html"
+            ><img src="/assets/name.png" alt="Logo du site"
+          /></a>
+        </div>
+
+        <div class="header-separator"></div>
+
+        <h1 class="dashboard-title">Détail du Projet</h1>
+
+        <nav class="header-nav">
+          <a href="/dashboard/client/dashboard.html" class="nav-btn">
+            Dashboard
+          </a>
+          <a href="/projects/client/project-manager.html" class="nav-btn">
+            Mes Projets
+          </a>
+          <a href="/tickets/client/ticket-manager.html" class="nav-btn">
+            Mes Tickets
+          </a>
+          <a href="/contrats/client/contrat-manager.html" class="nav-btn">
+            Mes Contrats
+          </a>
+        </nav>
+
+        <div class="profile-info">
+          <img
+            src="/assets/account.png"
+            alt="Photo de profil"
+            class="header-profile-pic"
+          />
+          <div class="profile-text">
+            <span class="profile-name">Marie Leclerc</span>
+            <span class="profile-role">Client</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="project-detail">
+        <!-- En-tête du projet -->
+        <div class="project-header-section">
+          <div class="project-title-block">
+            <div class="project-id">#P001</div>
+            <h2 class="project-name">Refonte Site Web</h2>
+            <div class="project-status-badge active">Actif</div>
+          </div>
+          <div class="project-actions">
+            <button class="btn-contract">
+              <img src="/assets/contrat.png" alt="contrat" /> Voir le contrat
+            </button>
+            <button class="btn-validate">Tickets à valider (2)</button>
+          </div>
+        </div>
+
+        <!-- Alerte contrat -->
+        <div class="alert-box warning">
+          <div class="alert-icon">
+            <img src="/assets/avertissement.png" alt="attention" />
+          </div>
+          <div class="alert-content">
+            <strong>Attention:</strong> Vous avez consommé 45% de vos heures
+            disponibles. Il reste <strong>27.5h</strong> sur votre contrat
+            initial.
+          </div>
+        </div>
+
+        <!-- Informations principales -->
+        <div class="project-info-grid">
+          <div class="info-card">
+            <h3>Informations générales</h3>
+            <div class="info-row">
+              <span class="info-label">Entreprise:</span>
+              <span class="info-value">Entreprise ABC</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Date de début:</span>
+              <span class="info-value">01 février 2026</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Date de fin prévue:</span>
+              <span class="info-value">31 décembre 2026</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Chef de projet:</span>
+              <span class="info-value">Sophie Dubois</span>
+            </div>
+          </div>
+
+          <div class="info-card contract-card">
+            <h3>Détails du contrat</h3>
+            <div class="info-row">
+              <span class="info-label">Type:</span>
+              <span class="info-value">Forfait 50h</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Heures consommées:</span>
+              <span class="info-value text-warning">22.5h</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Heures restantes:</span>
+              <span class="info-value text-success">27.5h</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Heures en attente:</span>
+              <span class="info-value">5h</span>
+            </div>
+            <div class="contract-progress">
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 45%"></div>
+              </div>
+              <span class="progress-text">45% du forfait consommé</span>
+            </div>
+            <button class="btn-contract-full">
+              <img src="/assets/contrat.png" alt="contrat" /> Voir le contrat
+              complet
+            </button>
+          </div>
+
+          <div class="info-card">
+            <h3>Statistiques du projet</h3>
+            <div class="info-row">
+              <span class="info-label">Tickets ouverts:</span>
+              <span class="info-value">8</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Tickets résolus:</span>
+              <span class="info-value">12</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">À valider:</span>
+              <span class="info-value text-warning">2</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Progression:</span>
+              <span class="info-value text-success">65%</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Description -->
+        <div class="project-section">
+          <h3>Description du projet</h3>
+          <p class="project-description">
+            Refonte complète du site corporate de l'Entreprise ABC. Ce projet
+            inclut la migration vers un nouveau CMS, la refonte graphique
+            complète avec un nouveau design moderne et responsive,
+            l'optimisation SEO, et l'intégration d'un nouveau système de gestion
+            de contenu permettant au client de mettre à jour facilement son
+            site. Le projet comprend également la formation des équipes du
+            client à l'utilisation du nouveau CMS.
+          </p>
+        </div>
+
+        <!-- Équipe -->
+        <div class="project-section">
+          <h3>Équipe assignée</h3>
+          <div class="team-grid">
+            <div class="team-member-card">
+              <div class="member-avatar">SD</div>
+              <div class="member-info">
+                <div class="member-name">Sophie Dubois</div>
+                <div class="member-role">Chef de projet</div>
+                <div class="member-contact">
+                  <span
+                    ><img src="/assets/enveloppe.png" alt="email" />
+                    sophie.dubois@vector.com</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="team-member-card">
+              <div class="member-avatar">JD</div>
+              <div class="member-info">
+                <div class="member-name">Jean Dupont</div>
+                <div class="member-role">Développeur Full-Stack</div>
+                <div class="member-contact">
+                  <span
+                    ><img src="/assets/enveloppe.png" alt="email" />
+                    jean.dupont@vector.com</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="team-member-card">
+              <div class="member-avatar">MC</div>
+              <div class="member-info">
+                <div class="member-name">Marie Curie</div>
+                <div class="member-role">Designer UX/UI</div>
+                <div class="member-contact">
+                  <span
+                    ><img src="/assets/enveloppe.png" alt="email" />
+                    marie.curie@vector.com</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tickets à valider -->
+        <div class="project-section">
+          <div class="section-header">
+            <h3>Tickets en attente de validation</h3>
+            <span class="badge-count">2 tickets</span>
+          </div>
+          <div class="tickets-table-container">
+            <table class="tickets-table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Titre</th>
+                  <th>Assigné à</th>
+                  <th>Type</th>
+                  <th>Temps passé</th>
+                  <th>Résolu le</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="needs-validation">
+                  <td>
+                    <a
+                      href="/tickets/client/generic-ticket.html"
+                      class="ticket-link"
+                      >#100</a
+                    >
+                  </td>
+                  <td class="ticket-title">Configuration serveur mail</td>
+                  <td>
+                    <div class="collaborators-mini">
+                      <div class="avatar-tiny">JD</div>
+                    </div>
+                  </td>
+                  <td><span class="billing-badge inclus">Inclus</span></td>
+                  <td>3h</td>
+                  <td>28 Jan 2026</td>
+                  <td>
+                    <div class="action-buttons">
+                      <button class="btn-view" title="Voir"></button>
+                      <button
+                        class="btn-validate-ticket"
+                        title="Valider"
+                      ></button>
+                    </div>
+                  </td>
+                </tr>
+                <tr class="needs-validation">
+                  <td>
+                    <a
+                      href="/tickets/client/generic-ticket.html"
+                      class="ticket-link"
+                      >#98</a
+                    >
+                  </td>
+                  <td class="ticket-title">Mise en page responsive</td>
+                  <td>
+                    <div class="collaborators-mini">
+                      <div class="avatar-tiny">MC</div>
+                    </div>
+                  </td>
+                  <td><span class="billing-badge inclus">Inclus</span></td>
+                  <td>5.5h</td>
+                  <td>27 Jan 2026</td>
+                  <td>
+                    <div class="action-buttons">
+                      <button class="btn-view" title="Voir"></button>
+                      <button
+                        class="btn-validate-ticket"
+                        title="Valider"
+                      ></button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Tous les tickets du projet -->
+        <div class="project-section">
+          <h3>Tous les tickets du projet</h3>
+          <div class="tickets-table-container">
+            <table class="tickets-table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Titre</th>
+                  <th>Assigné à</th>
+                  <th>Priorité</th>
+                  <th>Statut</th>
+                  <th>Type</th>
+                  <th>Temps</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <a
+                      href="/tickets/client/generic-ticket.html"
+                      class="ticket-link"
+                      >#101</a
+                    >
+                  </td>
+                  <td class="ticket-title">
+                    Problème de connexion utilisateur
+                  </td>
+                  <td>
+                    <div class="collaborators-mini">
+                      <div class="avatar-tiny">JD</div>
+                      <div class="avatar-tiny">MC</div>
+                    </div>
+                  </td>
+                  <td><span class="priority-badge high">Haute</span></td>
+                  <td><span class="status-badge progress">En cours</span></td>
+                  <td><span class="billing-badge inclus">Inclus</span></td>
+                  <td>5h/8h</td>
+                  <td>
+                    <div class="action-buttons">
+                      <button class="btn-view" title="Voir"></button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a
+                      href="/tickets/client/generic-ticket.html"
+                      class="ticket-link"
+                      >#102</a
+                    >
+                  </td>
+                  <td class="ticket-title">Refonte page d'accueil</td>
+                  <td>
+                    <div class="collaborators-mini">
+                      <div class="avatar-tiny">MC</div>
+                    </div>
+                  </td>
+                  <td><span class="priority-badge medium">Moyenne</span></td>
+                  <td><span class="status-badge pending">En attente</span></td>
+                  <td><span class="billing-badge inclus">Inclus</span></td>
+                  <td>3h/5h</td>
+                  <td>
+                    <div class="action-buttons">
+                      <button class="btn-view" title="Voir"></button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a
+                      href="/tickets/client/generic-ticket.html"
+                      class="ticket-link"
+                      >#103</a
+                    >
+                  </td>
+                  <td class="ticket-title">Intégration CMS</td>
+                  <td>
+                    <div class="collaborators-mini">
+                      <div class="avatar-tiny">JD</div>
+                      <div class="avatar-tiny">SD</div>
+                    </div>
+                  </td>
+                  <td><span class="priority-badge high">Haute</span></td>
+                  <td><span class="status-badge progress">En cours</span></td>
+                  <td><span class="billing-badge inclus">Inclus</span></td>
+                  <td>10h/15h</td>
+                  <td>
+                    <div class="action-buttons">
+                      <button class="btn-view" title="Voir"></button>
+                    </div>
+                  </td>
+                </tr>
+                <tr class="validated">
+                  <td>
+                    <a
+                      href="/tickets/client/generic-ticket.html"
+                      class="ticket-link"
+                      >#100</a
+                    >
+                  </td>
+                  <td class="ticket-title">Configuration serveur mail</td>
+                  <td>
+                    <div class="collaborators-mini">
+                      <div class="avatar-tiny">JD</div>
+                    </div>
+                  </td>
+                  <td><span class="priority-badge medium">Moyenne</span></td>
+                  <td><span class="status-badge validated">Validé</span></td>
+                  <td><span class="billing-badge inclus">Inclus</span></td>
+                  <td>3h</td>
+                  <td>
+                    <div class="action-buttons">
+                      <button class="btn-view" title="Voir"></button>
+                    </div>
+                  </td>
+                </tr>
+                <tr class="validated">
+                  <td>
+                    <a
+                      href="/tickets/client/generic-ticket.html"
+                      class="ticket-link"
+                      >#98</a
+                    >
+                  </td>
+                  <td class="ticket-title">Mise en page responsive</td>
+                  <td>
+                    <div class="collaborators-mini">
+                      <div class="avatar-tiny">MC</div>
+                    </div>
+                  </td>
+                  <td><span class="priority-badge low">Basse</span></td>
+                  <td><span class="status-badge validated">Validé</span></td>
+                  <td><span class="billing-badge inclus">Inclus</span></td>
+                  <td>5.5h</td>
+                  <td>
+                    <div class="action-buttons">
+                      <button class="btn-view" title="Voir"></button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Timeline / Historique -->
+        <div class="project-section">
+          <h3>Activité récente</h3>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-date">30 Jan 2026 - 14:30</div>
+              <div class="timeline-content">
+                <div class="timeline-icon"></div>
+                <div class="timeline-text">
+                  <strong>Ticket #103</strong> - Travaux en cours par Jean
+                  Dupont
+                </div>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">29 Jan 2026 - 16:00</div>
+              <div class="timeline-content">
+                <div class="timeline-icon"></div>
+                <div class="timeline-text">
+                  Vous avez validé le <strong>ticket #100</strong>
+                </div>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">28 Jan 2026 - 16:45</div>
+              <div class="timeline-content">
+                <div class="timeline-icon"></div>
+                <div class="timeline-text">
+                  <strong>Ticket #100</strong> marqué comme résolu - En attente
+                  de votre validation
+                </div>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">27 Jan 2026 - 10:15</div>
+              <div class="timeline-content">
+                <div class="timeline-icon">
+                  <img src="/assets/contrat.png" alt="contrat" />
+                </div>
+                <div class="timeline-text">
+                  Consommation du contrat : <strong>22.5h</strong> utilisées
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 Vector - Tous droits réservés</p>
+    </footer>
+  </body>
+</html>

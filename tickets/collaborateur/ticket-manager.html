@@ -1,0 +1,537 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./ticket-manager.css" />
+    <title>Tickets - Vector</title>
+    <script src="../../js/theme.js"></script>
+  </head>
+
+  <body class="oswald-font1 role-collaborateur">
+    <header class="dashboard-header">
+      <div class="header-container">
+        <div class="logo-section">
+          <a href="/index.html"
+            ><img id="logoH" src="/assets/logo.png" alt="Logo du site"
+          /></a>
+          <a href="/index.html"
+            ><img src="/assets/name.png" alt="Logo du site"
+          /></a>
+        </div>
+
+        <div class="header-separator"></div>
+
+        <h1 class="dashboard-title">Tickets</h1>
+
+        <nav class="header-nav">
+          <a href="/dashboard/collaborateur/dashboard.html" class="nav-btn">
+            Dashboard
+          </a>
+          <a
+            href="/projects/collaborateur/project-manager.html"
+            class="nav-btn"
+          >
+            Projets
+          </a>
+        </nav>
+
+        <div class="profile-info">
+          <img
+            src="/assets/account.png"
+            alt="Photo de profil"
+            class="header-profile-pic"
+          />
+          <div class="profile-text">
+            <span class="profile-name">Jean Dupont</span>
+            <span class="profile-role">Collaborateur</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="tickets-manager">
+        <div class="tickets-header">
+          <h2>Gestion des Tickets</h2>
+          <button class="cta-button">+ Nouveau Ticket</button>
+        </div>
+
+        <div class="filters-section">
+          <div class="filter-group">
+            <label for="sort-select">Trier par:</label>
+            <select id="sort-select" class="filter-select">
+              <option value="date">Date</option>
+              <option value="priority">Priorité</option>
+              <option value="status">Statut</option>
+              <option value="time">Temps passé</option>
+              <option value="time"></option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label class="checkbox-label">
+              <input
+                type="checkbox"
+                id="show-completed"
+                class="filter-checkbox"
+              />
+              <span>Afficher les tickets terminés</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="table-container">
+          <table class="tickets-management-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Titre</th>
+                <th>Projet</th>
+                <th>Description</th>
+                <th>Statut</th>
+                <th>Priorité</th>
+                <th>Temps Estimé</th>
+                <th>Temps Passé</th>
+                <th>Collaborateurs</th>
+                <th>Facturation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Ticket 1 -->
+              <tr>
+                <td>
+                  <a href="./generic-ticket.html" class="ticket-link">#101</a>
+                </td>
+                <td>
+                  <a
+                    href="./generic-ticket.html"
+                    class="ticket-link ticket-title"
+                    >Problème de connexion utilisateur</a
+                  >
+                </td>
+                <td>
+                  <span class="project-badge">Projet A - Refonte Site Web</span>
+                </td>
+                <td class="description-cell">
+                  Les utilisateurs ne peuvent pas se connecter après la mise à
+                  jour du système d'authentification
+                </td>
+                <td>
+                  <select class="status-select status-progress">
+                    <option value="progress" selected>En cours</option>
+                    <option value="pending">En attente</option>
+                    <option value="urgent">Urgent</option>
+                    <option value="review">En révision</option>
+                    <option value="completed">Terminé</option>
+                  </select>
+                </td>
+                <td>
+                  <select class="priority-select priority-high">
+                    <option value="high" selected>Haute</option>
+                    <option value="medium">Moyenne</option>
+                    <option value="low">Basse</option>
+                  </select>
+                </td>
+                <td class="time-cell">8h</td>
+                <td class="time-cell">
+                  <div class="time-input-group">
+                    <span>3h</span>
+                  </div>
+                </td>
+                <td>
+                  <div class="collaborators-cell">
+                    <div class="avatar small" title="Jean Dupont">JD</div>
+                    <div class="avatar small" title="Marie Curie">MC</div>
+                  </div>
+                </td>
+                <td>
+                  <span class="billing-badge billing-facturable"
+                    >Facturable</span
+                  >
+                </td>
+              </tr>
+
+              <!-- Ticket 2 -->
+              <tr>
+                <td>
+                  <a href="./generic-ticket.html" class="ticket-link">#102</a>
+                </td>
+                <td>
+                  <a
+                    href="./generic-ticket.html"
+                    class="ticket-link ticket-title"
+                    >Erreur 404 sur la page d'accueil</a
+                  >
+                </td>
+                <td>
+                  <span class="project-badge">Projet A - Refonte Site Web</span>
+                </td>
+                <td class="description-cell">
+                  La page d'accueil retourne une erreur 404 pour certains
+                  utilisateurs
+                </td>
+                <td>
+                  <select class="status-select status-pending">
+                    <option value="progress">En cours</option>
+                    <option value="pending" selected>En attente</option>
+                    <option value="urgent">Urgent</option>
+                    <option value="review">En révision</option>
+                    <option value="completed">Terminé</option>
+                  </select>
+                </td>
+                <td>
+                  <select class="priority-select priority-medium">
+                    <option value="high">Haute</option>
+                    <option value="medium" selected>Moyenne</option>
+                    <option value="low">Basse</option>
+                  </select>
+                </td>
+                <td class="time-cell">4h</td>
+                <td class="time-cell">
+                  <div class="time-input-group">
+                    <span>3h</span>
+                  </div>
+                </td>
+                <td>
+                  <div class="collaborators-cell">
+                    <div class="avatar small" title="Paul Martin">PM</div>
+                  </div>
+                </td>
+                <td>
+                  <span class="billing-badge billing-inclus">Inclus</span>
+                </td>
+              </tr>
+
+              <!-- Ticket 3 -->
+              <tr>
+                <td>
+                  <a href="./generic-ticket.html" class="ticket-link">#103</a>
+                </td>
+                <td>
+                  <a
+                    href="./generic-ticket.html"
+                    class="ticket-link ticket-title"
+                    >Mise à jour du profil utilisateur</a
+                  >
+                </td>
+                <td>
+                  <span class="project-badge">Projet B - App Mobile</span>
+                </td>
+                <td class="description-cell">
+                  Ajouter la possibilité de modifier la photo de profil et les
+                  informations personnelles
+                </td>
+                <td>
+                  <select class="status-select status-progress">
+                    <option value="progress" selected>En cours</option>
+                    <option value="pending">En attente</option>
+                    <option value="urgent">Urgent</option>
+                    <option value="review">En révision</option>
+                    <option value="completed">Terminé</option>
+                  </select>
+                </td>
+                <td>
+                  <select class="priority-select priority-low">
+                    <option value="high">Haute</option>
+                    <option value="medium">Moyenne</option>
+                    <option value="low" selected>Basse</option>
+                  </select>
+                </td>
+                <td class="time-cell">6h</td>
+                <td class="time-cell">
+                  <div class="time-input-group">
+                    <span>6h</span>
+                    <button class="add-time-btn" title="Ajouter du temps">
+                      +
+                    </button>
+                  </div>
+                </td>
+                <td>
+                  <div class="collaborators-cell">
+                    <div class="avatar small" title="Sophie Dubois">SD</div>
+                    <div class="avatar small" title="Luc Bernard">LB</div>
+                    <div class="avatar small" title="Emma Laurent">EL</div>
+                  </div>
+                </td>
+                <td>
+                  <span class="billing-badge billing-facturable"
+                    >Facturable</span
+                  >
+                </td>
+              </tr>
+
+              <!-- Ticket 4 -->
+              <tr>
+                <td>
+                  <a href="./generic-ticket.html" class="ticket-link">#104</a>
+                </td>
+                <td>
+                  <a
+                    href="./generic-ticket.html"
+                    class="ticket-link ticket-title"
+                    >Bug de synchronisation base de données</a
+                  >
+                </td>
+                <td>
+                  <span class="project-badge">Projet C - Migration Cloud</span>
+                </td>
+                <td class="description-cell">
+                  Les données ne se synchronisent pas correctement entre les
+                  serveurs
+                </td>
+                <td>
+                  <select class="status-select status-urgent">
+                    <option value="progress">En cours</option>
+                    <option value="pending">En attente</option>
+                    <option value="urgent" selected>Urgent</option>
+                    <option value="review">En révision</option>
+                    <option value="completed">Terminé</option>
+                  </select>
+                </td>
+                <td>
+                  <select class="priority-select priority-high">
+                    <option value="high" selected>Haute</option>
+                    <option value="medium">Moyenne</option>
+                    <option value="low">Basse</option>
+                  </select>
+                </td>
+                <td class="time-cell">10h</td>
+                <td class="time-cell">
+                  <div class="time-input-group">
+                    <span>4h</span>
+                    <button class="add-time-btn" title="Ajouter du temps">
+                      +
+                    </button>
+                  </div>
+                </td>
+                <td>
+                  <div class="collaborators-cell">
+                    <div class="avatar small" title="Jean Dupont">JD</div>
+                    <div class="avatar small" title="Antoine Dubois">AD</div>
+                  </div>
+                </td>
+                <td>
+                  <span class="billing-badge billing-inclus">Inclus</span>
+                </td>
+              </tr>
+
+              <!-- Ticket 5 -->
+              <tr>
+                <td>
+                  <a href="./generic-ticket.html" class="ticket-link">#105</a>
+                </td>
+                <td>
+                  <a
+                    href="./generic-ticket.html"
+                    class="ticket-link ticket-title"
+                    >Optimisation des performances</a
+                  >
+                </td>
+                <td>
+                  <span class="project-badge">Projet B - App Mobile</span>
+                </td>
+                <td class="description-cell">
+                  Améliorer les temps de chargement des pages et optimiser les
+                  requêtes SQL
+                </td>
+                <td>
+                  <select class="status-select status-review">
+                    <option value="progress">En cours</option>
+                    <option value="pending">En attente</option>
+                    <option value="urgent">Urgent</option>
+                    <option value="review" selected>En révision</option>
+                    <option value="completed">Terminé</option>
+                  </select>
+                </td>
+                <td>
+                  <select class="priority-select priority-medium">
+                    <option value="high">Haute</option>
+                    <option value="medium" selected>Moyenne</option>
+                    <option value="low">Basse</option>
+                  </select>
+                </td>
+                <td class="time-cell">12h</td>
+                <td class="time-cell">
+                  <div class="time-input-group">
+                    <span>12h</span>
+                    <button class="add-time-btn" title="Ajouter du temps">
+                      +
+                    </button>
+                  </div>
+                </td>
+                <td>
+                  <div class="collaborators-cell">
+                    <div class="avatar small" title="Claire Martin">CM</div>
+                    <div class="avatar small" title="Thomas Petit">TP</div>
+                  </div>
+                </td>
+                <td>
+                  <span class="billing-badge billing-facturable"
+                    >Facturable</span
+                  >
+                </td>
+              </tr>
+
+              <!-- Ticket 6 -->
+              <tr>
+                <td>
+                  <a href="./generic-ticket.html" class="ticket-link">#106</a>
+                </td>
+                <td>
+                  <a
+                    href="./generic-ticket.html"
+                    class="ticket-link ticket-title"
+                    >Ajout fonctionnalité export PDF</a
+                  >
+                </td>
+                <td>
+                  <span class="project-badge">Projet A - Refonte Site Web</span>
+                </td>
+                <td class="description-cell">
+                  Permettre l'export des rapports et factures en format PDF
+                </td>
+                <td>
+                  <select class="status-select status-completed">
+                    <option value="progress">En cours</option>
+                    <option value="pending">En attente</option>
+                    <option value="urgent">Urgent</option>
+                    <option value="review">En révision</option>
+                    <option value="completed" selected>Terminé</option>
+                  </select>
+                </td>
+                <td>
+                  <select class="priority-select priority-low">
+                    <option value="high">Haute</option>
+                    <option value="medium">Moyenne</option>
+                    <option value="low" selected>Basse</option>
+                  </select>
+                </td>
+                <td class="time-cell">15h</td>
+                <td class="time-cell">
+                  <div class="time-input-group">
+                    <span>543h</span>
+                    <button class="add-time-btn" title="Ajouter du temps">
+                      +
+                    </button>
+                  </div>
+                </td>
+                <td>
+                  <div class="collaborators-cell">
+                    <div class="avatar small" title="Marie Curie">MC</div>
+                  </div>
+                </td>
+                <td>
+                  <span class="billing-badge billing-inclus">Inclus</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 Notre Site Web. Tous droits réservés - Vector</p>
+    </footer>
+
+    <!-- Modal Nouveau Ticket -->
+    <div class="modal-overlay" id="modal-ticket-overlay">
+      <div class="modal" id="add-ticket-modal">
+        <div class="modal-header">
+          <h2>Nouveau Ticket</h2>
+          <button class="modal-close" id="close-ticket-modal">&times;</button>
+        </div>
+        <form id="add-ticket-form" class="modal-form">
+          <div class="form-section">
+            <h3>Informations du Ticket</h3>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="ticket-title">Titre *</label>
+                <input
+                  type="text"
+                  id="ticket-title"
+                  name="ticketTitle"
+                  required
+                  placeholder="Ex: Intégration module authentification"
+                />
+              </div>
+              <div class="form-group">
+                <label for="ticket-priority">Priorité *</label>
+                <select id="ticket-priority" name="ticketPriority" required>
+                  <option value="">Sélectionner</option>
+                  <option value="low">Basse</option>
+                  <option value="medium" selected>Moyenne</option>
+                  <option value="high">Haute</option>
+                  <option value="urgent">Urgente</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="ticket-description">Description *</label>
+              <textarea
+                id="ticket-description"
+                name="ticketDescription"
+                rows="4"
+                required
+                placeholder="Décrivez le ticket en détail..."
+              ></textarea>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <h3>Classification</h3>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="ticket-project">Projet *</label>
+                <select id="ticket-project" name="projectId" required>
+                  <option value="">Sélectionner un projet</option>
+                  <option value="p001">Projet A - Refonte Site Web</option>
+                  <option value="p002">Projet B - Application Mobile</option>
+                  <option value="p003">Projet C - Migration Cloud</option>
+                  <option value="p004">Projet D - Plateforme E-commerce</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <h3>Planning</h3>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="ticket-estimated-hours">Heures estimées</label>
+                <input
+                  type="number"
+                  id="ticket-estimated-hours"
+                  name="estimatedHours"
+                  min="0"
+                  step="0.5"
+                  placeholder="Ex: 4"
+                />
+                <small class="form-help-text"
+                  >Estimation du temps nécessaire</small
+                >
+              </div>
+              <div class="form-group">
+                <label for="ticket-due-date">Date d'échéance souhaitée</label>
+                <input type="date" id="ticket-due-date" name="dueDate" />
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn-cancel" id="cancel-ticket-modal">
+              Annuler
+            </button>
+            <button type="submit" class="btn-submit">Créer le ticket</button>
+            <div class="form-error" id="ticket-form-error">
+              Veuillez remplir tous les champs obligatoires.
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="../../js/form-validation.js"></script>
+    <script src="./ticket-manager.js"></script>
+  </body>
+</html>

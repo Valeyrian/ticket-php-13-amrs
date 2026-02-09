@@ -1,0 +1,593 @@
+@import url('../../variables.css');
+
+/* Role: Client */
+:root { /* Variables héritées de variables.css */ }
+
+
+/* Styles ticket manager client - Vue lecture seule avec validation */
+/* font */
+.oswald-font1 {
+  font-family: "Oswald", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 120px;
+}
+
+body {
+    background-color: var(--bg-dark);
+    margin: 0;
+    padding: 0;
+}
+
+/* ====== HEADER ====== */
+.dashboard-header {
+    background-color: var(--bg-dark);
+    border-bottom: 2px solid var(--border-light);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 15px 30px;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1800px;
+    margin: 0 auto;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-section img {
+    height: 50px;
+}
+
+.logo-section #logoH {
+    width: 60px;
+    height: auto;
+}
+
+.header-separator {
+    width: 2px;
+    height: 40px;
+    background-color: var(--border-medium);
+    margin: 0 20px;
+}
+
+.dashboard-title {
+    color: var(--text-light);
+    font-size: 38px;
+    font-weight: bold;
+    margin: 0;
+    flex: 1;
+    padding-left: 30px;
+}
+
+.header-nav {
+    display: flex;
+    gap: 15px;
+    flex: 1;
+    justify-content: right;
+    margin: 0 30px;
+}
+
+.nav-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background-color: var(--bg-card);
+    color: var(--text-light);
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.nav-btn:hover {
+    background-color: var(--primary-color);
+
+}
+
+.nav-btn .badge {
+    background-color: var(--danger);
+    color: var(--text-light);
+    font-size: 11px;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-weight: bold;
+}
+
+.validation-badge-nav {
+    background-color: var(--warning);
+}
+
+.profile-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.header-profile-pic {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 2px solid var(--primary-color);
+    object-fit: cover;
+}
+
+.profile-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-text .profile-name {
+    color: var(--text-light);
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.profile-text .profile-role {
+    color: var(--primary-color);
+    font-size: 13px;
+}
+
+/* Main content */
+main {
+    max-width: 1800px;
+    margin: 0 auto;
+    padding: 30px;
+    min-height: calc(100vh - 150px);
+}
+
+/* Tickets Manager */
+.tickets-manager {
+    width: 100%;
+}
+
+.tickets-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.tickets-header h2 {
+    color: var(--text-light);
+    font-size: 32px;
+    margin: 0;
+}
+
+.header-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.tickets-count {
+    color: var(--primary-color);
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* Filters Section */
+.filters-section {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 25px;
+    padding: 20px;
+    background-color: var(--bg-dark);
+    border: 2px solid var(--bg-card);
+    border-radius: 12px;
+    flex-wrap: wrap;
+}
+
+.filter-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.filter-group label {
+    color: var(--text-gray);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.filter-select {
+    padding: 8px 16px;
+    background-color: var(--bg-card);
+    border: 1px solid var(--primary-color);
+    border-radius: 6px;
+    color: var(--text-light);
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-select:focus {
+    outline: none;
+    border-color: var(--primary-dark);
+    box-shadow: 0 0 0 2px rgba(155, 89, 182, 0.2);
+}
+
+/* Table */
+.table-container {
+    overflow-x: auto;
+    border-radius: 12px;
+    border: 2px solid var(--bg-card);
+}
+
+.tickets-management-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background-color: var(--bg-dark);
+}
+
+.tickets-management-table thead {
+    background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+}
+
+.tickets-management-table th {
+    padding: 18px 15px;
+    text-align: left;
+    color: var(--primary-color);
+    font-weight: bold;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid var(--primary-color);
+    position: sticky;
+    top: 0;
+    background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+}
+
+.tickets-management-table tbody tr {
+    transition: all 0.3s ease;
+    border-bottom: 1px solid var(--bg-card);
+}
+
+.tickets-management-table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.tickets-management-table tbody tr:hover {
+    background-color: rgba(155, 89, 182, 0.1);
+}
+
+.tickets-management-table tbody tr.validation-required {
+    background-color: rgba(255, 184, 34, 0.05);
+    border-left: 4px solid var(--warning);
+}
+
+.tickets-management-table tbody tr.validation-rejected {
+    background-color: rgba(255, 71, 87, 0.05);
+    border-left: 4px solid var(--danger);
+}
+
+.tickets-management-table td {
+    padding: 15px;
+    color: var(--text-gray);
+    vertical-align: middle;
+}
+
+.ticket-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.ticket-link:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+}
+
+.ticket-title {
+    color: var(--text-light);
+}
+
+.project-badge {
+    display: inline-block;
+    background-color: rgba(155, 89, 182, 0.2);
+    color: var(--primary-color);
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.description-cell {
+    max-width: 250px;
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.4;
+}
+
+.status-badge {
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.status-badge.status-progress {
+    background-color: rgba(52, 152, 219, 0.2);
+    color: var(--status-open);
+}
+
+.status-badge.status-pending {
+    background-color: rgba(255, 184, 34, 0.2);
+    color: var(--warning);
+}
+
+.status-badge.status-completed {
+    background-color: rgba(46, 204, 113, 0.2);
+    color: var(--success);
+}
+
+.status-badge.status-validate {
+    background-color: rgba(155, 89, 182, 0.2);
+    color: var(--primary-color);
+}
+
+.status-badge.status-refused {
+    background-color: rgba(255, 71, 87, 0.2);
+    color: var(--danger);
+}
+
+.priority-badge {
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: inline-block;
+}
+
+.priority-badge.high {
+    background-color: rgba(255, 71, 87, 0.2);
+    color: var(--priority-high);
+}
+
+.priority-badge.medium {
+    background-color: rgba(255, 184, 34, 0.2);
+    color: var(--warning);
+}
+
+.priority-badge.low {
+    background-color: rgba(84, 197, 177, 0.2);
+    color: var(--status-progress);
+}
+
+.billing-badge {
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.billing-badge.billing-inclus {
+    background-color: rgba(84, 197, 177, 0.2);
+    color: var(--status-progress);
+}
+
+.billing-badge.billing-facturable {
+    background-color: rgba(255, 184, 34, 0.2);
+    color: var(--warning);
+}
+
+.time-cell {
+    text-align: center;
+    font-weight: 600;
+    color: var(--text-light);
+}
+
+.overtime-info {
+    display: block;
+    font-size: 11px;
+    color: var(--warning);
+    margin-top: 4px;
+}
+
+.validation-status {
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.validation-status.pending {
+    background-color: rgba(255, 184, 34, 0.2);
+    color: var(--warning);
+}
+
+.validation-status.validated {
+    background-color: rgba(46, 204, 113, 0.2);
+    color: var(--success);
+}
+
+.validation-status.rejected {
+    background-color: rgba(255, 71, 87, 0.2);
+    color: var(--danger);
+}
+
+.validation-status.na {
+    background-color: rgba(119, 119, 119, 0.2);
+    color: var(--text-muted);
+}
+
+.action-buttons {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-view {
+    padding: 8px 16px;
+    background-color: rgba(155, 89, 182, 0.2);
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.btn-view:hover {
+    background-color: rgba(155, 89, 182, 0.3);
+}
+
+.btn-validate-mini,
+.btn-reject-mini {
+    padding: 6px 10px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-validate-mini {
+    background-color: rgba(46, 204, 113, 0.2);
+    color: var(--success);
+}
+
+.btn-validate-mini:hover {
+    background-color: rgba(46, 204, 113, 0.3);
+}
+
+.btn-reject-mini {
+    background-color: rgba(255, 71, 87, 0.2);
+    color: var(--danger);
+}
+
+.btn-reject-mini:hover {
+    background-color: rgba(255, 71, 87, 0.3);
+}
+
+/* Quick Stats */
+.quick-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.stat-item {
+    background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+    border: 2px solid var(--primary-color);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+}
+
+.stat-number {
+    display: block;
+    color: var(--primary-color);
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.stat-label {
+    display: block;
+    color: var(--text-gray);
+    font-size: 14px;
+}
+
+/* Footer */
+footer {
+    background-color: var(--bg-dark);
+    border-top: 2px solid var(--border-light);
+    padding: 20px;
+    text-align: center;
+}
+
+footer p {
+    color: var(--text-gray);
+    margin: 0;
+    font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 1400px) {
+    .tickets-management-table {
+        font-size: 13px;
+    }
+
+    .quick-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .header-nav {
+        display: none;
+    }
+
+    .dashboard-title {
+        font-size: 24px;
+    }
+
+    .filters-section {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .filter-group {
+        width: 100%;
+    }
+
+    .quick-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+    }
+}
+
+/* Icônes inline */
+.inline-icon {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    margin-right: 5px;
+    display: inline-block;
+}
+
+h3 .inline-icon {
+    width: 24px;
+    height: 24px;
+}
+
+.btn-view .inline-icon {
+    width: 16px;
+    height: 16px;
+    margin: 0;
+}
+
+.alert-icon .inline-icon {
+    width: 32px;
+    height: 32px;
+    margin: 0;
+}

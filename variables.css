@@ -1,0 +1,200 @@
+/* ===============================================
+   FICHIER DE VARIABLES GLOBALES - VECTOR
+   Toutes les couleurs et variables de design
+   Gestion du mode clair/sombre
+   =============================================== */
+
+/* ====== VARIABLES COMMUNES (non affectées par le thème) ====== */
+:root {
+    /* Espacements */
+    --spacing-xs: 5px;
+    --spacing-sm: 10px;
+    --spacing-md: 15px;
+    --spacing-lg: 20px;
+    --spacing-xl: 30px;
+    --spacing-2xl: 40px;
+    
+    /* Tailles de police */
+    --font-xs: 11px;
+    --font-sm: 13px;
+    --font-md: 15px;
+    --font-lg: 18px;
+    --font-xl: 24px;
+    --font-2xl: 32px;
+    --font-3xl: 38px;
+    --font-4xl: 48px;
+    
+    /* Rayons de bordure */
+    --radius-small: 6px;
+    --radius-medium: 8px;
+    --radius-large: 12px;
+    
+    /* Transitions */
+    --transition-fast: 0.15s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+}
+
+/* ====== MODE SOMBRE (par défaut) ====== */
+:root,
+:root[data-theme="dark"] {
+    /* Couleurs de fond */
+    --bg-dark: #2a2b2e;
+    --bg-primary: #2a2b2e;
+    --bg-card: #3a3b3e;
+    --bg-secondary: #353740;
+    --bg-gradient-start: #3a3b3e;
+    --bg-gradient-end: #2f3033;
+    --bg-hover: rgba(255, 255, 255, 0.05);
+    --bg-input: #353740;
+    --bg-input-focus: #2f3035;
+    
+    /* Couleurs de texte */
+    --text-light: #ffffff;
+    --text-primary: #ffffff;
+    --text-gray: #cccccc;
+    --text-secondary: #cccccc;
+    --text-muted: #888888;
+    --text-placeholder: #808080;
+    --text-help: #b0b0b0;
+    
+    /* Bordures */
+    --border-light: rgba(255, 255, 255, 0.1);
+    --border-medium: rgba(255, 255, 255, 0.2);
+    --border-dark: rgba(255, 255, 255, 0.3);
+    --border-color: #4a4b52;
+    --border-focus: #666666;
+    
+    /* États généraux */
+    --status-active: #2ecc71;
+    --status-completed: #2ecc71;
+    --status-pending: #ffc107;
+    --status-inactive: #95a5a6;
+    --status-archived: #95a5a6;
+    --status-expired: #95a5a6;
+    
+    /* Alertes */
+    --alert-success: #2ecc71;
+    --alert-warning: #ffc107;
+    --alert-danger: #ff4757;
+    --alert-error: #ff4757;
+    --alert-info: #3498db;
+    
+    /* Ombres */
+    --shadow-small: 0 2px 8px rgba(0, 0, 0, 0.3);
+    --shadow-medium: 0 4px 16px rgba(0, 0, 0, 0.4);
+    --shadow-large: 0 8px 32px rgba(0, 0, 0, 0.5);
+    
+    /* Scrollbar */
+    --scrollbar-thumb: #4a4b52;
+    --scrollbar-thumb-hover: #5a5b62;
+    --scrollbar-track: #2a2b2e;
+}
+
+/* ====== MODE CLAIR ====== */
+:root[data-theme="light"] {
+    /* Couleurs de fond */
+    --bg-dark: #ffffff;
+    --bg-primary: #ffffff;
+    --bg-card: #f8f9fa;
+    --bg-secondary: #f0f1f3;
+    --bg-gradient-start: #f8f9fa;
+    --bg-gradient-end: #e9ecef;
+    --bg-hover: rgba(0, 0, 0, 0.05);
+    --bg-input: #ffffff;
+    --bg-input-focus: #f9f9f9;
+    
+    /* Couleurs de texte */
+    --text-light: #1a1a1a;
+    --text-primary: #1a1a1a;
+    --text-gray: #4a4a4a;
+    --text-secondary: #666666;
+    --text-muted: #888888;
+    --text-placeholder: #999999;
+    --text-help: #666666;
+    
+    /* Bordures */
+    --border-light: rgba(0, 0, 0, 0.1);
+    --border-medium: rgba(0, 0, 0, 0.2);
+    --border-dark: rgba(0, 0, 0, 0.3);
+    --border-color: #d0d0d0;
+    --border-focus: #a0a0a0;
+    
+    /* États généraux (plus foncés en mode clair) */
+    --status-active: #28a745;
+    --status-completed: #28a745;
+    --status-pending: #ffa500;
+    --status-inactive: #6c757d;
+    --status-archived: #6c757d;
+    --status-expired: #6c757d;
+    
+    /* Alertes (plus foncées en mode clair) */
+    --alert-success: #28a745;
+    --alert-warning: #ff9800;
+    --alert-danger: #dc3545;
+    --alert-error: #dc3545;
+    --alert-info: #2980b9;
+    
+    /* Ombres (plus légères en mode clair) */
+    --shadow-small: 0 2px 8px rgba(0, 0, 0, 0.08);
+    --shadow-medium: 0 4px 16px rgba(0, 0, 0, 0.12);
+    --shadow-large: 0 8px 32px rgba(0, 0, 0, 0.15);
+    
+    /* Scrollbar */
+    --scrollbar-thumb: #c0c0c0;
+    --scrollbar-thumb-hover: #a0a0a0;
+    --scrollbar-track: #f5f5f5;
+}
+
+/* ====== COULEURS SPÉCIFIQUES PAR RÔLE ====== */
+
+/* ADMIN - VERT */
+body.role-admin,
+.role-admin {
+    --primary-color: #54C5B1;
+    --primary-dark: #3da896;
+    --primary-light: #6fd4c2;
+    --primary-hover: #3da896;
+}
+
+/* COLLABORATEUR - ORANGE */
+body.role-collaborateur,
+.role-collaborateur {
+    --primary-color: #ff6b35;
+    --primary-dark: #e55a2b;
+    --primary-light: #ff8c5f;
+    --primary-hover: #e55a2b;
+}
+
+/* CLIENT - BLEU */
+body.role-client,
+.role-client {
+    --primary-color: #3498db;
+    --primary-dark: #2980b9;
+    --primary-light: #5dade2;
+    --primary-hover: #2980b9;
+}
+
+/* ====== AJUSTEMENTS DES COULEURS PRIMAIRES EN MODE CLAIR ====== */
+
+/* En mode clair, les couleurs primaires sont légèrement plus foncées pour le contraste */
+:root[data-theme="light"] body.role-admin,
+:root[data-theme="light"] .role-admin {
+    --primary-color: #3da896;
+    --primary-dark: #2d8f7e;
+    --primary-light: #54C5B1;
+}
+
+:root[data-theme="light"] body.role-collaborateur,
+:root[data-theme="light"] .role-collaborateur {
+    --primary-color: #e55a2b;
+    --primary-dark: #d34919;
+    --primary-light: #ff6b35;
+}
+
+:root[data-theme="light"] body.role-client,
+:root[data-theme="light"] .role-client {
+    --primary-color: #2980b9;
+    --primary-dark: #1f6fa0;
+    --primary-light: #3498db;
+}

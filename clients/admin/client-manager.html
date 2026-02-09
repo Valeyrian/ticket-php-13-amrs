@@ -1,0 +1,531 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./client-manager.css" />
+    <title>Gestion des Clients - Vector</title>
+    <script src="../../js/theme.js"></script>
+  </head>
+
+  <body class="oswald-font1 role-admin">
+    <header class="dashboard-header">
+      <div class="header-container">
+        <div class="logo-section">
+          <a href="/index.html"
+            ><img id="logoH" src="/assets/logo.png" alt="Logo du site"
+          /></a>
+          <a href="/index.html"
+            ><img src="/assets/name.png" alt="Logo du site"
+          /></a>
+        </div>
+
+        <div class="header-separator"></div>
+
+        <h1 class="dashboard-title">Gestion des Clients</h1>
+
+        <nav class="header-nav">
+          <a href="/dashboard/admin/dashboard.html" class="nav-btn"
+            >Dashboard</a
+          >
+          <a href="/projects/admin/project-manager.html" class="nav-btn"
+            >Projets</a
+          >
+          <a href="/tickets/admin/ticket-manager.html" class="nav-btn"
+            >Tickets</a
+          >
+          <a href="/utilisateurs/admin/utilisateur-manager.html" class="nav-btn"
+            >Utilisateurs</a
+          >
+          <a href="/contrats/admin/contrat-manager.html" class="nav-btn"
+            >Contrats</a
+          >
+        </nav>
+
+        <div class="profile-info">
+          <img
+            src="/assets/account.png"
+            alt="Photo de profil"
+            class="header-profile-pic"
+          />
+          <div class="profile-text">
+            <span class="profile-name">Admin</span>
+            <span class="profile-role">Administrateur</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="manager-container">
+        <!-- Stats Cards -->
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-icon">
+              <img src="/assets/client.png" alt="clients" />
+            </div>
+            <div class="stat-info">
+              <div class="stat-value">24</div>
+              <div class="stat-label">Clients actifs</div>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">
+              <img src="/assets/contrat.png" alt="contrats" />
+            </div>
+            <div class="stat-info">
+              <div class="stat-value">18</div>
+              <div class="stat-label">Contrats en cours</div>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">
+              <img src="/assets/project.png" alt="projets" />
+            </div>
+            <div class="stat-info">
+              <div class="stat-value">32</div>
+              <div class="stat-label">Projets actifs</div>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">
+              <img src="/assets/account-manager.png" alt="comptes" />
+            </div>
+            <div class="stat-info">
+              <div class="stat-value">67</div>
+              <div class="stat-label">Comptes clients</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Filters and Actions -->
+        <div class="controls-section">
+          <div class="filters">
+            <input
+              type="text"
+              placeholder="Rechercher un client..."
+              class="search-input"
+              id="search-input"
+            />
+            <select class="filter-select" id="status-filter">
+              <option value="">Tous les statuts</option>
+              <option value="actif">Actif</option>
+              <option value="inactif">Inactif</option>
+              <option value="suspendu">Suspendu</option>
+            </select>
+          </div>
+          <button class="btn-add">Nouveau client</button>
+        </div>
+
+        <!-- Clients Table -->
+        <div class="table-container">
+          <table class="clients-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Société</th>
+                <th>Contact principal</th>
+                <th>Comptes</th>
+                <th>Projets</th>
+                <th>Contrats</th>
+                <th>Statut</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <a
+                    href="/clients/admin/generic-client.html"
+                    class="client-link"
+                    >#C001</a
+                  >
+                </td>
+                <td class="company-cell">
+                  <div class="company-info">
+                    <div class="company-logo">EA</div>
+                    <div>
+                      <div class="company-name">Entreprise ABC</div>
+                      <div class="company-size">
+                        Grande entreprise (500+ employés)
+                      </div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class="contact-info">
+                    <div>Marie Leclerc</div>
+                    <div class="contact-detail">marie.leclerc@abc.com</div>
+                  </div>
+                </td>
+                <td><span class="count-badge">4 comptes</span></td>
+                <td><span class="count-badge">3 projets</span></td>
+                <td><span class="count-badge">2 actifs</span></td>
+                <td><span class="status-badge active">Actif</span></td>
+                <td>
+                  <div class="action-buttons">
+                    <button class="btn-edit" title="Modifier">
+                      <img src="/assets/editer.png" alt="modifier" />
+                    </button>
+                    <button class="btn-contracts" title="Contrats">
+                      <img src="/assets/contrat.png" alt="contrats" />
+                    </button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a
+                    href="/clients/admin/generic-client.html"
+                    class="client-link"
+                    >#C002</a
+                  >
+                </td>
+                <td class="company-cell">
+                  <div class="company-info">
+                    <div class="company-logo">TG</div>
+                    <div>
+                      <div class="company-name">TechGlobal Solutions</div>
+                      <div class="company-size">PME (50-250 employés)</div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class="contact-info">
+                    <div>Jean Martin</div>
+                    <div class="contact-detail">j.martin@techglobal.fr</div>
+                  </div>
+                </td>
+                <td><span class="count-badge">2 comptes</span></td>
+                <td><span class="count-badge">2 projets</span></td>
+                <td><span class="count-badge">1 actif</span></td>
+                <td><span class="status-badge active">Actif</span></td>
+                <td>
+                  <div class="action-buttons">
+                    <button class="btn-view" title="Voir"></button>
+                    <button class="btn-edit" title="Modifier">
+                      <img src="/assets/editer.png" alt="modifier" />
+                    </button>
+                    <button class="btn-contracts" title="Contrats">
+                      <img src="/assets/contrat.png" alt="contrats" />
+                    </button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a
+                    href="/clients/admin/generic-client.html"
+                    class="client-link"
+                    >#C003</a
+                  >
+                </td>
+                <td class="company-cell">
+                  <div class="company-info">
+                    <div class="company-logo">FB</div>
+                    <div>
+                      <div class="company-name">FinanceBank Pro</div>
+                      <div class="company-size">
+                        Grande entreprise (500+ employés)
+                      </div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class="contact-info">
+                    <div>Sophie Bernard</div>
+                    <div class="contact-detail">s.bernard@financebank.com</div>
+                  </div>
+                </td>
+                <td><span class="count-badge">6 comptes</span></td>
+                <td><span class="count-badge">4 projets</span></td>
+                <td><span class="count-badge">3 actifs</span></td>
+                <td><span class="status-badge active">Actif</span></td>
+                <td>
+                  <div class="action-buttons">
+                    <button class="btn-view" title="Voir"></button>
+                    <button class="btn-edit" title="Modifier">
+                      <img src="/assets/editer.png" alt="modifier" />
+                    </button>
+                    <button class="btn-contracts" title="Contrats">
+                      <img src="/assets/contrat.png" alt="contrats" />
+                    </button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a
+                    href="/clients/admin/generic-client.html"
+                    class="client-link"
+                    >#C004</a
+                  >
+                </td>
+                <td class="company-cell">
+                  <div class="company-info">
+                    <div class="company-logo">HS</div>
+                    <div>
+                      <div class="company-name">HealthSystem Plus</div>
+                      <div class="company-size">ETI (250-500 employés)</div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class="contact-info">
+                    <div>Dr. Laurent Dupuis</div>
+                    <div class="contact-detail">l.dupuis@healthsystem.fr</div>
+                  </div>
+                </td>
+                <td><span class="count-badge">3 comptes</span></td>
+                <td><span class="count-badge">2 projets</span></td>
+                <td><span class="count-badge">2 actifs</span></td>
+                <td><span class="status-badge active">Actif</span></td>
+                <td>
+                  <div class="action-buttons">
+                    <button class="btn-view" title="Voir"></button>
+                    <button class="btn-edit" title="Modifier">
+                      <img src="/assets/editer.png" alt="modifier" />
+                    </button>
+                    <button class="btn-contracts" title="Contrats">
+                      <img src="/assets/contrat.png" alt="contrats" />
+                    </button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a
+                    href="/clients/admin/generic-client.html"
+                    class="client-link"
+                    >#C005</a
+                  >
+                </td>
+                <td class="company-cell">
+                  <div class="company-info">
+                    <div class="company-logo">CM</div>
+                    <div>
+                      <div class="company-name">CommerceMax</div>
+                      <div class="company-size">PME (50-250 employés)</div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class="contact-info">
+                    <div>Amélie Rousseau</div>
+                    <div class="contact-detail">a.rousseau@commercemax.fr</div>
+                  </div>
+                </td>
+                <td><span class="count-badge">2 comptes</span></td>
+                <td><span class="count-badge">1 projet</span></td>
+                <td><span class="count-badge">1 actif</span></td>
+                <td><span class="status-badge active">Actif</span></td>
+                <td>
+                  <div class="action-buttons">
+                    <button class="btn-view" title="Voir"></button>
+                    <button class="btn-edit" title="Modifier">
+                      <img src="/assets/editer.png" alt="modifier" />
+                    </button>
+                    <button class="btn-contracts" title="Contrats">
+                      <img src="/assets/contrat.png" alt="contrats" />
+                    </button>
+                  </div>
+                </td>
+              </tr>
+              <tr class="inactive-row">
+                <td>
+                  <a
+                    href="/clients/admin/generic-client.html"
+                    class="client-link"
+                    >#C006</a
+                  >
+                </td>
+                <td class="company-cell">
+                  <div class="company-info">
+                    <div class="company-logo">OC</div>
+                    <div>
+                      <div class="company-name">OldCorp Industries</div>
+                      <div class="company-size">
+                        Grande entreprise (500+ employés)
+                      </div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class="contact-info">
+                    <div>Pierre Blanc</div>
+                    <div class="contact-detail">p.blanc@oldcorp.com</div>
+                  </div>
+                </td>
+                <td><span class="count-badge">1 compte</span></td>
+                <td><span class="count-badge">0 projet</span></td>
+                <td><span class="count-badge">0 actif</span></td>
+                <td><span class="status-badge inactive">Inactif</span></td>
+                <td>
+                  <div class="action-buttons">
+                    <button class="btn-view" title="Voir"></button>
+                    <button class="btn-edit" title="Modifier">
+                      <img src="/assets/editer.png" alt="modifier" />
+                    </button>
+                    <button class="btn-contracts" title="Contrats">
+                      <img src="/assets/contrat.png" alt="contrats" />
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination">
+          <button class="page-btn active">1</button>
+          <button class="page-btn">2</button>
+          <button class="page-btn">3</button>
+          <span class="page-dots">...</span>
+          <button class="page-btn">8</button>
+        </div>
+      </div>
+    </main>
+
+    <!-- Modal Nouveau Client (cachée par défaut) -->
+    <div class="modal-overlay" id="modal-overlay">
+      <div class="modal" id="add-client-modal">
+        <div class="modal-header">
+          <h2>Nouveau Client</h2>
+          <button class="modal-close" id="close-modal">&times;</button>
+        </div>
+        <form id="add-client-form" class="modal-form">
+          <div class="form-section">
+            <h3>Informations Société</h3>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="company-name">Nom de la société *</label>
+                <input
+                  type="text"
+                  id="company-name"
+                  name="companyName"
+                  required
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <h3>Contact Principal</h3>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="contact-name">Nom *</label>
+                <input
+                  type="text"
+                  id="contact-name"
+                  name="contactName"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="contact-first-name">Prénom *</label>
+                <input
+                  type="text"
+                  id="contact-first-name"
+                  name="contactFirstName"
+                />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="contact-email">Email *</label>
+                <input
+                  type="email"
+                  id="contact-email"
+                  name="contactEmail"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="contact-phone">Téléphone *</label>
+                <input
+                  type="tel"
+                  id="contact-phone"
+                  name="contactPhone"
+                  required
+                  placeholder="01 23 45 67 89"
+                />
+              </div>
+              <div class="form-group">
+                <label for="contact-password">Mot de pass</label>
+                <input
+                  type="password"
+                  id="contact-password"
+                  name="contactPassword"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <h3>Adresse</h3>
+            <div class="form-group">
+              <label for="address">Adresse complète *</label>
+              <input type="text" id="address" name="address" required />
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="postal-code">Code postal *</label>
+                <input
+                  type="text"
+                  id="postal-code"
+                  name="postalCode"
+                  required
+                  maxlength="5"
+                />
+              </div>
+              <div class="form-group">
+                <label for="city">Ville *</label>
+                <input type="text" id="city" name="city" required />
+              </div>
+              <div class="form-group">
+                <label for="country">Pays *</label>
+                <input
+                  type="text"
+                  id="country"
+                  name="country"
+                  value="France"
+                  required
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <h3>Informations Complémentaires</h3>
+            <div class="form-group">
+              <label for="notes">Notes</label>
+              <textarea
+                id="notes"
+                name="notes"
+                rows="3"
+                placeholder="Informations supplémentaires..."
+              ></textarea>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn-cancel" id="cancel-modal">
+              Annuler
+            </button>
+            <button type="submit" class="btn-submit">Créer le client</button>
+            <div class="form-error" id="form-error">
+              Veuillez remplir tous les champs obligatoires.
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="../../js/form-validation.js"></script>
+    <script src="./client-manager.js"></script>
+    <footer>
+      <p>&copy; 2026 Vector - Tous droits réservés</p>
+    </footer>
+  </body>
+</html>

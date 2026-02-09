@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./generic-utilisateur.css">
+    <title>Mon Profil - Vector</title>
+    <script src="../../js/theme.js"></script>
+</head>
+
+<body class="oswald-font1 role-client">
+    <header class="dashboard-header">
+        <div class="header-container">
+            <div class="logo-section">
+                <a href="/index.html"><img id="logoH" src="/assets/logo.png" alt="Logo du site"></a>
+                <a href="/index.html"><img src="/assets/name.png" alt="Logo du site"></a>
+            </div>
+
+            <div class="header-separator"></div>
+
+            <h1 class="dashboard-title">Mon Profil</h1>
+            
+            <nav class="header-nav">
+                <a href="/dashboard/client/dashboard.html" class="nav-btn">
+                    Dashboard
+                </a>
+                <a href="/projects/client/project-manager.html" class="nav-btn">
+                    Mes Projets
+                </a>
+                <a href="/tickets/client/ticket-manager.html" class="nav-btn">
+                    Mes Tickets
+                </a>
+                <a href="/contrats/client/contrat-manager.html" class="nav-btn">
+                    Mes Contrats
+                </a>
+            </nav>
+
+            <div class="profile-info">
+                <img src="/assets/account.png" alt="Photo de profil" class="header-profile-pic">
+                <div class="profile-text">
+                    <span class="profile-name">Marie Leclerc</span>
+                    <span class="profile-role">Client</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="user-container">
+            <!-- User Header -->
+            <div class="user-header">
+                <div class="header-left">
+                    <div class="user-avatar-large">ML</div>
+                    <div class="user-main-info">
+                        <h2 class="user-fullname">Marie Leclerc</h2>
+                        <div class="user-subtitle">
+                            <span class="user-id">Entreprise ABC</span>
+                            <span class="role-badge client">Client</span>
+                            <span class="status-badge active">Compte actif</span>
+                        </div>
+                        <div class="user-contact">
+                            <span><img src="/assets/enveloppe.png" alt="email" class="inline-icon"> m.leclerc@entreprise-abc.com</span>
+                            <span><img src="/assets/telephone.png" alt="téléphone" class="inline-icon"> +33 6 98 76 54 32</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="header-actions">
+                    <button class="btn-primary" id="editBtn"><img src="/assets/editer.png" alt="modifier" class="inline-icon"> Modifier mes informations</button>
+                    <button class="btn-secondary"><img src="/assets/utilisateur.png" alt="mot de passe" class="inline-icon"> Changer mot de passe</button>
+                </div>
+            </div>
+
+            <!-- Info Grid -->
+            <div class="info-grid">
+                <!-- Informations personnelles -->
+                <div class="info-section editable-section">
+                    <h3 class="section-title">Informations de contact</h3>
+                    <div class="info-list">
+                        <div class="info-item">
+                            <span class="info-label">Nom complet:</span>
+                            <span class="info-value">Marie Leclerc</span>
+                            <input type="text" class="info-input" value="Marie Leclerc" style="display: none;">
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Fonction:</span>
+                            <span class="info-value">Directrice Technique</span>
+                            <input type="text" class="info-input" value="Directrice Technique" style="display: none;">
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Email professionnel:</span>
+                            <span class="info-value">m.leclerc@entreprise-abc.com</span>
+                            <input type="email" class="info-input" value="m.leclerc@entreprise-abc.com" style="display: none;">
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Téléphone direct:</span>
+                            <span class="info-value">+33 6 98 76 54 32</span>
+                            <input type="tel" class="info-input" value="+33 6 98 76 54 32" style="display: none;">
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Téléphone bureau:</span>
+                            <span class="info-value">+33 1 45 67 89 01</span>
+                            <input type="tel" class="info-input" value="+33 1 45 67 89 01" style="display: none;">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Informations entreprise -->
+                <div class="info-section">
+                    <h3 class="section-title">Informations entreprise</h3>
+                    <div class="info-list">
+                        <div class="info-item">
+                            <span class="info-label">Entreprise:</span>
+                            <span class="info-value">Entreprise ABC</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Secteur d'activité:</span>
+                            <span class="info-value">Technologies de l'information</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Taille:</span>
+                            <span class="info-value">150-200 employés</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Adresse:</span>
+                            <span class="info-value">42 Avenue des Champs-Élysées, 75008 Paris</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">SIRET:</span>
+                            <span class="info-value">123 456 789 00012</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Client depuis:</span>
+                            <span class="info-value">Janvier 2025</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Statistiques -->
+                <div class="info-section">
+                    <h3 class="section-title">Mes statistiques</h3>
+                    <div class="stats-cards">
+                        <div class="mini-stat">
+                            <div class="mini-stat-value">3</div>
+                            <div class="mini-stat-label">Contrats actifs</div>
+                        </div>
+                        <div class="mini-stat">
+                            <div class="mini-stat-value">3</div>
+                            <div class="mini-stat-label">Projets en cours</div>
+                        </div>
+                        <div class="mini-stat">
+                            <div class="mini-stat-value">35</div>
+                            <div class="mini-stat-label">Tickets ouverts</div>
+                        </div>
+                        <div class="mini-stat">
+                            <div class="mini-stat-value">250h</div>
+                            <div class="mini-stat-label">Heures souscrites</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Facturation -->
+                <div class="info-section editable-section">
+                    <h3 class="section-title">Informations de facturation</h3>
+                    <div class="info-list">
+                        <div class="info-item">
+                            <span class="info-label">Adresse de facturation:</span>
+                            <span class="info-value">42 Avenue des Champs-Élysées, 75008 Paris</span>
+                            <input type="text" class="info-input" value="42 Avenue des Champs-Élysées, 75008 Paris" style="display: none;">
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Email facturation:</span>
+                            <span class="info-value">compta@entreprise-abc.com</span>
+                            <input type="email" class="info-input" value="compta@entreprise-abc.com" style="display: none;">
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Mode de paiement:</span>
+                            <span class="info-value">Virement bancaire</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Délai de paiement:</span>
+                            <span class="info-value">30 jours</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mes contrats -->
+            <div class="section-card">
+                <h3 class="section-title">Mes contrats actifs</h3>
+                <div class="contracts-list">
+                    <div class="contract-row">
+                        <div class="contract-info">
+                            <a href="/contrats/client/generic-contrat.html" class="contract-link">#C001 - Forfait 50h</a>
+                            <span class="contract-detail">Valide jusqu'au 31/12/2026</span>
+                        </div>
+                        <div class="contract-hours">
+                            <span class="hours-used">22.5h / 50h</span>
+                            <div class="mini-progress-bar">
+                                <div class="mini-progress-fill" style="width: 45%;"></div>
+                            </div>
+                        </div>
+                        <span class="status-badge active">Actif</span>
+                    </div>
+                    <div class="contract-row">
+                        <div class="contract-info">
+                            <a href="/contrats/client/generic-contrat.html" class="contract-link">#C002 - Forfait 80h</a>
+                            <span class="contract-detail">Valide jusqu'au 30/06/2026</span>
+                        </div>
+                        <div class="contract-hours">
+                            <span class="hours-used warning">70h / 80h</span>
+                            <div class="mini-progress-bar">
+                                <div class="mini-progress-fill warning" style="width: 88%;"></div>
+                            </div>
+                        </div>
+                        <span class="status-badge active">Actif</span>
+                    </div>
+                    <div class="contract-row">
+                        <div class="contract-info">
+                            <a href="/contrats/client/generic-contrat.html" class="contract-link">#C003 - Forfait 120h</a>
+                            <span class="contract-detail">Valide jusqu'au 31/01/2027</span>
+                        </div>
+                        <div class="contract-hours">
+                            <span class="hours-used">30h / 120h</span>
+                            <div class="mini-progress-bar">
+                                <div class="mini-progress-fill" style="width: 25%;"></div>
+                            </div>
+                        </div>
+                        <span class="status-badge active">Actif</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mes projets -->
+            <div class="section-card">
+                <h3 class="section-title">Mes projets en cours</h3>
+                <div class="projects-list">
+                    <div class="project-row">
+                        <div class="project-info">
+                            <a href="/projects/client/generic-project.html" class="project-link">#P001 - Refonte Site Web</a>
+                            <span class="project-detail">8 tickets ouverts • 22.5h consommées</span>
+                        </div>
+                        <span class="status-badge active">Actif</span>
+                    </div>
+                    <div class="project-row">
+                        <div class="project-info">
+                            <a href="/projects/client/generic-project.html" class="project-link">#P002 - Application Mobile</a>
+                            <span class="project-detail">12 tickets ouverts • 70h consommées</span>
+                        </div>
+                        <span class="status-badge active">Actif</span>
+                    </div>
+                    <div class="project-row">
+                        <div class="project-info">
+                            <a href="/projects/client/generic-project.html" class="project-link">#P004 - Plateforme E-commerce</a>
+                            <span class="project-detail">15 tickets ouverts • 30h consommées</span>
+                        </div>
+                        <span class="status-badge active">Actif</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Préférences -->
+            <div class="section-card">
+                <h3 class="section-title">Mes préférences</h3>
+                <div class="preferences-grid">
+                    <div class="preference-item">
+                        <div class="preference-label">
+                            <span>Notifications email</span>
+                            <small>Recevoir des notifications par email</small>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <div class="preference-item">
+                        <div class="preference-label">
+                            <span>Alertes tickets</span>
+                            <small>Être notifié des mises à jour de mes tickets</small>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <div class="preference-item">
+                        <div class="preference-label">
+                            <span>Résumé hebdomadaire</span>
+                            <small>Recevoir un résumé de mes projets</small>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <div class="preference-item">
+                        <div class="preference-label">
+                            <span>Alertes contrats</span>
+                            <small>Alertes heures et renouvellement</small>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact support -->
+            <div class="section-card support-section">
+                <h3 class="section-title">Besoin d'aide ?</h3>
+                <p>Notre équipe support est disponible pour vous accompagner.</p>
+                <div class="contact-options">
+                    <div class="contact-option">
+                        <img src="/assets/enveloppe.png" alt="email" class="contact-icon">
+                        <div class="contact-details">
+                            <strong>Email</strong>
+                            <a href="mailto:support@vector.com">support@vector.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-option">
+                        <img src="/assets/telephone.png" alt="téléphone" class="contact-icon">
+                        <div class="contact-details">
+                            <strong>Téléphone</strong>
+                            <a href="tel:+33123456789">+33 1 23 45 67 89</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action buttons (hidden by default, shown in edit mode) -->
+            <div class="action-buttons" id="actionButtons" style="display: none;">
+                <button class="btn-save"><img src="/assets/utilisateur.png" alt="sauvegarder" class="inline-icon"> Sauvegarder les modifications</button>
+                <button class="btn-cancel">Annuler</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Vector - Tous droits réservés</p>
+    </footer>
+
+
+</body>
+
+</html>

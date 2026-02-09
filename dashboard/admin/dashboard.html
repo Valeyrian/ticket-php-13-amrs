@@ -1,0 +1,1167 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./dashboard.css" />
+    <title>Dashboard Admin - Vector</title>
+    <script src="../../js/theme.js"></script>
+  </head>
+
+  <body class="oswald-font1 role-admin">
+    <header class="dashboard-header">
+      <div class="header-container">
+        <div class="logo-section">
+          <a href="/index.html"
+            ><img id="logoH" src="/assets/logo.png" alt="Logo du site"
+          /></a>
+          <a href="/index.html"
+            ><img src="/assets/name.png" alt="Logo du site"
+          /></a>
+        </div>
+
+        <div class="header-separator"></div>
+
+        <h1 class="dashboard-title">Dashboard Admin</h1>
+
+        <nav class="header-nav">
+          <a href="/tickets/admin/ticket-manager.html" class="nav-btn">
+            Tickets
+            <span class="badge">24</span>
+          </a>
+          <a href="/projects/admin/project-manager.html" class="nav-btn">
+            Projets
+          </a>
+          <a
+            href="/utilisateurs/admin/utilisateur-manager.html"
+            class="nav-btn"
+          >
+            Utilisateurs
+          </a>
+          <a href="/contrats/admin/contrat-manager.html" class="nav-btn">
+            Contrats
+          </a>
+          <a href="/clients/admin/client-manager.html" class="nav-btn">
+            Clients
+          </a>
+        </nav>
+
+        <div class="profile-info">
+          <img
+            src="/assets/account.png"
+            alt="Photo de profil"
+            class="header-profile-pic"
+          />
+          <div class="profile-text">
+            <span class="profile-name">Admin Principal</span>
+            <span class="profile-role">Administrateur</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="dashboard-layout">
+        <!-- Contenu Central -->
+        <div class="dashboard-container">
+          <!-- Vue d'ensemble des statistiques -->
+          <div class="stats-overview">
+            <div class="stat-card">
+              <div class="stat-icon clients-icon">
+                <img src="/assets/client.png" alt="clients icon" />
+              </div>
+              <div class="stat-content">
+                <h3>Clients</h3>
+                <div class="stat-value">28</div>
+                <div class="stat-label">Clients actifs</div>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon projects-icon">
+                <img src="/assets/project.png" alt="projets iccon" />
+              </div>
+              <div class="stat-content">
+                <h3>Projets</h3>
+                <div class="stat-value">45</div>
+                <div class="stat-label">Projets en cours</div>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon tickets-icon">
+                <img src="/assets/ticket.png" alt="tickets icon" />
+              </div>
+              <div class="stat-content">
+                <h3>Tickets</h3>
+                <div class="stat-value">142</div>
+                <div class="stat-label">Tickets ouverts</div>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon users-icon">
+                <img src="/assets/utilisateur.png" alt="users icon" />
+              </div>
+              <div class="stat-content">
+                <h3>Collaborateurs</h3>
+                <div class="stat-value">18</div>
+                <div class="stat-label">Actifs</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tickets récents tous projets -->
+          <div id="tickets" class="open-tickets-section">
+            <div class="section-header">
+              <h2>Tous les tickets</h2>
+              <button class="btn-primary">+ Créer un ticket</button>
+            </div>
+            <table class="tickets-table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Titre</th>
+                  <th>Client</th>
+                  <th>Projet</th>
+                  <th>Collaborateurs</th>
+                  <th>Priorité</th>
+                  <th>Statut</th>
+                  <th>Type</th>
+                  <th>Temps</th>
+                  <th>Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="ticket-id-badge">#101</span></td>
+                  <td class="ticket-title-cell">
+                    Problème de connexion utilisateur
+                  </td>
+                  <td>Entreprise ABC</td>
+                  <td>Projet A</td>
+                  <td>
+                    <div class="collaborators-mini">
+                      <div class="avatar tiny">JD</div>
+                      <div class="avatar tiny">MC</div>
+                    </div>
+                  </td>
+                  <td><span class="priority-badge high">Haute</span></td>
+                  <td>
+                    <span class="status-badge status-progress">En cours</span>
+                  </td>
+                  <td>
+                    <span class="billing-badge billing-inclus">Inclus</span>
+                  </td>
+                  <td>5h/8h</td>
+                  <td>10 Juin</td>
+                </tr>
+                <tr>
+                  <td><span class="ticket-id-badge">#102</span></td>
+                  <td class="ticket-title-cell">
+                    Erreur 404 sur la page d'accueil
+                  </td>
+                  <td>Société XYZ</td>
+                  <td>Projet B</td>
+                  <td>
+                    <div class="collaborators-mini">
+                      <div class="avatar tiny">LB</div>
+                    </div>
+                  </td>
+                  <td><span class="priority-badge medium">Moyenne</span></td>
+                  <td>
+                    <span class="status-badge status-pending">En attente</span>
+                  </td>
+                  <td>
+                    <span class="billing-badge billing-facturable"
+                      >Facturable</span
+                    >
+                  </td>
+                  <td>3h/5h</td>
+                  <td>12 Juin</td>
+                </tr>
+                <tr>
+                  <td><span class="ticket-id-badge">#103</span></td>
+                  <td class="ticket-title-cell">
+                    Mise à jour du profil utilisateur
+                  </td>
+                  <td>Groupe DEF</td>
+                  <td>Projet C</td>
+                  <td>
+                    <div class="collaborators-mini">
+                      <div class="avatar tiny">SD</div>
+                      <div class="avatar tiny">PM</div>
+                      <div class="avatar-more tiny">+2</div>
+                    </div>
+                  </td>
+                  <td><span class="priority-badge low">Basse</span></td>
+                  <td>
+                    <span class="status-badge status-progress">En cours</span>
+                  </td>
+                  <td>
+                    <span class="billing-badge billing-inclus">Inclus</span>
+                  </td>
+                  <td>5h/6h</td>
+                  <td>13 Juin</td>
+                </tr>
+                <tr>
+                  <td><span class="ticket-id-badge">#104</span></td>
+                  <td class="ticket-title-cell">
+                    Bug de synchronisation base de données
+                  </td>
+                  <td>Entreprise ABC</td>
+                  <td>Projet A</td>
+                  <td>
+                    <div class="collaborators-mini">
+                      <div class="avatar tiny">JD</div>
+                    </div>
+                  </td>
+                  <td><span class="priority-badge high">Haute</span></td>
+                  <td>
+                    <span class="status-badge status-urgent">Urgent</span>
+                  </td>
+                  <td>
+                    <span class="billing-badge billing-facturable"
+                      >Facturable</span
+                    >
+                  </td>
+                  <td>2h/10h</td>
+                  <td>14 Juin</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Section Gestion des Utilisateurs -->
+          <div id="users" class="management-section">
+            <div class="section-header">
+              <h2>Gestion des Utilisateurs</h2>
+              <button class="btn-primary">+ Ajouter un utilisateur</button>
+            </div>
+            <table class="management-table">
+              <thead>
+                <tr>
+                  <th>Nom</th>
+                  <th>Email</th>
+                  <th>Rôle</th>
+                  <th>Projets assignés</th>
+                  <th>Statut</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <div class="user-cell">
+                      <div class="avatar small">JD</div>
+                      <span>Jean Dupont</span>
+                    </div>
+                  </td>
+                  <td>jean.dupont@vector.fr</td>
+                  <td>
+                    <span class="role-badge collaborateur">Collaborateur</span>
+                  </td>
+                  <td>5 projets</td>
+                  <td><span class="status-active">Actif</span></td>
+                  <td>
+                    <div class="action-buttons">
+                      <a
+                        href="/utilisateurs/admin/generic-utilisateur.html"
+                        class="btn-edit"
+                        title="Modifier"
+                      >
+                        <img
+                          src="/assets/editer.png"
+                          alt="éditer"
+                          class="inline-icon"
+                        />
+                      </a>
+                      <button class="btn-delete" title="Supprimer">
+                        <img
+                          src="/assets/supprimer.png"
+                          alt="supprimer"
+                          class="inline-icon"
+                        />
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="user-cell">
+                      <div class="avatar small">MC</div>
+                      <span>Marie Curie</span>
+                    </div>
+                  </td>
+                  <td>marie.curie@vector.fr</td>
+                  <td>
+                    <span class="role-badge collaborateur">Collaborateur</span>
+                  </td>
+                  <td>3 projets</td>
+                  <td><span class="status-active">Actif</span></td>
+                  <td>
+                    <div class="action-buttons">
+                      <a
+                        href="/utilisateurs/admin/generic-utilisateur.html"
+                        class="btn-edit"
+                        title="Modifier"
+                      >
+                        <img src="/assets/editer.png" alt="modifier" />
+                      </a>
+                      <button class="btn-delete" title="Supprimer">
+                        <img src="/assets/supprimer.png" alt="supprimer" />
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="user-cell">
+                      <div class="avatar small">AP</div>
+                      <span>Admin Principal</span>
+                    </div>
+                  </td>
+                  <td>admin@vector.fr</td>
+                  <td><span class="role-badge admin">Administrateur</span></td>
+                  <td>Tous</td>
+                  <td><span class="status-active">Actif</span></td>
+                  <td>
+                    <div class="action-buttons">
+                      <a
+                        href="/utilisateurs/admin/generic-utilisateur.html"
+                        class="btn-edit"
+                        title="Modifier"
+                      >
+                        <img src="/assets/editer.png" alt="modifier" />
+                      </a>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Section Gestion des Clients -->
+          <div id="clients" class="management-section">
+            <div class="section-header">
+              <h2>Gestion des Clients</h2>
+              <button class="btn-primary">+ Ajouter un client</button>
+            </div>
+            <table class="management-table">
+              <thead>
+                <tr>
+                  <th>Nom</th>
+                  <th>Email</th>
+                  <th>Projets actifs</th>
+                  <th>Tickets ouverts</th>
+                  <th>Heures consommées</th>
+                  <th>Statut</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <div class="user-cell">
+                      <div class="avatar small client-avatar">EA</div>
+                      <span>Entreprise ABC</span>
+                    </div>
+                  </td>
+                  <td>contact@entrepriseabc.fr</td>
+                  <td>3</td>
+                  <td>12</td>
+                  <td>
+                    <div class="hours-progress">
+                      <span>32h / 50h</span>
+                      <div class="progress-bar">
+                        <div class="progress-fill" style="width: 64%"></div>
+                      </div>
+                    </div>
+                  </td>
+                  <td><span class="status-active">Actif</span></td>
+                  <td>
+                    <div class="action-buttons">
+                      <a
+                        href="/clients/admin/generic-client.html"
+                        class="btn-edit"
+                        title="Modifier"
+                      >
+                        <img src="/assets/editer.png" alt="modifier" />
+                      </a>
+                      <a
+                        href="/clients/admin/generic-client.html"
+                        class="btn-view"
+                        title="Voir détails"
+                      ></a>
+                      <button class="btn-delete" title="Supprimer">
+                        <img src="/assets/supprimer.png" alt="supprimer" />
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="user-cell">
+                      <div class="avatar small client-avatar">SX</div>
+                      <span>Société XYZ</span>
+                    </div>
+                  </td>
+                  <td>info@societexyz.com</td>
+                  <td>2</td>
+                  <td>8</td>
+                  <td>
+                    <div class="hours-progress">
+                      <span>45h / 100h</span>
+                      <div class="progress-bar">
+                        <div class="progress-fill" style="width: 45%"></div>
+                      </div>
+                    </div>
+                  </td>
+                  <td><span class="status-active">Actif</span></td>
+                  <td>
+                    <div class="action-buttons">
+                      <a
+                        href="/clients/admin/generic-client.html"
+                        class="btn-edit"
+                        title="Modifier"
+                      >
+                        <img src="/assets/editer.png" alt="modifier" />
+                      </a>
+                      <a
+                        href="/clients/admin/generic-client.html"
+                        class="btn-view"
+                        title="Voir détails"
+                      ></a>
+                      <button class="btn-delete" title="Supprimer">
+                        <img src="/assets/supprimer.png" alt="supprimer" />
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="user-cell">
+                      <div class="avatar small client-avatar">GD</div>
+                      <span>Groupe DEF</span>
+                    </div>
+                  </td>
+                  <td>contact@groupedef.fr</td>
+                  <td>1</td>
+                  <td>4</td>
+                  <td>
+                    <div class="hours-progress">
+                      <span>18h / 30h</span>
+                      <div class="progress-bar">
+                        <div class="progress-fill" style="width: 60%"></div>
+                      </div>
+                    </div>
+                  </td>
+                  <td><span class="status-active">Actif</span></td>
+                  <td>
+                    <div class="action-buttons">
+                      <a
+                        href="/clients/admin/generic-client.html"
+                        class="btn-edit"
+                        title="Modifier"
+                      >
+                        <img src="/assets/editer.png" alt="modifier" />
+                      </a>
+                      <a
+                        href="/clients/admin/generic-client.html"
+                        class="btn-view"
+                        title="Voir détails"
+                      ></a>
+                      <button class="btn-delete" title="Supprimer">
+                        <img src="/assets/supprimer.png" alt="supprimer" />
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Section Gestion des Contrats -->
+          <div id="contracts" class="management-section">
+            <div class="section-header">
+              <h2>Gestion des Contrats</h2>
+              <button class="btn-primary">+ Créer un contrat</button>
+            </div>
+            <div class="contracts-grid">
+              <div class="contract-card">
+                <div class="contract-header">
+                  <h3>Contrat Entreprise ABC</h3>
+                  <span class="contract-status active">Actif</span>
+                </div>
+                <div class="contract-details">
+                  <div class="detail-row">
+                    <span class="detail-label">Projet:</span>
+                    <span class="detail-value"
+                      >Projet A - Refonte Site Web</span
+                    >
+                  </div>
+                  <div class="detail-row">
+                    <span class="detail-label">Heures incluses:</span>
+                    <span class="detail-value">50h</span>
+                  </div>
+                  <div class="detail-row">
+                    <span class="detail-label">Consommées:</span>
+                    <span class="detail-value text-warning">32h</span>
+                  </div>
+                  <div class="detail-row">
+                    <span class="detail-label">Restantes:</span>
+                    <span class="detail-value text-success">18h</span>
+                  </div>
+                  <div class="detail-row">
+                    <span class="detail-label">Taux horaire (supp):</span>
+                    <span class="detail-value">85€/h</span>
+                  </div>
+                  <div class="detail-row">
+                    <span class="detail-label">Période:</span>
+                    <span class="detail-value">01/01/2026 - 31/12/2026</span>
+                  </div>
+                </div>
+                <div class="contract-progress">
+                  <div class="progress-bar">
+                    <div class="progress-fill" style="width: 64%"></div>
+                  </div>
+                  <span class="progress-label">64% consommé</span>
+                </div>
+                <div class="contract-actions">
+                  <a
+                    href="/contrats/admin/generic-contrat.html"
+                    class="btn-secondary"
+                    >Voir détails</a
+                  >
+                </div>
+              </div>
+
+              <div class="contract-card">
+                <div class="contract-header">
+                  <h3>Contrat Société XYZ</h3>
+                  <span class="contract-status active">Actif</span>
+                </div>
+                <div class="contract-details">
+                  <div class="detail-row">
+                    <span class="detail-label">Projet:</span>
+                    <span class="detail-value">Projet B - App Mobile</span>
+                  </div>
+                  <div class="detail-row">
+                    <span class="detail-label">Heures incluses:</span>
+                    <span class="detail-value">100h</span>
+                  </div>
+                  <div class="detail-row">
+                    <span class="detail-label">Consommées:</span>
+                    <span class="detail-value">45h</span>
+                  </div>
+                  <div class="detail-row">
+                    <span class="detail-label">Restantes:</span>
+                    <span class="detail-value text-success">55h</span>
+                  </div>
+                  <div class="detail-row">
+                    <span class="detail-label">Taux horaire (supp):</span>
+                    <span class="detail-value">90€/h</span>
+                  </div>
+                  <div class="detail-row">
+                    <span class="detail-label">Période:</span>
+                    <span class="detail-value">01/06/2025 - 31/05/2026</span>
+                  </div>
+                </div>
+                <div class="contract-progress">
+                  <div class="progress-bar">
+                    <div class="progress-fill" style="width: 45%"></div>
+                  </div>
+                  <span class="progress-label">45% consommé</span>
+                </div>
+                <div class="contract-actions">
+                  <a
+                    href="/contrats/admin/generic-contrat.html"
+                    class="btn-secondary"
+                    >Voir détails</a
+                  >
+                </div>
+              </div>
+
+              <div class="contract-card">
+                <div class="contract-header">
+                  <h3>Contrat Groupe DEF</h3>
+                  <span class="contract-status active">Actif</span>
+                </div>
+                <div class="contract-details">
+                  <div class="detail-row">
+                    <span class="detail-label">Projet:</span>
+                    <span class="detail-value">Projet C - Migration Cloud</span>
+                  </div>
+                  <div class="detail-row">
+                    <span class="detail-label">Heures incluses:</span>
+                    <span class="detail-value">30h</span>
+                  </div>
+                  <div class="detail-row">
+                    <span class="detail-label">Consommées:</span>
+                    <span class="detail-value">18h</span>
+                  </div>
+                  <div class="detail-row">
+                    <span class="detail-label">Restantes:</span>
+                    <span class="detail-value text-success">12h</span>
+                  </div>
+                  <div class="detail-row">
+                    <span class="detail-label">Taux horaire (supp):</span>
+                    <span class="detail-value">80€/h</span>
+                  </div>
+                  <div class="detail-row">
+                    <span class="detail-label">Période:</span>
+                    <span class="detail-value">01/03/2026 - 28/02/2027</span>
+                  </div>
+                </div>
+                <div class="contract-progress">
+                  <div class="progress-bar">
+                    <div class="progress-fill" style="width: 60%"></div>
+                  </div>
+                  <span class="progress-label">60% consommé</span>
+                </div>
+                <div class="contract-actions">
+                  <a
+                    href="/contrats/admin/generic-contrat.html"
+                    class="btn-secondary"
+                    >Voir détails</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sidebar Droite - Statistiques -->
+        <aside class="sidebar-right">
+          <!-- Carte Activité Récente -->
+          <div class="sidebar-card">
+            <h3>Activité Récente</h3>
+            <div class="activity-list">
+              <div class="activity-item">
+                <div class="activity-icon new-ticket"></div>
+                <div class="activity-content">
+                  <div class="activity-title">Nouveau ticket créé</div>
+                  <div class="activity-meta">#142 - Il y a 5 min</div>
+                </div>
+              </div>
+              <div class="activity-item">
+                <div class="activity-icon user-added"></div>
+                <div class="activity-content">
+                  <div class="activity-title">Nouvel utilisateur</div>
+                  <div class="activity-meta">Sophie Martin - Il y a 1h</div>
+                </div>
+              </div>
+              <div class="activity-item">
+                <div class="activity-icon contract-updated">
+                  <img src="/assets/contrat.png" alt="contrat modifié" />
+                </div>
+                <div class="activity-content">
+                  <div class="activity-title">Contrat modifié</div>
+                  <div class="activity-meta">Entreprise ABC - Il y a 2h</div>
+                </div>
+              </div>
+              <div class="activity-item">
+                <div class="activity-icon ticket-closed"></div>
+                <div class="activity-content">
+                  <div class="activity-title">Ticket fermé</div>
+                  <div class="activity-meta">#138 - Il y a 3h</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Alertes -->
+          <div class="sidebar-card alerts-card">
+            <h3>Alertes</h3>
+            <div class="alert-item warning">
+              <div class="alert-icon">
+                <img src="/assets/avertissement.png" alt="alerte" />
+              </div>
+              <div class="alert-content">
+                <div class="alert-title">Heures presque épuisées</div>
+                <div class="alert-text">Entreprise ABC: 18h restantes</div>
+              </div>
+            </div>
+            <div class="alert-item urgent">
+              <div class="alert-icon">
+                <img src="/assets/urgent.png" alt="urgent" />
+              </div>
+              <div class="alert-content">
+                <div class="alert-title">Tickets urgents</div>
+                <div class="alert-text">
+                  5 tickets nécessitent une attention immédiate
+                </div>
+              </div>
+            </div>
+            <div class="alert-item info">
+              <div class="alert-icon"></div>
+              <div class="alert-content">
+                <div class="alert-title">Validation en attente</div>
+                <div class="alert-text">3 tickets facturables à valider</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Graphique heures par projet -->
+          <div class="sidebar-card">
+            <h3>Top Projets (heures)</h3>
+            <div class="project-hours-list">
+              <div class="project-hours-item">
+                <div class="project-info">
+                  <span class="project-name-small">Projet A</span>
+                  <span class="hours-count">32h</span>
+                </div>
+                <div class="hours-bar">
+                  <div class="hours-fill" style="width: 64%"></div>
+                </div>
+              </div>
+              <div class="project-hours-item">
+                <div class="project-info">
+                  <span class="project-name-small">Projet B</span>
+                  <span class="hours-count">45h</span>
+                </div>
+                <div class="hours-bar">
+                  <div class="hours-fill" style="width: 45%"></div>
+                </div>
+              </div>
+              <div class="project-hours-item">
+                <div class="project-info">
+                  <span class="project-name-small">Projet C</span>
+                  <span class="hours-count">18h</span>
+                </div>
+                <div class="hours-bar">
+                  <div class="hours-fill" style="width: 60%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </main>
+
+    <!-- Modal Créer un Ticket -->
+    <div class="modal-overlay" id="modal-ticket">
+      <div class="modal">
+        <div class="modal-header">
+          <h2>Nouveau Ticket</h2>
+          <button class="modal-close">&times;</button>
+        </div>
+        <form class="modal-form">
+          <div class="form-section">
+            <h3>Informations Générales</h3>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="ticket-title">Titre du ticket *</label>
+                <input
+                  type="text"
+                  id="ticket-title"
+                  required
+                  placeholder="Ex: Problème de connexion"
+                />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="ticket-description">Description *</label>
+              <textarea
+                id="ticket-description"
+                rows="3"
+                required
+                placeholder="Description détaillée du ticket..."
+              ></textarea>
+            </div>
+          </div>
+          <div class="form-section">
+            <h3>Client et Projet</h3>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="ticket-client">Client *</label>
+                <select id="ticket-client" required>
+                  <option value="">Sélectionner un client</option>
+                  <option value="abc">Entreprise ABC</option>
+                  <option value="xyz">Société XYZ</option>
+                  <option value="def">Groupe DEF</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="ticket-project">Projet *</label>
+                <select id="ticket-project" required>
+                  <option value="">Sélectionner un projet</option>
+                  <option value="a">Projet A - Refonte Site Web</option>
+                  <option value="b">Projet B - App Mobile</option>
+                  <option value="c">Projet C - Migration Cloud</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="form-section">
+            <h3>Priorité et Statut</h3>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="ticket-priority">Priorité *</label>
+                <select id="ticket-priority" required>
+                  <option value="">Sélectionner</option>
+                  <option value="high">Haute</option>
+                  <option value="medium">Moyenne</option>
+                  <option value="low">Basse</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="ticket-status">Statut</label>
+                <select id="ticket-status">
+                  <option value="nouveau">Nouveau</option>
+                  <option value="progress">En cours</option>
+                  <option value="pending">En attente client</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="form-section">
+            <h3>Assignation et Temps</h3>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="ticket-collaborators">Collaborateurs</label>
+                <select id="ticket-collaborators" multiple size="4">
+                  <option value="jd">Jean Dupont</option>
+                  <option value="mc">Marie Curie</option>
+                  <option value="sd">Sophie Dubois</option>
+                  <option value="pm">Paul Martin</option>
+                  <option value="lb">Luc Bernard</option>
+                </select>
+                <small
+                  >Maintenez Ctrl pour sélectionner plusieurs
+                  collaborateurs</small
+                >
+              </div>
+              <div class="form-group">
+                <label for="ticket-time">Temps estimé (heures) *</label>
+                <input
+                  type="number"
+                  id="ticket-time"
+                  required
+                  min="0.5"
+                  step="0.5"
+                  placeholder="Ex: 8"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="form-section">
+            <h3>Facturation</h3>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="ticket-billing">Type de facturation *</label>
+                <select id="ticket-billing" required>
+                  <option value="inclus">Inclus dans le contrat</option>
+                  <option value="facturable">Facturable</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <div class="form-error">
+              Veuillez remplir tous les champs obligatoires.
+            </div>
+            <button type="button" class="btn-cancel">Annuler</button>
+            <button type="submit" class="btn-submit">Créer le ticket</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Modal Ajouter un Utilisateur -->
+    <div class="modal-overlay" id="modal-user">
+      <div class="modal">
+        <div class="modal-header">
+          <h2>Ajouter un Utilisateur</h2>
+          <button class="modal-close">&times;</button>
+        </div>
+        <form class="modal-form">
+          <div class="form-section">
+            <h3>Informations Personnelles</h3>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="user-firstname">Prénom *</label>
+                <input
+                  type="text"
+                  id="user-firstname"
+                  required
+                  placeholder="Ex: Jean"
+                />
+              </div>
+              <div class="form-group">
+                <label for="user-lastname">Nom *</label>
+                <input
+                  type="text"
+                  id="user-lastname"
+                  required
+                  placeholder="Ex: Dupont"
+                />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="user-email">Email *</label>
+                <input
+                  type="email"
+                  id="user-email"
+                  required
+                  placeholder="Ex: jean.dupont@vector.fr"
+                />
+              </div>
+              <div class="form-group">
+                <label for="user-phone">Téléphone</label>
+                <input
+                  type="tel"
+                  id="user-phone"
+                  placeholder="Ex: 06 12 34 56 78"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="form-section">
+            <h3>Rôle et Accès</h3>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="user-role">Rôle *</label>
+                <select id="user-role" required>
+                  <option value="">Sélectionner un rôle</option>
+                  <option value="admin">Administrateur</option>
+                  <option value="collaborateur">Collaborateur</option>
+                  <option value="client">Client</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="user-status">Statut</label>
+                <select id="user-status">
+                  <option value="actif">Actif</option>
+                  <option value="inactif">Inactif</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="form-section">
+            <h3>Assignation Projets</h3>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="user-projects">Projets assignés</label>
+                <select id="user-projects" multiple size="3">
+                  <option value="a">Projet A - Refonte Site Web</option>
+                  <option value="b">Projet B - App Mobile</option>
+                  <option value="c">Projet C - Migration Cloud</option>
+                </select>
+                <small
+                  >Maintenez Ctrl pour sélectionner plusieurs projets</small
+                >
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <div class="form-error">
+              Veuillez remplir tous les champs obligatoires.
+            </div>
+            <button type="button" class="btn-cancel">Annuler</button>
+            <button type="submit" class="btn-submit">
+              Ajouter l'utilisateur
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Modal Ajouter un Client -->
+    <div class="modal-overlay" id="modal-client">
+      <div class="modal">
+        <div class="modal-header">
+          <h2>Ajouter un Client</h2>
+          <button class="modal-close">&times;</button>
+        </div>
+        <form class="modal-form">
+          <div class="form-section">
+            <h3>Informations Client</h3>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="client-name">Nom de l'entreprise *</label>
+                <input
+                  type="text"
+                  id="client-name"
+                  required
+                  placeholder="Ex: Entreprise ABC"
+                />
+              </div>
+              <div class="form-group">
+                <label for="client-email">Email de contact *</label>
+                <input
+                  type="email"
+                  id="client-email"
+                  required
+                  placeholder="Ex: contact@entreprise.fr"
+                />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="client-phone">Téléphone</label>
+                <input
+                  type="tel"
+                  id="client-phone"
+                  placeholder="Ex: 01 23 45 67 89"
+                />
+              </div>
+              <div class="form-group">
+                <label for="client-address">Adresse</label>
+                <input
+                  type="text"
+                  id="client-address"
+                  placeholder="Ex: 12 rue de Paris, 75001"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="form-section">
+            <h3>Contact Principal</h3>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="client-contact-name">Nom du contact</label>
+                <input
+                  type="text"
+                  id="client-contact-name"
+                  placeholder="Ex: Pierre Martin"
+                />
+              </div>
+              <div class="form-group">
+                <label for="client-contact-email">Email du contact</label>
+                <input
+                  type="email"
+                  id="client-contact-email"
+                  placeholder="Ex: pierre@entreprise.fr"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="form-section">
+            <h3>Projets</h3>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="client-projects">Assigner à des projets</label>
+                <select id="client-projects" multiple size="3">
+                  <option value="a">Projet A - Refonte Site Web</option>
+                  <option value="b">Projet B - App Mobile</option>
+                  <option value="c">Projet C - Migration Cloud</option>
+                </select>
+                <small
+                  >Maintenez Ctrl pour sélectionner plusieurs projets</small
+                >
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <div class="form-error">
+              Veuillez remplir tous les champs obligatoires.
+            </div>
+            <button type="button" class="btn-cancel">Annuler</button>
+            <button type="submit" class="btn-submit">Ajouter le client</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Modal Créer un Contrat -->
+    <div class="modal-overlay" id="modal-contract">
+      <div class="modal">
+        <div class="modal-header">
+          <h2>Créer un Contrat</h2>
+          <button class="modal-close">&times;</button>
+        </div>
+        <form class="modal-form">
+          <div class="form-section">
+            <h3>Informations du Contrat</h3>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="contract-name">Nom du contrat *</label>
+                <input
+                  type="text"
+                  id="contract-name"
+                  required
+                  placeholder="Ex: Contrat Annuel 2026"
+                />
+              </div>
+              <div class="form-group">
+                <label for="contract-client">Client *</label>
+                <select id="contract-client" required>
+                  <option value="">Sélectionner un client</option>
+                  <option value="abc">Entreprise ABC</option>
+                  <option value="xyz">Société XYZ</option>
+                  <option value="def">Groupe DEF</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="contract-project">Projet associé *</label>
+                <select id="contract-project" required>
+                  <option value="">Sélectionner un projet</option>
+                  <option value="a">Projet A - Refonte Site Web</option>
+                  <option value="b">Projet B - App Mobile</option>
+                  <option value="c">Projet C - Migration Cloud</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="form-section">
+            <h3>Heures et Tarification</h3>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="contract-hours">Heures incluses *</label>
+                <input
+                  type="number"
+                  id="contract-hours"
+                  required
+                  min="1"
+                  step="1"
+                  placeholder="Ex: 50"
+                />
+              </div>
+              <div class="form-group">
+                <label for="contract-rate"
+                  >Taux horaire supplémentaire (€/h) *</label
+                >
+                <input
+                  type="number"
+                  id="contract-rate"
+                  required
+                  min="0"
+                  step="5"
+                  placeholder="Ex: 85"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="form-section">
+            <h3>Période</h3>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="contract-start">Date de début *</label>
+                <input type="date" id="contract-start" required />
+              </div>
+              <div class="form-group">
+                <label for="contract-end">Date de fin *</label>
+                <input type="date" id="contract-end" required />
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <div class="form-error">
+              Veuillez remplir tous les champs obligatoires.
+            </div>
+            <button type="button" class="btn-cancel">Annuler</button>
+            <button type="submit" class="btn-submit">Créer le contrat</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="../../js/form-validation.js"></script>
+    <script src="./dashboard.js" defer></script>
+
+    <footer>
+      <p>&copy; 2026 Vector - Tous droits réservés</p>
+    </footer>
+  </body>
+</html>

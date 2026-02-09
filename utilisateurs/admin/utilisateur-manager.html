@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./utilisateur-manager.css" />
+    <title>Gestion des Utilisateurs - Vector</title>
+    <script src="../../js/theme.js"></script>
+  </head>
+
+  <body class="oswald-font1 role-admin">
+    <header class="dashboard-header">
+      <div class="header-container">
+        <div class="logo-section">
+          <a href="/index.html"
+            ><img id="logoH" src="/assets/logo.png" alt="Logo du site"
+          /></a>
+          <a href="/index.html"
+            ><img src="/assets/name.png" alt="Logo du site"
+          /></a>
+        </div>
+
+        <div class="header-separator"></div>
+
+        <h1 class="dashboard-title">Gestion des Utilisateurs</h1>
+
+        <nav class="header-nav">
+          <a href="/dashboard/admin/dashboard.html" class="nav-btn"
+            >Dashboard</a
+          >
+          <a href="/clients/admin/client-manager.html" class="nav-btn"
+            >Clients</a
+          >
+          <a href="/projects/admin/project-manager.html" class="nav-btn"
+            >Projets</a
+          >
+          <a href="/tickets/admin/ticket-manager.html" class="nav-btn"
+            >Tickets</a
+          >
+          <a href="/contrats/admin/contrat-manager.html" class="nav-btn"
+            >Contrats</a
+          >
+        </nav>
+
+        <div class="profile-info">
+          <img
+            src="/assets/account.png"
+            alt="Photo de profil"
+            class="header-profile-pic"
+          />
+          <div class="profile-text">
+            <span class="profile-name">Admin</span>
+            <span class="profile-role">Administrateur</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="manager-container">
+        <!-- Filters and Actions -->
+        <div class="controls-section">
+          <div class="filters">
+            <input
+              type="text"
+              placeholder="Rechercher un utilisateur..."
+              class="search-input"
+            />
+            <select class="filter-select">
+              <option value="">Tous les rôles</option>
+              <option value="admin">Administrateur</option>
+              <option value="collab">Collaborateur</option>
+              <option value="client">Client</option>
+            </select>
+            <select class="filter-select">
+              <option value="">Tous les statuts</option>
+              <option value="actif">Actif</option>
+              <option value="inactif">Inactif</option>
+              <option value="suspendu">Suspendu</option>
+            </select>
+          </div>
+          <button class="btn-add">Nouvel utilisateur</button>
+        </div>
+
+        <!-- Users Table -->
+        <div class="table-container">
+          <table class="users-table">
+            <thead>
+              <tr>
+                <th>Utilisateur</th>
+                <th>Rôle</th>
+                <th>Projets</th>
+                <th>Tickets</th>
+                <th>Heures (mois)</th>
+                <th>Dernière connexion</th>
+                <th>Statut</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <div class="user-cell">
+                    <div class="user-avatar">JD</div>
+                    <div class="user-info">
+                      <div class="user-name">
+                        <a href="/utilisateurs/admin/generic-utilisateur.html"
+                          >Jean Dupont</a
+                        >
+                      </div>
+                      <div class="user-email">j.dupont@vector.com</div>
+                    </div>
+                  </div>
+                </td>
+                <td><span class="role-badge collab">Collaborateur</span></td>
+                <td><span class="count-badge">5 projets</span></td>
+                <td><span class="count-badge">12 tickets</span></td>
+                <td class="hours-cell">142h</td>
+                <td>30 Jan 2026 - 15:30</td>
+                <td><span class="status-badge active">Actif</span></td>
+                <td>
+                  <div class="action-buttons">
+                    <button class="btn-edit" title="Modifier">
+                      <img src="/assets/editer.png" alt="modifier" />
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination">
+          <button class="page-btn active">1</button>
+          <button class="page-btn">2</button>
+          <button class="page-btn">3</button>
+        </div>
+      </div>
+    </main>
+
+    <!-- Modal Nouvel Utilisateur (cachée par défaut) -->
+    <div class="modal-overlay" id="modal-overlay">
+      <div class="modal" id="add-user-modal">
+        <div class="modal-header">
+          <h2>Nouvel Utilisateur</h2>
+          <button class="modal-close" id="close-modal">&times;</button>
+        </div>
+        <form id="add-user-form" class="modal-form">
+          <div class="form-section">
+            <h3>Informations Personnelles</h3>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="user-lastname">Nom *</label>
+                <input
+                  type="text"
+                  id="user-lastname"
+                  name="userLastname"
+                  required
+                  placeholder="Ex: Dupont"
+                />
+              </div>
+              <div class="form-group">
+                <label for="user-firstname">Prénom *</label>
+                <input
+                  type="text"
+                  id="user-firstname"
+                  name="userFirstname"
+                  required
+                  placeholder="Ex: Jean"
+                />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="user-email">Email *</label>
+                <input
+                  type="email"
+                  id="user-email"
+                  name="userEmail"
+                  required
+                  placeholder="j.dupont@vector.com"
+                />
+              </div>
+              <div class="form-group">
+                <label for="user-phone">Téléphone</label>
+                <input
+                  type="tel"
+                  id="user-phone"
+                  name="userPhone"
+                  placeholder="01 23 45 67 89"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <h3>Rôle et Accès</h3>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="user-role">Rôle *</label>
+                <select id="user-role" name="userRole" required>
+                  <option value="">Sélectionner un rôle</option>
+                  <option value="admin">Administrateur</option>
+                  <option value="collab">Collaborateur</option>
+                  <option value="client">Client</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="user-status">Statut *</label>
+                <select id="user-status" name="userStatus" required>
+                  <option value="actif">Actif</option>
+                  <option value="suspendu">Suspendu</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <h3>Mot de passe</h3>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="user-password">Mot de passe *</label>
+                <input
+                  type="password"
+                  id="user-password"
+                  name="userPassword"
+                  required
+                  placeholder="Mot de passe"
+                />
+              </div>
+              <div class="form-group">
+                <label for="user-password-confirm"
+                  >Confirmer le mot de passe *</label
+                >
+                <input
+                  type="password"
+                  id="user-password-confirm"
+                  name="userPasswordConfirm"
+                  required
+                  placeholder="Confirmer le mot de passe"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <h3>Informations Complémentaires</h3>
+            <div class="form-group">
+              <label for="user-notes">Notes</label>
+              <textarea
+                id="user-notes"
+                name="userNotes"
+                rows="3"
+                placeholder="Informations supplémentaires..."
+              ></textarea>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn-cancel" id="cancel-modal">
+              Annuler
+            </button>
+            <button type="submit" class="btn-submit">
+              Créer l'utilisateur
+            </button>
+            <div class="form-error" id="form-error">
+              Veuillez remplir tous les champs obligatoires.
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="../../js/form-validation.js"></script>
+    <script src="./utilisateur-manager.js"></script>
+
+    <footer>
+      <p>&copy; 2026 Vector - Tous droits réservés</p>
+    </footer>
+  </body>
+</html>

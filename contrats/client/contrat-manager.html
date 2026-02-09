@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./contrat-manager.css" />
+    <title>Mes Contrats - Vector</title>
+    <script src="../../js/theme.js"></script>
+  </head>
+
+  <body class="oswald-font1 role-client">
+    <header class="dashboard-header">
+      <div class="header-container">
+        <div class="logo-section">
+          <a href="/index.html"
+            ><img id="logoH" src="/assets/logo.png" alt="Logo du site"
+          /></a>
+          <a href="/index.html"
+            ><img src="/assets/name.png" alt="Logo du site"
+          /></a>
+        </div>
+
+        <div class="header-separator"></div>
+
+        <h1 class="dashboard-title">Mes Contrats</h1>
+
+        <nav class="header-nav">
+          <a href="/dashboard/client/dashboard.html" class="nav-btn">
+            Dashboard
+          </a>
+          <a href="/projects/client/project-manager.html" class="nav-btn">
+            Mes Projets
+          </a>
+          <a href="/tickets/client/ticket-manager.html" class="nav-btn">
+            Mes Tickets
+          </a>
+        </nav>
+
+        <div class="profile-info">
+          <img
+            src="/assets/account.png"
+            alt="Photo de profil"
+            class="header-profile-pic"
+          />
+          <div class="profile-text">
+            <span class="profile-name">Entreprise ABC</span>
+            <span class="profile-role">Client</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="contracts-manager">
+        <div class="contracts-header">
+          <h2>Mes Contrats</h2>
+          <span class="info-text"
+            >Consultez et gérez vos contrats de service</span
+          >
+        </div>
+
+        <!-- Stats Cards -->
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-icon">
+              <img src="/assets/contrat.png" alt="contrats" />
+            </div>
+            <div class="stat-info">
+              <div class="stat-value">3</div>
+              <div class="stat-label">Contrats actifs</div>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">
+              <img src="/assets/heures-douverture.png" alt="heures" />
+            </div>
+            <div class="stat-info">
+              <div class="stat-value">250h</div>
+              <div class="stat-label">Heures incluses</div>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">
+              <img src="/assets/urgent.png" alt="consommation" />
+            </div>
+            <div class="stat-info">
+              <div class="stat-value">122.5h</div>
+              <div class="stat-label">Heures consommées</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Filters Section -->
+        <div class="filters-section">
+          <div class="filter-group">
+            <label for="status-filter">Statut:</label>
+            <select id="status-filter" class="filter-select">
+              <option value="all">Tous</option>
+              <option value="actif">Actif</option>
+              <option value="expire-bientot">Expire bientôt</option>
+              <option value="expire">Expiré</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label for="sort-select">Trier par:</label>
+            <select id="sort-select" class="filter-select">
+              <option value="date-fin">Date d'expiration</option>
+              <option value="heures">Heures restantes</option>
+              <option value="montant">Montant</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Contracts Table -->
+        <div class="table-container">
+          <table class="contracts-table">
+            <thead>
+              <tr>
+                <th>N° Contrat</th>
+                <th>Date début</th>
+                <th>Date fin</th>
+                <th>Heures</th>
+                <th>Montant</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Contrat 1 - Actif -->
+              <tr>
+                <td>
+                  <a href="./generic-contrat.html" class="contract-link"
+                    >#C001</a
+                  >
+                </td>
+
+                <td>01/01/2026</td>
+                <td>31/12/2026</td>
+                <td>
+                  <div class="hours-progress">
+                    <div class="hours-bar">
+                      <div class="hours-fill" style="width: 45%"></div>
+                    </div>
+                    <span class="hours-text">22.5h / 50h</span>
+                    <span class="hours-remaining">27.5h restantes</span>
+                  </div>
+                </td>
+                <td>
+                  <div class="amount-info">
+                    <span class="amount">5 500 €</span>
+                    <span class="amount-detail">HT/an</span>
+                  </div>
+                </td>
+              </tr>
+
+              <!-- Contrat 2 - Alerte heures -->
+              <tr class="hours-warning">
+                <td>
+                  <a href="./generic-contrat.html" class="contract-link"
+                    >#C002</a
+                  >
+                </td>
+
+                <td>01/06/2025</td>
+                <td>30/06/2026</td>
+                <td>
+                  <div class="hours-progress">
+                    <div class="hours-bar">
+                      <div class="hours-fill warning" style="width: 88%"></div>
+                    </div>
+                    <span class="hours-text warning">70h / 80h</span>
+                    <span class="hours-alert"
+                      ><img
+                        src="/assets/avertissement.png"
+                        alt="attention"
+                        class="inline-icon"
+                      />
+                      10h restantes</span
+                    >
+                  </div>
+                </td>
+                <td>
+                  <div class="amount-info">
+                    <span class="amount">8 800 €</span>
+                    <span class="amount-detail">HT/an</span>
+                  </div>
+                </td>
+              </tr>
+
+              <!-- Contrat 3 - Actif normal -->
+              <tr>
+                <td>
+                  <a href="./generic-contrat.html" class="contract-link"
+                    >#C003</a
+                  >
+                </td>
+
+                <td>01/02/2026</td>
+                <td>31/01/2027</td>
+                <td>
+                  <div class="hours-progress">
+                    <div class="hours-bar">
+                      <div class="hours-fill" style="width: 25%"></div>
+                    </div>
+                    <span class="hours-text">30h / 120h</span>
+                    <span class="hours-remaining">90h restantes</span>
+                  </div>
+                </td>
+                <td>
+                  <div class="amount-info">
+                    <span class="amount">13 200 €</span>
+                    <span class="amount-detail">HT/an</span>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Contract Summary -->
+        <div class="summary-section">
+          <h3>Résumé global</h3>
+          <div class="summary-grid">
+            <div class="summary-item">
+              <span class="summary-label">Total heures souscrites:</span>
+              <span class="summary-value">250h</span>
+            </div>
+            <div class="summary-item">
+              <span class="summary-label">Total heures consommées:</span>
+              <span class="summary-value">122.5h (49%)</span>
+            </div>
+            <div class="summary-item">
+              <span class="summary-label">Total heures restantes:</span>
+              <span class="summary-value success">127.5h</span>
+            </div>
+            <div class="summary-item">
+              <span class="summary-label">Coût total annuel:</span>
+              <span class="summary-value">27 500 € HT</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 Vector - Tous droits réservés</p>
+    </footer>
+  </body>
+</html>
