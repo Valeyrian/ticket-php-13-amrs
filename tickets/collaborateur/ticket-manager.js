@@ -37,6 +37,22 @@ function closeModal(overlay) {
   }
 }
 
+// Fonction spécifique pour ouvrir la modal nouveau ticket
+function openTicketModal() {
+  openModal(modalTicketOverlay);
+}
+
+// Fonction spécifique pour ouvrir la modal temps avec ID ticket
+function openTimeModal(ticketId) {
+  if (ticketId) {
+    const ticketIdInput = document.getElementById("time-ticket-id");
+    if (ticketIdInput) {
+      ticketIdInput.value = ticketId;
+    }
+  }
+  openModal(modalTimeOverlay);
+}
+
 // Ouvrir modal nouveau ticket
 if (btnNewTicket) {
   btnNewTicket.addEventListener("click", (e) => {

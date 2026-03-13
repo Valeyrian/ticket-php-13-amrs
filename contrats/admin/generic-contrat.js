@@ -1,357 +1,153 @@
-// ========================================
-// VARIABLES GLOBALES
-// ========================================
-let editModal,
-  editModalOverlay,
-  editModalForm,
-  closeEditModalBtn,
-  cancelEditModalBtn,
-  editContractBtn;
-let timeModal,
-  timeModalOverlay,
-  timeModalForm,
-  closeTimeModalBtn,
-  cancelTimeModalBtn,
-  addTimeBtn;
-
-// ========================================
-// INITIALISATION
-// ========================================
 document.addEventListener("DOMContentLoaded", () => {
-  initializeEditModal();
-  initializeTimeModal();
-  setTodayDate();
-});
+  // ========================================
+  // DATE DU JOUR PAR DÉFAUT
+  // ========================================
 
-function setTodayDate() {
-  // Définir la date d'aujourd'hui dans le champ date de la modal de temps
-  const timeDate = document.getElementById("time-date");
-  if (timeDate) {
-    const today = new Date().toISOString().split("T")[0];
-    timeDate.value = today;
+  function setTodayDate() {
+    const timeDate = document.getElementById("time-date");
+    if (timeDate) {
+      const today = new Date().toISOString().split("T")[0];
+      timeDate.value = today;
+    }
   }
-}
 
-// ========================================
-// MODAL MODIFICATION CONTRAT
-// ========================================
-function initializeEditModal() {
-  // Récupérer les éléments DOM
-  editModal = document.getElementById("edit-contract-modal");
-  editModalOverlay = document.getElementById("modal-edit-overlay");
-  editModalForm = document.getElementById("edit-contract-form");
-  closeEditModalBtn = document.getElementById("close-edit-modal");
-  cancelEditModalBtn = document.getElementById("cancel-edit-modal");
-  editContractBtn = document.querySelector(".btn-edit");
-
-  // Attacher les événements
-  editContractBtn?.addEventListener("click", openEditModal);
-  closeEditModalBtn?.addEventListener("click", closeEditModal);
-  cancelEditModalBtn?.addEventListener("click", closeEditModal);
-
-  // Fermer si clic sur l'overlay
-  editModalOverlay?.addEventListener("click", (e) => {
-    if (e.target === editModalOverlay) {
-      closeEditModal();
-    }
-  });
-
-  // Empêcher la fermeture si clic sur la modal
-  editModal?.addEventListener("click", (e) => {
-    e.stopPropagation();
-  });
-
-  // Gérer la soumission du formulaire
-  editModalForm?.addEventListener("submit", handleEditSubmit);
-}
-
-function openEditModal() {
-  editModalOverlay.classList.add("active");
-  setTimeout(() => {
-    editModal.classList.add("active");
-  }, 10);
-  // Cacher le message d'erreur
-  const formError = document.getElementById("edit-form-error");
-  formError.classList.remove("show");
-}
-
-function closeEditModal() {
-  editModal.classList.remove("active");
-  setTimeout(() => {
-    editModalOverlay.classList.remove("active");
-  }, 300);
-}
-
-function handleEditSubmit(event) {
-  event.preventDefault();
-
-  const formData = new FormData(editModalForm);
-
-  const contractData = {
-    contractType: formData.get("contractType"),
-    contractHours: formData.get("contractHours"),
-    contractAmount: formData.get("contractAmount"),
-    billingFrequency: formData.get("billingFrequency"),
-    startDate: formData.get("startDate"),
-    endDate: formData.get("endDate"),
-    contractTerms: formData.get("contractTerms"),
-  };
-
-  const formError = document.getElementById("edit-form-error");
-  FormValidator.hideError(formError);
-  FormValidator.clearAllFieldErrors(editModalForm);
-
-  // Validation complète
-  const isValid = FormValidator.validate(
-    {
-      contractType: {
-        value: contractData.contractType,
-        validators: [
-          {
-            test: (v) => FormValidator.isNotEmpty(v),
-            message: "Le type de contrat est requis.",
-          },
-        ],
-      },
-      contractHours: {
-        value: contractData.contractHours,
-        validators: [
-          {
-            test: (v) => FormValidator.isNotEmpty(v),
-            message: "Le nombre d'heures est requis.",
-          },
-          {
-            test: (v) => FormValidator.isPositiveNumber(v),
-            message: "Le nombre d'heures doit être supérieur à 0.",
-          },
-        ],
-      },
-      contractAmount: {
-        value: contractData.contractAmount,
-        validators: [
-          {
-            test: (v) => FormValidator.isNotEmpty(v),
-            message: "Le montant est requis.",
-          },
-          {
-            test: (v) => FormValidator.isPositiveNumber(v),
-            message: "Le montant doit être supérieur à 0.",
-          },
-        ],
-      },
-      billingFrequency: {
-        value: contractData.billingFrequency,
-        validators: [
-          {
-            test: (v) => FormValidator.isNotEmpty(v),
-            message: "La fréquence de facturation est requise.",
-          },
-        ],
-      },
-      startDate: {
-        value: contractData.startDate,
-        validators: [
-          {
-            test: (v) => FormValidator.isNotEmpty(v),
-            message: "La date de début est requise.",
-          },
-        ],
-      },
-      endDate: {
-        value: contractData.endDate,
-        validators: [
-          {
-            test: (v) => FormValidator.isNotEmpty(v),
-            message: "La date de fin est requise.",
-          },
-          {
-            test: (v) =>
-              FormValidator.isEndDateAfterStartDate(contractData.startDate, v),
-            message: "La date de fin doit être postérieure à la date de début.",
-          },
-        ],
-      },
-    },
-    formError,
-    editModalForm,
-  );
-
-  if (!isValid) return;
-
-  console.log("Contrat modifié:", contractData);
-
-  /* 
-    // ICI : Envoyer les données au backend
-    // fetch('/api/contracts/CT001', {
-    //   method: 'PUT',
-    //   headers: { 'Content-Type': 'application/json' },
-    //   body: JSON.stringify(contractData)
-    // })
-    */
-
-  closeEditModal();
-  showNotification("Contrat modifié avec succès !", "success");
-}
-
-// ========================================
-// MODAL AJOUT DE TEMPS
-// ========================================
-function initializeTimeModal() {
-  // Récupérer les éléments DOM
-  timeModal = document.getElementById("add-time-modal");
-  timeModalOverlay = document.getElementById("modal-time-overlay");
-  timeModalForm = document.getElementById("add-time-form");
-  closeTimeModalBtn = document.getElementById("close-time-modal");
-  cancelTimeModalBtn = document.getElementById("cancel-time-modal");
-  addTimeBtn = document.querySelector(".btn-add-small");
-
-  // Attacher les événements
-  addTimeBtn?.addEventListener("click", openTimeModal);
-  closeTimeModalBtn?.addEventListener("click", closeTimeModal);
-  cancelTimeModalBtn?.addEventListener("click", closeTimeModal);
-
-  // Fermer si clic sur l'overlay
-  timeModalOverlay?.addEventListener("click", (e) => {
-    if (e.target === timeModalOverlay) {
-      closeTimeModal();
-    }
-  });
-
-  // Empêcher la fermeture si clic sur la modal
-  timeModal?.addEventListener("click", (e) => {
-    e.stopPropagation();
-  });
-
-  // Gérer la soumission du formulaire
-  timeModalForm?.addEventListener("submit", handleTimeSubmit);
-}
-
-function openTimeModal() {
-  timeModalOverlay.classList.add("active");
-  setTimeout(() => {
-    timeModal.classList.add("active");
-  }, 10);
-  // Réinitialiser le formulaire
-  timeModalForm.reset();
-  // Remettre la date d'aujourd'hui
   setTodayDate();
-  // Cacher le message d'erreur
-  const formError = document.getElementById("time-form-error");
-  formError.classList.remove("show");
-}
 
-function closeTimeModal() {
-  timeModal.classList.remove("active");
-  setTimeout(() => {
-    timeModalOverlay.classList.remove("active");
-  }, 300);
-}
+  // ========================================
+  // MODALS - Ouverture / Fermeture
+  // ========================================
 
-function handleTimeSubmit(event) {
-  event.preventDefault();
+  const modalMap = [
+    { btnSelector: ".btn-edit", modalId: "modal-edit-overlay" },
+    { btnSelector: ".btn-add-small", modalId: "modal-time-overlay" },
+  ];
 
-  const formData = new FormData(timeModalForm);
+  modalMap.forEach(({ btnSelector, modalId }) => {
+    const btn = document.querySelector(btnSelector);
+    const overlay = document.getElementById(modalId);
+    if (!btn || !overlay) return;
+    btn.addEventListener("click", () => openModal(overlay));
+  });
 
-  const timeData = {
-    timeDate: formData.get("timeDate"),
-    timeHours: formData.get("timeHours"),
-    collaboratorId: formData.get("collaboratorId"),
-    ticketId: formData.get("ticketId"),
-    timeDescription: formData.get("timeDescription"),
-    billingStatus: formData.get("billingStatus"),
-  };
+  // Fermer via bouton X
+  document.querySelectorAll(".modal-close").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const overlay = btn.closest(".modal-overlay");
+      if (overlay) closeModal(overlay);
+    });
+  });
 
-  const formError = document.getElementById("time-form-error");
-  FormValidator.hideError(formError);
-  FormValidator.clearAllFieldErrors(timeModalForm);
+  // Fermer via bouton Annuler
+  document.querySelectorAll(".btn-cancel").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const overlay = btn.closest(".modal-overlay");
+      if (overlay) closeModal(overlay);
+    });
+  });
 
-  // Validation complète
-  const isValid = FormValidator.validate(
-    {
-      timeDate: {
-        value: timeData.timeDate,
-        validators: [
-          {
-            test: (v) => FormValidator.isNotEmpty(v),
-            message: "La date est requise.",
-          },
-          {
-            test: (v) => FormValidator.isDateNotInFuture(v),
-            message: "La date ne peut pas être dans le futur.",
-          },
-        ],
-      },
-      timeHours: {
-        value: timeData.timeHours,
-        validators: [
-          {
-            test: (v) => FormValidator.isNotEmpty(v),
-            message: "Le nombre d'heures est requis.",
-          },
-          {
-            test: (v) => FormValidator.isPositiveNumber(v),
-            message: "Le nombre d'heures doit être supérieur à 0.",
-          },
-        ],
-      },
-      collaboratorId: {
-        value: timeData.collaboratorId,
-        validators: [
-          {
-            test: (v) => FormValidator.isNotEmpty(v),
-            message: "Veuillez sélectionner un collaborateur.",
-          },
-        ],
-      },
-      timeDescription: {
-        value: timeData.timeDescription,
-        validators: [
-          {
-            test: (v) => FormValidator.isNotEmpty(v),
-            message: "La description est requise.",
-          },
-          {
-            test: (v) => FormValidator.hasMinLength(v, 3),
-            message: "La description doit contenir au moins 3 caractères.",
-          },
-        ],
-      },
-    },
-    formError,
-    timeModalForm,
-  );
+  // Fermer en cliquant sur l'overlay
+  document.querySelectorAll(".modal-overlay").forEach((overlay) => {
+    overlay.addEventListener("click", (e) => {
+      if (e.target === overlay) closeModal(overlay);
+    });
+  });
 
-  if (!isValid) return;
+  // Touche Escape
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      const active = document.querySelector(".modal-overlay.active");
+      if (active) closeModal(active);
+    }
+  });
 
-  console.log("Temps ajouté:", timeData);
+  function openModal(overlay) {
+    overlay.style.display = "flex";
+    overlay.classList.add("active");
+    const form = overlay.querySelector("form");
+    // Reset seulement la modal temps (pas l'edit qui a des valeurs pré-remplies)
+    if (overlay.id === "modal-time-overlay" && form) {
+      form.reset();
+      setTodayDate();
+    }
+    const err = overlay.querySelector(".form-error");
+    if (err) err.classList.remove("visible", "show");
+    if (typeof FormValidator !== "undefined" && form) {
+      FormValidator.clearAllFieldErrors(form);
+    }
+  }
 
-  /* 
-    // ICI : Envoyer les données au backend
-    // fetch('/api/contracts/CT001/time-entries', {
-    //   method: 'POST',
-    //   headers: { 'Content-Type': 'application/json' },
-    //   body: JSON.stringify(timeData)
-    // })
-    */
+  function closeModal(overlay) {
+    overlay.classList.remove("active");
+    setTimeout(() => {
+      overlay.style.display = "none";
+    }, 300);
+  }
 
-  closeTimeModal();
-  showNotification(`${timeData.timeHours}h ajoutées avec succès !`, "success");
-}
+  // ========================================
+  // SOUMISSION DES FORMULAIRES
+  // ========================================
 
-// ========================================
-// NOTIFICATION
-// ========================================
-function showNotification(message, type = "success") {
-  const notification = document.createElement("div");
-  notification.className = `notification notification-${type}`;
-  notification.textContent = message;
+  document.querySelectorAll(".modal-form").forEach((form) => {
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
 
-  document.body.appendChild(notification);
+      if (typeof FormValidator === "undefined") {
+        form.submit();
+        return;
+      }
 
-  setTimeout(() => notification.classList.add("show"), 10);
+      const errEl = form.querySelector(".form-error");
+      FormValidator.hideError(errEl);
+      FormValidator.clearAllFieldErrors(form);
 
-  setTimeout(() => {
-    notification.classList.remove("show");
-    setTimeout(() => notification.remove(), 300);
-  }, 3000);
-}
+      const rules = {};
+
+      // 1. Champs obligatoires
+      form.querySelectorAll("[required]").forEach((field) => {
+        const key = field.name || field.id;
+        if (!key || rules[key]) return;
+        rules[key] = {
+          value: field.value,
+          validators: [
+            {
+              test: (v) => FormValidator.isNotEmpty(v),
+              message: "Veuillez remplir tous les champs obligatoires.",
+            },
+          ],
+        };
+      });
+
+      // 2. Dates (fin > début)
+      const startDate = form.querySelector('input[name="date_debut"]');
+      const endDate = form.querySelector('input[name="date_fin"]');
+      if (startDate && endDate && startDate.value && endDate.value) {
+        const key = endDate.name || endDate.id;
+        if (!rules[key]) rules[key] = { value: endDate.value, validators: [] };
+        rules[key].validators.push({
+          test: () =>
+            FormValidator.isEndDateAfterStartDate(
+              startDate.value,
+              endDate.value,
+            ),
+          message: "La date de fin doit être postérieure à la date de début.",
+        });
+      }
+
+      // 3. Nombres positifs
+      form.querySelectorAll('input[type="number"]').forEach((field) => {
+        const key = field.name || field.id;
+        if (!rules[key]) rules[key] = { value: field.value, validators: [] };
+        rules[key].validators.push({
+          test: (v) => !String(v).trim() || FormValidator.isPositiveNumber(v),
+          message: "Les valeurs numériques doivent être supérieures à 0.",
+        });
+      });
+
+      if (!FormValidator.validate(rules, errEl, form)) {
+        return;
+      }
+
+      form.submit();
+    });
+  });
+});

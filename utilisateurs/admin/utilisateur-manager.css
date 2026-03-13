@@ -150,6 +150,35 @@ main {
   gap: 1.5rem;
 }
 
+.stats-bar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.stats-bar .stat-item {
+  background: linear-gradient(135deg, #3a3b3e 0%, #2f3033 100%);
+  border: 2px solid var(--primary-color);
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+}
+
+.stats-bar .stat-number {
+  display: block;
+  color: var(--primary-color);
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.stats-bar .stat-label {
+  display: block;
+  color: var(--text-gray);
+  font-size: 14px;
+}
+
 .stat-card {
   background: linear-gradient(
     135deg,
@@ -503,6 +532,28 @@ main {
 .btn-message img {
   width: 16px;
   height: 16px;
+}
+
+.btn-delete-small {
+  background: transparent;
+  border: 1px solid #e74c3c;
+  color: #e74c3c;
+  padding: 0.4rem 0.6rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-size: 0.8rem;
+}
+
+.btn-delete-small img {
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+
+.btn-delete-small:hover {
+  background: #e74c3c;
+  color: var(--text-light);
 }
 
 /* Pagination */

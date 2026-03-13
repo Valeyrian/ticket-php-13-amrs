@@ -668,13 +668,11 @@ h3 .inline-icon {
   overflow-y: auto;
   box-shadow: var(--shadow-large);
   transform: scale(0.9);
-  opacity: 0;
   transition: all 0.3s ease;
 }
 
-.modal.active {
+.modal-overlay.active .modal {
   transform: scale(1);
-  opacity: 1;
 }
 
 .modal-header {
@@ -771,6 +769,17 @@ h3 .inline-icon {
   resize: vertical;
   min-height: 80px;
   font-family: inherit;
+}
+
+.computed-value {
+  padding: 10px 15px;
+  background-color: var(--bg-dark);
+  border: 2px solid rgba(74, 75, 78, 1);
+  border-radius: 8px;
+  color: var(--primary-color);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
 }
 
 .modal-footer {
@@ -870,4 +879,27 @@ h3 .inline-icon {
   .form-row {
     grid-template-columns: 1fr;
   }
+}
+
+/* Bouton supprimer petit (tableau) */
+.btn-delete-small {
+  background: transparent;
+  border: 1px solid #e74c3c;
+  color: #e74c3c;
+  padding: 0.4rem 0.6rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-size: 0.8rem;
+}
+
+.btn-delete-small img {
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+
+.btn-delete-small:hover {
+  background: #e74c3c;
+  color: var(--text-light);
 }

@@ -196,7 +196,8 @@ main {
 .btn-contract,
 .btn-delete,
 .btn-secondary,
-.btn-add {
+.btn-add,
+.btn-primary {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -264,6 +265,34 @@ main {
 
 .btn-add:hover {
   background-color: var(--primary-dark);
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: var(--text-light);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-dark);
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px 15px;
+  background-color: var(--bg-dark);
+  border: 2px solid rgba(74, 75, 78, 1);
+  border-radius: 8px;
+  color: var(--text-light);
+  font-size: 14px;
+  font-family: inherit;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(84, 197, 177, 0.2);
 }
 
 .btn-edit img,
@@ -401,11 +430,27 @@ main {
   margin: 0;
 }
 
-.project-description {
+textarea.project-description {
+  width: 100%;
+  padding: 15px;
+  background-color: var(--bg-dark);
+  border: 2px solid rgba(74, 75, 78, 1);
+  border-radius: 8px;
   color: var(--text-gray);
   font-size: 15px;
   line-height: 1.8;
+  font-family: inherit;
+  resize: vertical;
+  min-height: 120px;
   margin-bottom: 20px;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+textarea.project-description:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(84, 197, 177, 0.2);
 }
 
 /* Team Grid */
@@ -484,6 +529,24 @@ main {
   width: 20px;
   height: 20px;
   object-fit: contain;
+}
+
+.add-collaborator-select {
+  padding: 10px 15px;
+  background-color: var(--bg-dark);
+  border: 2px solid rgba(74, 75, 78, 1);
+  border-radius: 8px;
+  color: var(--text-light);
+  font-size: 14px;
+  font-family: inherit;
+  min-width: 250px;
+  transition: all 0.3s ease;
+}
+
+.add-collaborator-select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(84, 197, 177, 0.2);
 }
 
 /* Tickets Table */

@@ -1,11 +1,86 @@
 document.addEventListener("DOMContentLoaded", () => {
   // ========================================
+  // FILTRAGE PROJETS PAR CLIENT (Ticket Modal)
+  // ========================================
+
+  const clientSelect = document.getElementById("ticket-client");
+  const projectSelect = document.getElementById("ticket-project");
+
+  if (clientSelect && projectSelect && window.clientProjects) {
+    clientSelect.addEventListener("change", function () {
+      const clientId = this.value;
+      // Vider la liste des projets
+      projectSelect.innerHTML =
+        '<option value="">Sélectionner un projet</option>';
+      if (window.clientProjects[clientId]) {
+        window.clientProjects[clientId].forEach(function (projet) {
+          const opt = document.createElement("option");
+          opt.value = projet.id;
+          opt.textContent = projet.nom;
+          projectSelect.appendChild(opt);
+        });
+      }
+    });
+  }
+  // ========================================
+  // CALCUL MONTANT TOTAL CONTRAT (heures * taux)
+  // ========================================
+
+  const heuresInput = document.getElementById("contract-heures-totales");
+  const tauxInput = document.getElementById("contract-taux-horaire");
+  const montantDisplay = document.getElementById("contract-montant-total");
+  const montantHidden = document.getElementById(
+    "contract-montant-total-hidden",
+  );
+
+  function updateMontantTotal() {
+    const heures = parseFloat(heuresInput?.value) || 0;
+    const taux = parseFloat(tauxInput?.value) || 0;
+    const total = (heures * taux).toFixed(2);
+    if (montantDisplay) montantDisplay.textContent = total + " €";
+    if (montantHidden) montantHidden.value = total;
+  }
+
+  if (heuresInput) heuresInput.addEventListener("input", updateMontantTotal);
+  if (tauxInput) tauxInput.addEventListener("input", updateMontantTotal);
+
+  // ========================================
+  // FILTRAGE CONTRATS PAR CLIENT (Project Modal)
+  // ========================================
+
+  const projectClientSelect = document.getElementById("client-select");
+  const contractSelect = document.getElementById("contract-select");
+
+  if (projectClientSelect && contractSelect && window.clientContrats) {
+    projectClientSelect.addEventListener("change", function () {
+      const clientId = this.value;
+      contractSelect.innerHTML = "";
+
+      if (!clientId) {
+        contractSelect.innerHTML =
+          '<option value="">Sélectionnez d\'abord un client</option>';
+        return;
+      }
+
+      contractSelect.innerHTML = '<option value="">Aucun contrat</option>';
+      const contrats = window.clientContrats[clientId] || [];
+      contrats.forEach(function (ct) {
+        const opt = document.createElement("option");
+        opt.value = ct.id;
+        opt.textContent = ct.nom;
+        contractSelect.appendChild(opt);
+      });
+    });
+  }
+
+  // ========================================
   // MODALS - Ouverture / Fermeture
   // ========================================
 
   // Mapping boutons -> modals
   const modalMap = [
     { btnSelector: "#tickets .btn-primary", modalId: "modal-ticket" },
+    { btnSelector: "#projects .btn-primary", modalId: "modal-project" },
     { btnSelector: "#users .btn-primary", modalId: "modal-user" },
     { btnSelector: "#clients .btn-primary", modalId: "modal-client" },
     { btnSelector: "#contracts .btn-primary", modalId: "modal-contract" },
@@ -62,6 +137,49 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ========================================
+  // TOGGLE SECTION ENTREPRISE (rôle = client)
+  // ========================================
+
+  const userRoleSelect = document.getElementById("user-role");
+  const sectionCompany = document.getElementById("section-company");
+  const companySelect = document.getElementById("user-company");
+  const newCompanyGroup = document.getElementById("new-company-group");
+  const newCompanyInput = document.getElementById("user-new-company");
+
+  if (userRoleSelect && sectionCompany) {
+    userRoleSelect.addEventListener("change", () => {
+      if (userRoleSelect.value === "client") {
+        sectionCompany.style.display = "";
+        if (companySelect) companySelect.required = true;
+      } else {
+        sectionCompany.style.display = "none";
+        if (companySelect) {
+          companySelect.required = false;
+          companySelect.value = "";
+        }
+        if (newCompanyGroup) newCompanyGroup.style.display = "none";
+        if (newCompanyInput) {
+          newCompanyInput.required = false;
+          newCompanyInput.value = "";
+        }
+      }
+    });
+  }
+
+  if (companySelect && newCompanyGroup && newCompanyInput) {
+    companySelect.addEventListener("change", () => {
+      if (companySelect.value === "__new__") {
+        newCompanyGroup.style.display = "";
+        newCompanyInput.required = true;
+      } else {
+        newCompanyGroup.style.display = "none";
+        newCompanyInput.required = false;
+        newCompanyInput.value = "";
+      }
+    });
+  }
+
+  // ========================================
   // SOUMISSION DES FORMULAIRES
   // ========================================
 
@@ -69,57 +187,91 @@ document.addEventListener("DOMContentLoaded", () => {
     form.addEventListener("submit", (e) => {
       e.preventDefault();
 
-      // Vérifier les champs required
-      const required = form.querySelectorAll("[required]");
-      let valid = true;
-      required.forEach((field) => {
-        if (!field.value.trim()) valid = false;
+      const errEl = form.querySelector(".form-error");
+      FormValidator.hideError(errEl);
+      FormValidator.clearAllFieldErrors(form);
+
+      // Construction dynamique des règles de validation
+      const rules = {};
+
+      // 1. Champs obligatoires
+      form.querySelectorAll("[required]").forEach((field) => {
+        const key = field.name || field.id;
+        if (!key || rules[key]) return;
+        rules[key] = {
+          value: field.value,
+          validators: [
+            {
+              test: (v) => FormValidator.isNotEmpty(v),
+              message: "Veuillez remplir tous les champs obligatoires.",
+            },
+          ],
+        };
       });
 
-      const errEl = form.querySelector(".form-error");
-      if (!valid) {
-        if (errEl) {
-          errEl.textContent = "Veuillez remplir tous les champs obligatoires.";
-          errEl.classList.add("visible");
-        }
-        return;
-      }
+      // 2. Emails
+      form.querySelectorAll('input[type="email"]').forEach((field) => {
+        const key = field.name || field.id;
+        if (!rules[key]) rules[key] = { value: field.value, validators: [] };
+        rules[key].validators.push({
+          test: (v) => !String(v).trim() || FormValidator.isValidEmail(v),
+          message:
+            "Veuillez saisir une adresse email valide (ex: nom@domaine.com).",
+        });
+      });
 
-      // Validation spécifique des emails
-      const emailFields = form.querySelectorAll(
-        'input[type="email"], input[name*="email"]',
-      );
-      for (const emailField of emailFields) {
-        if (emailField.value && !FormValidator.isValidEmail(emailField.value)) {
-          if (errEl) {
-            errEl.textContent =
-              "Veuillez saisir une adresse email valide (ex: nom@domaine.com).";
-            errEl.classList.add("visible");
-          }
-          FormValidator.markFieldError(emailField);
-          emailField.focus();
-          return;
-        }
-      }
-
-      // Validation spécifique des téléphones
-      const phoneFields = form.querySelectorAll(
-        'input[type="tel"], input[name*="phone"]',
-      );
-      for (const phoneField of phoneFields) {
-        if (phoneField.value && !FormValidator.isValidPhone(phoneField.value)) {
-          if (errEl) {
-            errEl.textContent =
-              "Le numéro de téléphone n'est pas valide (ex: 06 12 34 56 78).";
-            errEl.classList.add("visible");
-          }
-          FormValidator.markFieldError(phoneField);
-          phoneField.focus();
-          return;
+      // 3. Mot de passe (force + confirmation)
+      const pwdField = form.querySelector('input[name="password"]');
+      const pwdConfirm = form.querySelector('input[name="password_confirm"]');
+      if (pwdField && pwdField.value) {
+        if (!rules["password"])
+          rules["password"] = { value: pwdField.value, validators: [] };
+        rules["password"].validators.push({
+          test: (v) => FormValidator.isValidPassword(v),
+          message:
+            "Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule et un chiffre.",
+        });
+        if (pwdConfirm) {
+          if (!rules["password_confirm"])
+            rules["password_confirm"] = {
+              value: pwdConfirm.value,
+              validators: [],
+            };
+          rules["password_confirm"].validators.push({
+            test: () =>
+              FormValidator.passwordsMatch(pwdField.value, pwdConfirm.value),
+            message: "Les mots de passe ne correspondent pas.",
+          });
         }
       }
 
-      // Validation des dates (fin > début)
+      // 4. Téléphones (optionnels)
+      form.querySelectorAll('input[type="tel"]').forEach((field) => {
+        const key = field.name || field.id;
+        if (!rules[key]) rules[key] = { value: field.value, validators: [] };
+        rules[key].validators.push({
+          test: (v) => FormValidator.isValidPhone(v),
+          message:
+            "Le numéro de téléphone n'est pas valide (ex: 06 12 34 56 78).",
+        });
+      });
+
+      // 5. Noms / Prénoms
+      form
+        .querySelectorAll(
+          'input[name="name"], input[name="surname"], input[name*="firstname"], input[name*="lastname"]',
+        )
+        .forEach((field) => {
+          const key = field.name || field.id;
+          if (!rules[key]) rules[key] = { value: field.value, validators: [] };
+          rules[key].validators.push({
+            test: (v) => !String(v).trim() || FormValidator.isValidName(v),
+            message:
+              "Le nom doit contenir au moins 2 caractères (lettres, accents, tirets).",
+          });
+        });
+
+      // 6. Dates (fin > début)
       const startDate = form.querySelector(
         'input[name*="start"], input[name*="Start"]',
       );
@@ -127,43 +279,34 @@ document.addEventListener("DOMContentLoaded", () => {
         'input[name*="end"], input[name*="End"]',
       );
       if (startDate && endDate && startDate.value && endDate.value) {
-        if (
-          !FormValidator.isEndDateAfterStartDate(startDate.value, endDate.value)
-        ) {
-          if (errEl) {
-            errEl.textContent =
-              "La date de fin doit être postérieure à la date de début.";
-            errEl.classList.add("visible");
-          }
-          FormValidator.markFieldError(endDate);
-          endDate.focus();
-          return;
-        }
+        const key = endDate.name || endDate.id;
+        if (!rules[key]) rules[key] = { value: endDate.value, validators: [] };
+        rules[key].validators.push({
+          test: () =>
+            FormValidator.isEndDateAfterStartDate(
+              startDate.value,
+              endDate.value,
+            ),
+          message: "La date de fin doit être postérieure à la date de début.",
+        });
       }
 
-      // Validation des nombres positifs (heures, montants)
-      const numberFields = form.querySelectorAll('input[type="number"]');
-      for (const numField of numberFields) {
-        if (numField.value && !FormValidator.isPositiveNumber(numField.value)) {
-          if (errEl) {
-            errEl.textContent =
-              "Les valeurs numériques doivent être supérieures à 0.";
-            errEl.classList.add("visible");
-          }
-          FormValidator.markFieldError(numField);
-          numField.focus();
-          return;
-        }
+      // 7. Nombres positifs
+      form.querySelectorAll('input[type="number"]').forEach((field) => {
+        const key = field.name || field.id;
+        if (!rules[key]) rules[key] = { value: field.value, validators: [] };
+        rules[key].validators.push({
+          test: (v) => !String(v).trim() || FormValidator.isPositiveNumber(v),
+          message: "Les valeurs numériques doivent être supérieures à 0.",
+        });
+      });
+
+      // Exécuter la validation via FormValidator.validate()
+      if (!FormValidator.validate(rules, errEl, form)) {
+        return;
       }
 
-      if (errEl) errEl.classList.remove("visible");
-      FormValidator.clearAllFieldErrors(form);
-
-      // Log des données (mock)
-      const formData = new FormData(form);
-      const data = {};
-      formData.forEach((val, key) => (data[key] = val));
-      console.log("Formulaire soumis:", data);
+      form.submit();
 
       // Fermer la modal
       const overlay = form.closest(".modal-overlay");
@@ -174,6 +317,38 @@ document.addEventListener("DOMContentLoaded", () => {
       showNotification(`${title} - Effectué avec succès !`, "success");
     });
   });
+
+  // ========================================
+  // SUPPRESSION UTILISATEURS
+  // ========================================
+
+  let formToDelete = null;
+  const confirmOverlay = document.getElementById("modal-confirm-delete");
+  const confirmBtn = document.getElementById("btn-confirm-delete");
+  const deleteUserName = document.getElementById("delete-user-name");
+
+  // Intercepter le submit des formulaires de suppression
+  document.querySelectorAll(".inline-form").forEach((form) => {
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      formToDelete = form;
+      const row = form.closest("tr");
+      const name = row
+        ? row.querySelector(".user-cell span")?.textContent
+        : "cet utilisateur";
+      deleteUserName.textContent = name;
+      openModal(confirmOverlay);
+    });
+  });
+
+  // Clic sur "Supprimer" dans la modal de confirmation → soumet le form
+  if (confirmBtn) {
+    confirmBtn.addEventListener("click", () => {
+      if (formToDelete) {
+        formToDelete.submit();
+      }
+    });
+  }
 
   // ========================================
   // NOTIFICATIONS
@@ -191,70 +366,4 @@ document.addEventListener("DOMContentLoaded", () => {
       setTimeout(() => notification.remove(), 300);
     }, 3000);
   }
-
-  // ========================================
-  // BADGES COULEURS DYNAMIQUES
-  // ========================================
-
-  // Couleurs pour les billing badges au clic sur les lignes tickets
-  const billingColors = {
-    "billing-inclus": { bg: "rgba(84, 197, 177, 0.2)", color: "#54C5B1" },
-    "billing-facturable": { bg: "rgba(255, 184, 34, 0.2)", color: "#ffb822" },
-  };
-
-  // Priority badges
-  const priorityColors = {
-    high: { bg: "rgba(255, 71, 87, 0.2)", color: "#ff4757" },
-    medium: { bg: "rgba(255, 184, 34, 0.2)", color: "#ffb822" },
-    low: { bg: "rgba(84, 197, 177, 0.2)", color: "#54C5B1" },
-  };
-
-  // Status badges
-  const statusColors = {
-    "status-progress": { bg: "rgba(52, 152, 219, 0.2)", color: "#3498db" },
-    "status-pending": { bg: "rgba(255, 184, 34, 0.2)", color: "#ffb822" },
-    "status-urgent": { bg: "rgba(255, 71, 87, 0.2)", color: "#ff4757" },
-    "status-review": { bg: "rgba(155, 89, 182, 0.2)", color: "#9b59b6" },
-  };
-
-  // Appliquer les couleurs depuis les classes existantes
-  document.querySelectorAll(".billing-badge").forEach((badge) => {
-    for (const [cls, style] of Object.entries(billingColors)) {
-      if (badge.classList.contains(cls)) {
-        badge.style.backgroundColor = style.bg;
-        badge.style.color = style.color;
-      }
-    }
-  });
-
-  document.querySelectorAll(".priority-badge").forEach((badge) => {
-    for (const [cls, style] of Object.entries(priorityColors)) {
-      if (badge.classList.contains(cls)) {
-        badge.style.backgroundColor = style.bg;
-        badge.style.color = style.color;
-      }
-    }
-  });
-
-  document.querySelectorAll(".status-badge").forEach((badge) => {
-    for (const [cls, style] of Object.entries(statusColors)) {
-      if (badge.classList.contains(cls)) {
-        badge.style.backgroundColor = style.bg;
-        badge.style.color = style.color;
-      }
-    }
-  });
-
-  // ========================================
-  // STAT CARDS - Animation au survol
-  // ========================================
-
-  document.querySelectorAll(".stat-card").forEach((card) => {
-    card.addEventListener("mouseenter", () => {
-      card.style.transform = "translateY(-5px)";
-    });
-    card.addEventListener("mouseleave", () => {
-      card.style.transform = "translateY(0)";
-    });
-  });
 });

@@ -639,9 +639,19 @@ body {
   font-weight: bold;
 }
 
-.contract-status.active {
+.contract-status.actif {
   background-color: rgba(84, 197, 177, 0.2);
   color: var(--primary-color);
+}
+
+.contract-status.inactif {
+  background-color: rgba(255, 168, 0, 0.15);
+  color: #e69500;
+}
+
+.contract-status.termine {
+  background-color: rgba(150, 150, 150, 0.15);
+  color: #888;
 }
 
 .contract-details {
@@ -1123,6 +1133,7 @@ a.btn-view img {
 .form-group input[type="date"],
 .form-group input[type="email"],
 .form-group input[type="tel"],
+.form-group input[type="password"],
 .form-group select,
 .form-group textarea {
   padding: 10px 15px;
@@ -1151,6 +1162,17 @@ a.btn-view img {
 .form-group small {
   color: var(--text-muted);
   font-size: 12px;
+}
+
+.computed-value {
+  padding: 10px 15px;
+  background-color: var(--bg-dark);
+  border: 2px solid rgba(74, 75, 78, 1);
+  border-radius: 8px;
+  color: var(--primary-color);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
 }
 
 .modal-footer {
@@ -1242,6 +1264,34 @@ a.btn-view img {
   background-color: rgba(255, 71, 87, 0.9);
   color: #fff;
   border: 1px solid #ff4757;
+}
+
+/* ====== MODAL CONFIRMATION SUPPRESSION ====== */
+.modal.modal-small {
+  max-width: 480px;
+}
+
+.modal-body {
+  padding: 1.5rem;
+}
+
+.modal-body .confirm-message {
+  color: var(--text-primary, #fff);
+  margin: 0;
+}
+
+.modal-body .confirm-warning {
+  color: var(--danger-color, #e74c3c);
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.btn-danger {
+  background-color: var(--danger-color, #e74c3c) !important;
+}
+
+.btn-danger:hover {
+  background-color: #c0392b !important;
 }
 
 /* Modal Responsive */

@@ -51,15 +51,5 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
 
   if (!isValid) return;
 
-  // Simulation de la connexion - À remplacer par une vraie authentification
-  console.log("Tentative de connexion:", email);
-
-  // Exemple de redirection selon le rôle (à adapter selon votre logique)
-  if (email.includes("admin")) {
-    window.location.href = "/dashboard/admin/dashboard.html";
-  } else if (email.includes("collaborateur")) {
-    window.location.href = "/dashboard/collaborateur/dashboard.html";
-  } else {
-    window.location.href = "/dashboard/client/dashboard.html";
-  }
+  this.submit();
 });

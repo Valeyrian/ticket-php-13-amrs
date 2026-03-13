@@ -146,7 +146,7 @@ const FormValidator = {
     errorElement.textContent = "";
     errorElement.classList.remove("show");
     errorElement.classList.remove("visible");
-    errorElement.style.display = "";
+    errorElement.style.display = "none";
   },
 
   /**

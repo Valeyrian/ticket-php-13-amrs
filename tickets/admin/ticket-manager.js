@@ -8,92 +8,111 @@ let modal, modalOverlay, modalForm, closeModalBtn, cancelModalBtn, addTicketBtn;
 // ========================================
 document.addEventListener("DOMContentLoaded", () => {
   initializeModal();
+  initializeFilters();
+  initializeModalClientProjectLink();
 });
 
+// ========================================
+// MODAL
+// ========================================
 function initializeModal() {
-  // Récupérer les éléments DOM
-  modal = document.getElementById("add-ticket-modal");
-  modalOverlay = document.getElementById("modal-overlay");
-  modalForm = document.getElementById("add-ticket-form");
-  closeModalBtn = document.getElementById("close-modal");
-  cancelModalBtn = document.getElementById("cancel-modal");
+  modalOverlay = document.getElementById("modal-ticket");
+  modal = modalOverlay?.querySelector(".modal");
+  modalForm = modalOverlay?.querySelector(".modal-form");
+  closeModalBtn = modalOverlay?.querySelector(".modal-close");
+  cancelModalBtn = modalOverlay?.querySelector(".btn-cancel");
   addTicketBtn = document.querySelector(".cta-button");
 
-  // Attacher les événements
   addTicketBtn?.addEventListener("click", openModal);
   closeModalBtn?.addEventListener("click", closeModal);
   cancelModalBtn?.addEventListener("click", closeModal);
 
-  // Fermer si clic sur l'overlay (en dehors de la modal)
   modalOverlay?.addEventListener("click", (e) => {
-    if (e.target === modalOverlay) {
-      closeModal();
-    }
+    if (e.target === modalOverlay) closeModal();
   });
 
-  // Empêcher la fermeture si clic sur la modal elle-même
-  modal?.addEventListener("click", (e) => {
-    e.stopPropagation();
-  });
+  modal?.addEventListener("click", (e) => e.stopPropagation());
 
-  // Gérer la soumission du formulaire
   modalForm?.addEventListener("submit", handleSubmit);
 }
 
-// ========================================
-// GESTION DE LA MODAL
-// ========================================
 function openModal() {
   modalOverlay.classList.add("active");
-  // Petit délai pour l'animation
-  setTimeout(() => {
-    modal.classList.add("active");
-  }, 10);
-  // Réinitialiser le formulaire
+  setTimeout(() => modal.classList.add("active"), 10);
   modalForm.reset();
-  // Cacher le message d'erreur
-  const formError = document.getElementById("form-error");
-  formError.classList.remove("visible");
+  const formError = modalOverlay.querySelector(".form-error");
+  if (formError) formError.classList.remove("visible");
+  // Réinitialiser le filtrage projet
+  const projectSelect = document.getElementById("ticket-project");
+  if (projectSelect) {
+    Array.from(projectSelect.options).forEach((opt) => {
+      opt.style.display = "";
+    });
+  }
 }
 
 function closeModal() {
   modal.classList.remove("active");
-  // Attendre la fin de l'animation avant de masquer l'overlay
-  setTimeout(() => {
-    modalOverlay.classList.remove("active");
-  }, 300);
+  setTimeout(() => modalOverlay.classList.remove("active"), 300);
 }
 
 // ========================================
-// GESTION DU FORMULAIRE
+// LIEN CLIENT → PROJET DANS LE MODAL
+// ========================================
+function initializeModalClientProjectLink() {
+  const clientSelect = document.getElementById("ticket-client");
+  const projectSelect = document.getElementById("ticket-project");
+  if (!clientSelect || !projectSelect) return;
+
+  clientSelect.addEventListener("change", () => {
+    const selectedClientId = clientSelect.value;
+    projectSelect.value = "";
+
+    Array.from(projectSelect.options).forEach((opt) => {
+      if (!opt.value) {
+        opt.style.display = "";
+        return;
+      }
+      const optClientId = opt.getAttribute("data-client-id");
+      // Si pas de data-client-id, on affiche toujours
+      if (!optClientId) {
+        opt.style.display = "";
+        return;
+      }
+      opt.style.display =
+        !selectedClientId || optClientId === selectedClientId ? "" : "none";
+    });
+  });
+}
+
+// ========================================
+// SOUMISSION DU FORMULAIRE
 // ========================================
 function handleSubmit(event) {
   event.preventDefault();
 
-  // Récupérer les données du formulaire
   const formData = new FormData(modalForm);
 
-  const ticketData = {
-    title: formData.get("ticketTitle"),
-    description: formData.get("ticketDescription"),
-    client: formData.get("ticketClient"),
-    project: formData.get("ticketProject"),
-    priority: formData.get("ticketPriority"),
-    status: formData.get("ticketStatus"),
-    collaborators: formData.getAll("ticketCollaborators[]"),
-    estimatedTime: formData.get("ticketEstimatedTime"),
-    billing: formData.get("ticketBilling"),
+  const ticketFormData = {
+    title: formData.get("title"),
+    description: formData.get("description"),
+    client: formData.get("client_id"),
+    project: formData.get("project_id"),
+    priority: formData.get("priority"),
+    status: formData.get("status"),
+    collaborators: formData.getAll("collaborators[]"),
+    estimatedTime: formData.get("ticket-time"),
+    billing: formData.get("billing_type"),
   };
 
-  const formError = document.getElementById("form-error");
+  const formError = modalOverlay.querySelector(".form-error");
   FormValidator.hideError(formError);
   FormValidator.clearAllFieldErrors(modalForm);
 
-  // Validation complète
   const isValid = FormValidator.validate(
     {
-      ticketTitle: {
-        value: ticketData.title,
+      title: {
+        value: ticketFormData.title,
         validators: [
           {
             test: (v) => FormValidator.isNotEmpty(v),
@@ -105,8 +124,8 @@ function handleSubmit(event) {
           },
         ],
       },
-      ticketDescription: {
-        value: ticketData.description,
+      description: {
+        value: ticketFormData.description,
         validators: [
           {
             test: (v) => FormValidator.isNotEmpty(v),
@@ -118,8 +137,8 @@ function handleSubmit(event) {
           },
         ],
       },
-      ticketClient: {
-        value: ticketData.client,
+      client_id: {
+        value: ticketFormData.client,
         validators: [
           {
             test: (v) => FormValidator.isNotEmpty(v),
@@ -127,8 +146,8 @@ function handleSubmit(event) {
           },
         ],
       },
-      ticketProject: {
-        value: ticketData.project,
+      project_id: {
+        value: ticketFormData.project,
         validators: [
           {
             test: (v) => FormValidator.isNotEmpty(v),
@@ -136,8 +155,8 @@ function handleSubmit(event) {
           },
         ],
       },
-      ticketPriority: {
-        value: ticketData.priority,
+      priority: {
+        value: ticketFormData.priority,
         validators: [
           {
             test: (v) => FormValidator.isNotEmpty(v),
@@ -145,8 +164,8 @@ function handleSubmit(event) {
           },
         ],
       },
-      ticketEstimatedTime: {
-        value: ticketData.estimatedTime,
+      "ticket-time": {
+        value: ticketFormData.estimatedTime,
         validators: [
           {
             test: (v) => FormValidator.isNotEmpty(v),
@@ -165,14 +184,83 @@ function handleSubmit(event) {
 
   if (!isValid) return;
 
-  // Afficher les données dans la console (pour tester)
-  console.log("Nouveau ticket:", ticketData);
+  // Soumettre le formulaire au serveur
+  modalForm.submit();
+}
 
-  // Fermer la modal
-  closeModal();
+// ========================================
+// FILTRAGE CÔTÉ CLIENT
+// ========================================
+function initializeFilters() {
+  const filterIds = [
+    "client-filter",
+    "project-filter",
+    "status-filter",
+    "billing-filter",
+    "priority-filter",
+    "collaborateur-select",
+  ];
 
-  // Afficher un message de succès
-  showNotification("Ticket créé avec succès !", "success");
+  filterIds.forEach((id) => {
+    const el = document.getElementById(id);
+    if (el) el.addEventListener("change", applyFilters);
+  });
+
+  // Bouton reset si existant
+  const resetBtn = document.querySelector(".btn-reset-filters");
+  if (resetBtn) {
+    resetBtn.addEventListener("click", () => {
+      filterIds.forEach((id) => {
+        const el = document.getElementById(id);
+        if (el) el.selectedIndex = 0;
+      });
+      applyFilters();
+    });
+  }
+}
+
+function applyFilters() {
+  const getValue = (id) => {
+    const val = document.getElementById(id)?.value || "";
+    return val === "all" ? "" : val;
+  };
+
+  const clientFilter = getValue("client-filter");
+  const projetFilter = getValue("project-filter");
+  const statutFilter = getValue("status-filter");
+  const facturationFilter = getValue("billing-filter");
+  const prioriteFilter = getValue("priority-filter");
+  const collabFilter = getValue("collaborateur-select");
+
+  const rows = document.querySelectorAll("table tbody tr");
+  let visibleCount = 0;
+
+  rows.forEach((row) => {
+    const ticketId = parseInt(row.getAttribute("data-ticket-id"), 10);
+    const data = (window.ticketData || []).find((t) => t.id === ticketId);
+
+    if (!data) {
+      row.style.display = "none";
+      return;
+    }
+
+    let show = true;
+
+    if (clientFilter && String(data.clientId) !== clientFilter) show = false;
+    if (projetFilter && String(data.projetId) !== projetFilter) show = false;
+    if (statutFilter && data.statut !== statutFilter) show = false;
+    if (facturationFilter && data.type !== facturationFilter) show = false;
+    if (prioriteFilter && data.priorite !== prioriteFilter) show = false;
+    if (collabFilter && !data.collabIds.includes(parseInt(collabFilter, 10)))
+      show = false;
+
+    row.style.display = show ? "" : "none";
+    if (show) visibleCount++;
+  });
+
+  // Mettre à jour le compteur visible si élément existe
+  const counter = document.getElementById("visible-count");
+  if (counter) counter.textContent = visibleCount;
 }
 
 // ========================================
@@ -184,11 +272,7 @@ function showNotification(message, type = "success") {
   notification.textContent = message;
 
   document.body.appendChild(notification);
-
-  // Afficher avec animation
   setTimeout(() => notification.classList.add("show"), 10);
-
-  // Masquer et supprimer après 3 secondes
   setTimeout(() => {
     notification.classList.remove("show");
     setTimeout(() => notification.remove(), 300);

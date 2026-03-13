@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style.css" />
     <title>Inscription - Vector</title>
-    <script src="../../js/theme.js"></script>
+    <script src="../js/theme.js"></script>
   </head>
   <body class="oswald-font1">
     <div class="auth-container">
@@ -18,7 +18,7 @@
         <h1 class="auth-title">Créer un compte client</h1>
         <p class="auth-subtitle">Rejoignez Vector pour gérer vos projets</p>
 
-        <form class="auth-form" id="registerForm">
+        <form class="auth-form" id="registerForm" method="POST" action="registration-action.php">
           <div class="form-row">
             <div class="form-group">
               <label for="firstName">Prénom</label>
@@ -121,13 +121,13 @@
             </label>
           </div>
 
-          <button type="submit" class="btn-primary">Créer mon compte</button>
+          <button type="submit"  class="btn-primary">Créer mon compte</button>
         </form>
 
         <div class="auth-footer">
           <p>
             Vous avez déjà un compte ?
-            <a href="./login.html" class="auth-link">Se connecter</a>
+            <a href="./login.php" class="auth-link">Se connecter</a>
           </p>
         </div>
       </div>

@@ -260,6 +260,41 @@ main {
   letter-spacing: 0.5px;
 }
 
+/* État de la facturation */
+.billing-status {
+  display: inline-block;
+  margin-top: 6px;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+.billing-included {
+  background-color: rgba(84, 197, 177, 0.15);
+  color: #54c5b1;
+  border: 1px solid rgba(84, 197, 177, 0.4);
+}
+
+.billing-pending {
+  background-color: rgba(255, 193, 7, 0.15);
+  color: #ffc107;
+  border: 1px solid rgba(255, 193, 7, 0.4);
+}
+
+.billing-validated {
+  background-color: rgba(46, 204, 113, 0.15);
+  color: #2ecc71;
+  border: 1px solid rgba(46, 204, 113, 0.4);
+}
+
+.billing-refused {
+  background-color: rgba(255, 71, 87, 0.15);
+  color: #ff4757;
+  border: 1px solid rgba(255, 71, 87, 0.4);
+}
+
 .time-total {
   color: var(--primary-color);
   font-size: 24px;

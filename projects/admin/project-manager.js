@@ -13,10 +13,13 @@ let modal,
 // ========================================
 document.addEventListener("DOMContentLoaded", () => {
   initializeModal();
+  initializeFilters();
 });
 
+// ========================================
+// MODAL
+// ========================================
 function initializeModal() {
-  // Récupérer les éléments DOM
   modal = document.getElementById("add-project-modal");
   modalOverlay = document.getElementById("modal-overlay");
   modalForm = document.getElementById("add-project-form");
@@ -24,79 +27,84 @@ function initializeModal() {
   cancelModalBtn = document.getElementById("cancel-modal");
   addProjectBtn = document.querySelector(".cta-button");
 
-  // Attacher les événements
   addProjectBtn?.addEventListener("click", openModal);
   closeModalBtn?.addEventListener("click", closeModal);
   cancelModalBtn?.addEventListener("click", closeModal);
 
-  // Fermer si clic sur l'overlay (en dehors de la modal)
   modalOverlay?.addEventListener("click", (e) => {
-    if (e.target === modalOverlay) {
-      closeModal();
-    }
+    if (e.target === modalOverlay) closeModal();
   });
 
-  // Empêcher la fermeture si clic sur la modal elle-même
-  modal?.addEventListener("click", (e) => {
-    e.stopPropagation();
-  });
+  modal?.addEventListener("click", (e) => e.stopPropagation());
 
-  // Gérer la soumission du formulaire
+  // Validation avant soumission POST
   modalForm?.addEventListener("submit", handleSubmit);
+
+  // Filtrage contrats selon client sélectionné
+  const clientSelect = document.getElementById("client-select");
+  clientSelect?.addEventListener("change", updateContractOptions);
 }
 
-// ========================================
-// GESTION DE LA MODAL
-// ========================================
 function openModal() {
   modalOverlay.classList.add("active");
-  // Petit délai pour l'animation
-  setTimeout(() => {
-    modal.classList.add("active");
-  }, 10);
-  // Réinitialiser le formulaire
+  setTimeout(() => modal.classList.add("active"), 10);
   modalForm.reset();
-  // Cacher le message d'erreur
   const formError = document.getElementById("form-error");
   formError.classList.remove("visible");
+  // Reset contrats
+  updateContractOptions();
+}
+
+function updateContractOptions() {
+  const clientSelect = document.getElementById("client-select");
+  const contractSelect = document.getElementById("contract-select");
+  if (!clientSelect || !contractSelect) return;
+
+  const clientId = clientSelect.value;
+  contractSelect.innerHTML = "";
+
+  if (!clientId) {
+    contractSelect.innerHTML =
+      '<option value="">Sélectionnez d\'abord un client</option>';
+    return;
+  }
+
+  const contrats = (window.clientContrats || {})[clientId] || [];
+
+  contractSelect.innerHTML = '<option value="">Aucun contrat</option>';
+  contrats.forEach((ct) => {
+    const opt = document.createElement("option");
+    opt.value = ct.id;
+    opt.textContent = ct.nom;
+    contractSelect.appendChild(opt);
+  });
 }
 
 function closeModal() {
   modal.classList.remove("active");
-  // Attendre la fin de l'animation avant de masquer l'overlay
-  setTimeout(() => {
-    modalOverlay.classList.remove("active");
-  }, 300);
+  setTimeout(() => modalOverlay.classList.remove("active"), 300);
 }
 
 // ========================================
-// GESTION DU FORMULAIRE
+// SOUMISSION DU FORMULAIRE (POST natif)
 // ========================================
 function handleSubmit(event) {
-  event.preventDefault();
-
-  // Récupérer les données du formulaire
   const formData = new FormData(modalForm);
 
-  const projectData = {
-    name: formData.get("projectName"),
-    description: formData.get("projectDescription"),
-    clientId: formData.get("clientId"),
-    contractId: formData.get("contractId"),
-    startDate: formData.get("startDate"),
-    endDate: formData.get("endDate"),
-    collaborators: formData.getAll("collaborators[]"),
-  };
+  const nom = formData.get("nom");
+  const description = formData.get("description");
+  const clientId = formData.get("client_id");
+  const dateDebut = formData.get("date_debut");
+  const dateFinPrevue = formData.get("date_fin_prevue");
 
   const formError = document.getElementById("form-error");
   FormValidator.hideError(formError);
   FormValidator.clearAllFieldErrors(modalForm);
 
-  // Validation complète
   const isValid = FormValidator.validate(
     {
-      projectName: {
-        value: projectData.name,
+      nom: {
+        value: nom,
         validators: [
           {
             test: (v) => FormValidator.isNotEmpty(v),
@@ -104,16 +112,16 @@ function handleSubmit(event) {
           },
           {
             test: (v) => FormValidator.hasMinLength(v, 3),
-            message: "Le nom du projet doit contenir au moins 3 caractères.",
+            message: "Le nom doit contenir au moins 3 caractères.",
           },
         ],
       },
-      projectDescription: {
-        value: projectData.description,
+      description: {
+        value: description,
         validators: [
           {
             test: (v) => FormValidator.isNotEmpty(v),
-            message: "La description du projet est requise.",
+            message: "La description est requise.",
           },
           {
             test: (v) => FormValidator.hasMinLength(v, 10),
@@ -121,8 +129,8 @@ function handleSubmit(event) {
           },
         ],
       },
-      clientId: {
-        value: projectData.clientId,
+      client_id: {
+        value: clientId,
         validators: [
           {
             test: (v) => FormValidator.isNotEmpty(v),
@@ -130,8 +138,8 @@ function handleSubmit(event) {
           },
         ],
       },
-      startDate: {
-        value: projectData.startDate,
+      date_debut: {
+        value: dateDebut,
         validators: [
           {
             test: (v) => FormValidator.isNotEmpty(v),
@@ -139,16 +147,15 @@ function handleSubmit(event) {
           },
         ],
       },
-      endDate: {
-        value: projectData.endDate,
+      date_fin_prevue: {
+        value: dateFinPrevue,
         validators: [
           {
             test: (v) => FormValidator.isNotEmpty(v),
             message: "La date de fin est requise.",
           },
           {
-            test: (v) =>
-              FormValidator.isEndDateAfterStartDate(projectData.startDate, v),
+            test: (v) => FormValidator.isEndDateAfterStartDate(dateDebut, v),
             message: "La date de fin doit être postérieure à la date de début.",
           },
         ],
@@ -158,16 +165,113 @@ function handleSubmit(event) {
     modalForm,
   );
 
-  if (!isValid) return;
+  if (!isValid) {
+    event.preventDefault();
+    return;
+  }
 
-  // Afficher les données dans la console (pour tester)
-  console.log("Nouveau projet:", projectData);
+  // Validation OK → le formulaire se soumet normalement en POST
+}
 
-  // Fermer la modal
-  closeModal();
+// ========================================
+// FILTRAGE CÔTÉ CLIENT
+// ========================================
+function initializeFilters() {
+  const filterIds = [
+    "client-filter",
+    "status-filter",
+    "contract-filter",
+    "sort-select",
+    "collaborateur-select",
+  ];
 
-  // Afficher un message de succès
-  showNotification("Projet créé avec succès !", "success");
+  filterIds.forEach((id) => {
+    const el = document.getElementById(id);
+    if (el) el.addEventListener("change", applyFilters);
+  });
+}
+
+function applyFilters() {
+  const getValue = (id) => {
+    const val = document.getElementById(id)?.value || "";
+    return val === "all" ? "" : val;
+  };
+
+  const clientFilter = getValue("client-filter");
+  const statutFilter = getValue("status-filter");
+  const contractFilter = getValue("contract-filter");
+  const collabFilter = getValue("collaborateur-select");
+
+  const rows = document.querySelectorAll(".projects-management-table tbody tr");
+  let visibleCount = 0;
+
+  rows.forEach((row) => {
+    const projectId = parseInt(row.getAttribute("data-project-id"), 10);
+    const data = (window.projectData || []).find((p) => p.id === projectId);
+
+    if (!data) {
+      row.style.display = "none";
+      return;
+    }
+
+    let show = true;
+
+    // Filtre client
+    if (clientFilter && String(data.clientId) !== clientFilter) show = false;
+
+    // Filtre statut
+    if (statutFilter && data.statut !== statutFilter) show = false;
+
+    // Filtre collaborateur
+    if (collabFilter && !data.collabIds.includes(parseInt(collabFilter, 10)))
+      show = false;
+
+    // Filtre contrat
+    if (contractFilter === "actif") {
+      if (data.heuresContrat <= 0) show = false;
+    } else if (contractFilter === "alerte") {
+      if (
+        data.heuresContrat <= 0 ||
+        data.heuresRestantes / data.heuresContrat >= 0.15
+      )
+        show = false;
+    }
+
+    row.style.display = show ? "" : "none";
+    if (show) visibleCount++;
+  });
+
+  // Tri
+  const sortValue = document.getElementById("sort-select")?.value || "date";
+  sortTable(sortValue);
+}
+
+function sortTable(criteria) {
+  const tbody = document.querySelector(".projects-management-table tbody");
+  if (!tbody) return;
+
+  const rows = Array.from(tbody.querySelectorAll("tr"));
+
+  rows.sort((a, b) => {
+    const idA = parseInt(a.getAttribute("data-project-id"), 10);
+    const idB = parseInt(b.getAttribute("data-project-id"), 10);
+    const dA = (window.projectData || []).find((p) => p.id === idA) || {};
+    const dB = (window.projectData || []).find((p) => p.id === idB) || {};
+
+    switch (criteria) {
+      case "client":
+        return (dA.clientId || 0) - (dB.clientId || 0);
+      case "heures":
+        return (dA.heuresRestantes || 0) - (dB.heuresRestantes || 0);
+      case "tickets":
+        return (dB.nbTickets || 0) - (dA.nbTickets || 0);
+      case "date":
+      default:
+        return (dA.date || "").localeCompare(dB.date || "");
+    }
+  });
+
+  rows.forEach((row) => tbody.appendChild(row));
 }
 
 // ========================================
@@ -179,11 +283,7 @@ function showNotification(message, type = "success") {
   notification.textContent = message;
 
   document.body.appendChild(notification);
-
-  // Afficher avec animation
   setTimeout(() => notification.classList.add("show"), 10);
-
-  // Masquer et supprimer après 3 secondes
   setTimeout(() => {
     notification.classList.remove("show");
     setTimeout(() => notification.remove(), 300);
